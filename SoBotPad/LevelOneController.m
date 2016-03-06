@@ -12,6 +12,8 @@
 #import "LevelOneController.h"
 #import "LevelTwoController.h"
 #import "Macros.h"
+#import "AppDelegate.h"
+#import "LevelController.h"
 
 @interface LevelOneController ()
 //Declare Private Properties
@@ -21,7 +23,7 @@
 
 
 
-//Array of names
+//Array of names if images
 @property NSArray *names;
 
 //Array of images
@@ -30,34 +32,40 @@
 //Array of tile images
 @property NSMutableArray *tiles;
 
-
-//----------------------
 //Dictionary of images and names
 @property NSDictionary *imageDictionary;
 
-//Dictionary of images and names
+//Dictionary of images and names for tiles
 @property NSDictionary *tileDictionary;
 
 //Array of shuffled tile IDs
 @property NSMutableArray *shuffledTiles;
+
 //How many times did the player get a match
 @property NSInteger matchCounter;
+
 //How many times did the player guess
 @property NSInteger guessCounter;
+
 //The ID of the first flipped tile
 @property NSInteger tileFlipped;
+
 //The first button object that was clicked
 @property UIButton *tile1;
+
 //The second button object that was clicked
 @property UIButton *tile2;
 
 //Instance Methods
+- (void)getTiles;
+- (void)setTiles;
 - (void)shuffleTiles;
 - (void)resetTiles;
 - (void) winner;
 @end
 
 @implementation LevelOneController
+
 //Local Variables
 static bool isDisabled = false;
 static bool isMatch = false;
@@ -68,10 +76,10 @@ static bool isMatch = false;
     [super viewDidLoad];
     self.title = @"Level One";
     
-    //[self.navigationController setNavigationBarHidden:YES];
-    
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
+    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [[self navigationItem] setRightBarButtonItem:HomeButton];
     
     //Assign images to the blank and back image properties
     self.backTileImage = [UIImage imageNamed:@"cardbkg.jpg"];
@@ -84,19 +92,54 @@ static bool isMatch = false;
     self.matchCounter = 0;
     self.guessCounter = 0;
     
+    [self getTiles];
+    
+}
+
+- (void) getTiles
+{
+    //get & define category
+    NSString *anis = @"animals";
+    NSString *cols = @"colours";
+    NSString *category =self.appDelegate.category;
+    NSLog(@"%@", category);
+    
     //Get images
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
-    self.animals = [NSArray arrayWithContentsOfFile:filePath];
-    
-    self.names = [self.animals valueForKey:@"Name"];
-    self.images = [self.animals valueForKey:@"Image"];
-    
+    if ([category isEqualToString:anis])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
+        self.animals = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Animals: %@", self.animals);
+        self.names = [self.animals valueForKey:@"Name"];
+        self.images = [self.animals valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"animalsbkg.png"];
+        [imageView setImage:img1];
+        
+    }
+    else if ([category isEqualToString:cols])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Colours" ofType:@"plist"];
+        self.colours = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Colours: %@", self.colours);
+        self.names = [self.colours valueForKey:@"Name"];
+        self.images = [self.colours valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"coloursbkg.jpg"];
+        [imageView setImage:img1];
+    }
     
     
     self.imageDictionary = [NSDictionary dictionaryWithObjects:self.images forKeys:self.names];
-    NSLog(@"%@", self.imageDictionary);
-    
+    [self setTiles];
+}
+
+- (void) setTiles
+{
+
     NSString *key1;
     NSString *key2;
     NSString *key3;
@@ -120,6 +163,7 @@ static bool isMatch = false;
     img2 = [self.imageDictionary objectForKey:key2];
     img3 = [self.imageDictionary objectForKey:key3];
     img4 = [self.imageDictionary objectForKey:key4];
+
     
     NSArray *keys = [[NSArray alloc] initWithObjects:key1, key2, key3, key4, nil];
     self.tiles = [[NSMutableArray alloc] initWithObjects:
@@ -129,9 +173,6 @@ static bool isMatch = false;
                   [UIImage imageNamed:img4],
                   nil];
     self.tileDictionary = [NSDictionary dictionaryWithObjects:self.tiles forKeys:keys];
-    NSLog(@" Tile dict: %@", self.tileDictionary);
-    NSLog(@"Self tiles: %@", self.tiles);
-    
     
     [self shuffleTiles];
 }
@@ -171,7 +212,6 @@ static bool isMatch = false;
     
     if(isDisabled == true)
         return;
-    //NSLog(@"%@", sender);
     
     
     NSInteger senderID = [sender tag];
@@ -179,14 +219,10 @@ static bool isMatch = false;
     
     
     UIImage *flippedImage = [self.tiles objectAtIndex:senderID];
-    NSLog(@"Flipped image: %@", flippedImage);
     
     
         for (NSString* key in self.tileDictionary) {
-            NSLog(@"%@", [self.tileDictionary objectForKey:key]);
             if ([[self.tileDictionary objectForKey:key] isEqual:flippedImage]){
-                NSString* imageName = key;
-                NSLog(@"Key: %@", imageName);
                 AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
                 AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:key ];
                 utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
@@ -199,13 +235,9 @@ static bool isMatch = false;
         if (error)
             NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
     
-    NSLog(@"%ld", (long)self.tileFlipped);
-    
     if(self.tileFlipped >= 0 && senderID != self.tileFlipped)
     {
         self.tile2 = sender;
-        
-        NSLog(@"HERE");
         
         UIImage *lastImage = [self.tiles objectAtIndex:self.tileFlipped];
         UIImage *tileImage = [self.tiles objectAtIndex:senderID];
@@ -222,7 +254,7 @@ static bool isMatch = false;
         }
         isDisabled = true;
         //set up a timer to flip the tiles over after 1 sec.
-        [NSTimer scheduledTimerWithTimeInterval:3.0
+        [NSTimer scheduledTimerWithTimeInterval:2.0
                                          target:self
                                        selector:@selector(resetTiles)
                                        userInfo:nil
@@ -299,7 +331,7 @@ static bool isMatch = false;
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 [self cancel];
                                  
                              }];
     
@@ -314,6 +346,21 @@ static bool isMatch = false;
 {
     LevelTwoController *levelTwoController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelTwoController"];
     [self.navigationController pushViewController:levelTwoController animated:YES];
+    
+}
+
+- (void) cancel
+{
+    LevelController *levelController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelController"];
+    [self.navigationController pushViewController:levelController animated:YES];
+    
+}
+
+- (void) home
+{
+    NSLog(@"HOME");
+    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
+    [self.navigationController pushViewController:menuController animated:YES];
     
 }
 

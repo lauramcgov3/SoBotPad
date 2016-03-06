@@ -13,11 +13,13 @@
 @end
 
 @implementation AppDelegate
+@synthesize category;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
         self.mcManager = [[MCManager alloc]init];
+    category =[[NSMutableString alloc]init];
     return YES;
 }
 
@@ -37,6 +39,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    category =[[NSMutableString alloc]init];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

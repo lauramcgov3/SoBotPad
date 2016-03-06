@@ -13,6 +13,7 @@
 #import "LevelTwoController.h"
 #import "LevelThreeController.h"
 #import "Macros.h"
+#import "LevelController.h"
 
 @interface LevelTwoController ()
 //Declare Private Properties
@@ -71,14 +72,14 @@ static bool isMatch = false;
     [super viewDidLoad];
     self.title = @"Level Two";
     
-    //[self.navigationController setNavigationBarHidden:YES];
+    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [[self navigationItem] setRightBarButtonItem:HomeButton];
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     NSString *level = self.level;
     NSLog(@"%@", level);
     
-    NSString *category = self.category;
     
     //Assign images to the blank and back image properties
     self.backTileImage = [UIImage imageNamed:@"cardbkg.jpg"];
@@ -100,20 +101,42 @@ static bool isMatch = false;
 
 - (void) getTiles
 {
+    //get & define category
+    NSString *anis = @"animals";
+    NSString *cols = @"colours";
+    NSString *category =self.appDelegate.category;
+    NSLog(@"%@", category);
+    
     //Get images
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
-    self.animals = [NSArray arrayWithContentsOfFile:filePath];
-    
-    self.names = [self.animals valueForKey:@"Name"];
-    self.images = [self.animals valueForKey:@"Image"];
-    NSLog(@"%@",self.images);
-    
+    if ([category isEqualToString:anis])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
+        self.animals = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Animals: %@", self.animals);
+        self.names = [self.animals valueForKey:@"Name"];
+        self.images = [self.animals valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"animalsbkg.png"];
+        [imageView setImage:img1];
+        
+    }
+    else if ([category isEqualToString:cols])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Colours" ofType:@"plist"];
+        self.colours = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Colours: %@", self.colours);
+        self.names = [self.colours valueForKey:@"Name"];
+        self.images = [self.colours valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"coloursbkg.jpg"];
+        [imageView setImage:img1];
+    }
     
     
     self.imageDictionary = [NSDictionary dictionaryWithObjects:self.images forKeys:self.names];
-    NSLog(@"%@", self.imageDictionary);
-    
     [self setTiles];
 }
 
@@ -339,7 +362,7 @@ static bool isMatch = false;
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 [self cancel];
                                  
                              }];
     
@@ -354,6 +377,20 @@ static bool isMatch = false;
 {
     LevelThreeController *levelThreeController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelThreeController"];
     [self.navigationController pushViewController:levelThreeController animated:YES];
+    
+}
+- (void) cancel
+{
+    LevelController *levelController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelController"];
+    [self.navigationController pushViewController:levelController animated:YES];
+    
+}
+
+- (void) home
+{
+    NSLog(@"HOME");
+    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
+    [self.navigationController pushViewController:menuController animated:YES];
     
 }
 

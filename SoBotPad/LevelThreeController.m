@@ -12,6 +12,7 @@
 #import "LevelThreeController.h"
 #import "LevelFourController.h"
 #import "Macros.h"
+#import "LevelController.h"
 
 @interface LevelThreeController ()
 //Declare Private Properties
@@ -74,6 +75,9 @@ static bool isMatch = false;
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
+    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [[self navigationItem] setRightBarButtonItem:HomeButton];
+    
     NSString *level = self.level;
     NSLog(@"%@", level);
     
@@ -97,20 +101,43 @@ static bool isMatch = false;
 
 - (void) getTiles
 {
+    //get & define category
+    NSString *anis = @"animals";
+    NSString *cols = @"colours";
+    NSString *category =self.appDelegate.category;
+    NSLog(@"%@", category);
+    
     //Get images
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
-    self.animals = [NSArray arrayWithContentsOfFile:filePath];
-    
-    self.names = [self.animals valueForKey:@"Name"];
-    self.images = [self.animals valueForKey:@"Image"];
-    
+    if ([category isEqualToString:anis])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
+        self.animals = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Animals: %@", self.animals);
+        self.names = [self.animals valueForKey:@"Name"];
+        self.images = [self.animals valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"animalsbkg.png"];
+        [imageView setImage:img1];
+        
+    }
+    else if ([category isEqualToString:cols])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Colours" ofType:@"plist"];
+        self.colours = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Colours: %@", self.colours);
+        self.names = [self.colours valueForKey:@"Name"];
+        self.images = [self.colours valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"coloursbkg.jpg"];
+        [imageView setImage:img1];
+    }
     
     
     self.imageDictionary = [NSDictionary dictionaryWithObjects:self.images forKeys:self.names];
-    NSLog(@"%@", self.imageDictionary);
-    
-        [self setTiles];
+    [self setTiles];
 }
 
 - (void)setTiles
@@ -345,7 +372,7 @@ static bool isMatch = false;
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 [self cancel];
                                  
                              }];
     
@@ -360,6 +387,21 @@ static bool isMatch = false;
 {
     LevelFourController *levelFourController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelFourController"];
     [self.navigationController pushViewController:levelFourController animated:YES];
+    
+}
+
+- (void) cancel
+{
+    LevelController *levelController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelController"];
+    [self.navigationController pushViewController:levelController animated:YES];
+    
+}
+
+- (void) home
+{
+    NSLog(@"HOME");
+    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
+    [self.navigationController pushViewController:menuController animated:YES];
     
 }
 

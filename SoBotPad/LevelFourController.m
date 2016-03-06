@@ -11,6 +11,7 @@
 @import AVFoundation;
 #import "LevelFourController.h"
 #import "LevelFiveController.h"
+#import "LevelController.h"
 #import "Macros.h"
 
 @interface LevelFourController ()
@@ -75,6 +76,9 @@ static bool isMatch = false;
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
+    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [[self navigationItem] setRightBarButtonItem:HomeButton];
+    
     NSString *level = self.level;
     NSLog(@"%@", level);
     
@@ -98,18 +102,42 @@ static bool isMatch = false;
 
 - (void) getTiles
 {
+    //get & define category
+    NSString *anis = @"animals";
+    NSString *cols = @"colours";
+    NSString *category =self.appDelegate.category;
+    NSLog(@"%@", category);
+    
     //Get images
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
-    self.animals = [NSArray arrayWithContentsOfFile:filePath];
-    
-    self.names = [self.animals valueForKey:@"Name"];
-    self.images = [self.animals valueForKey:@"Image"];
-    
+    if ([category isEqualToString:anis])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
+        self.animals = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Animals: %@", self.animals);
+        self.names = [self.animals valueForKey:@"Name"];
+        self.images = [self.animals valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"animalsbkg.png"];
+        [imageView setImage:img1];
+        
+    }
+    else if ([category isEqualToString:cols])
+    {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Colours" ofType:@"plist"];
+        self.colours = [NSArray arrayWithContentsOfFile:filePath];
+        NSLog(@"Colours: %@", self.colours);
+        self.names = [self.colours valueForKey:@"Name"];
+        self.images = [self.colours valueForKey:@"Image"];
+        NSLog(@"%@", self.names);
+        NSLog(@"%@", self.images);
+        UIImage *img1 = [UIImage imageNamed:@"coloursbkg.jpg"];
+        [imageView setImage:img1];
+    }
     
     
     self.imageDictionary = [NSDictionary dictionaryWithObjects:self.images forKeys:self.names];
-    NSLog(@"%@", self.imageDictionary);
     [self setTiles];
 }
 
@@ -125,6 +153,8 @@ static bool isMatch = false;
     NSString *key8;
     NSString *key9;
     NSString *key10;
+    NSString *key11;
+    NSString *key12;
     
     NSArray *array = [self.imageDictionary allKeys];
     int random1 = arc4random()%[array count];
@@ -132,6 +162,7 @@ static bool isMatch = false;
     int random3 = arc4random()%[array count];
     int random4 = arc4random()%[array count];
     int random5 = arc4random()%[array count];
+    int random6 = arc4random()%[array count];
     key1 = [array objectAtIndex:random1];
     key2 = [array objectAtIndex:random1];
     key3 = [array objectAtIndex:random2];
@@ -142,6 +173,8 @@ static bool isMatch = false;
     key8 = [array objectAtIndex:random4];
     key9 = [array objectAtIndex:random5];
     key10 = [array objectAtIndex:random5];
+    key11 = [array objectAtIndex:random6];
+    key12 = [array objectAtIndex:random6];
     
     NSString *img1;
     NSString *img2;
@@ -153,6 +186,8 @@ static bool isMatch = false;
     NSString *img8;
     NSString *img9;
     NSString *img10;
+    NSString *img11;
+    NSString *img12;
     
     img1 = [self.imageDictionary objectForKey:key1];
     img2 = [self.imageDictionary objectForKey:key2];
@@ -164,6 +199,8 @@ static bool isMatch = false;
     img8 = [self.imageDictionary objectForKey:key8];
     img9 = [self.imageDictionary objectForKey:key9];
     img10 = [self.imageDictionary objectForKey:key10];
+    img11 = [self.imageDictionary objectForKey:key11];
+    img12 = [self.imageDictionary objectForKey:key12];
     
     NSArray *keys = [[NSArray alloc] initWithObjects:key1,
                      key2,
@@ -175,6 +212,8 @@ static bool isMatch = false;
                      key8,
                      key9,
                      key10,
+                     key11,
+                     key12,
                      nil];
     self.tiles = [[NSMutableArray alloc] initWithObjects:
                   [UIImage imageNamed:img1],
@@ -187,6 +226,8 @@ static bool isMatch = false;
                   [UIImage imageNamed:img8],
                   [UIImage imageNamed:img9],
                   [UIImage imageNamed:img10],
+                  [UIImage imageNamed:img11],
+                  [UIImage imageNamed:img12],
                   nil];
     self.tileDictionary = [NSDictionary dictionaryWithObjects:self.tiles forKeys:keys];
     NSLog(@" Tile dict: %@", self.tileDictionary);
@@ -358,7 +399,7 @@ static bool isMatch = false;
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 [self cancel];
                                  
                              }];
     
@@ -373,6 +414,21 @@ static bool isMatch = false;
 {
     LevelFiveController *levelFiveController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelFiveController"];
     [self.navigationController pushViewController:levelFiveController animated:YES];
+    
+}
+
+- (void) cancel
+{
+    LevelController *levelController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelController"];
+    [self.navigationController pushViewController:levelController animated:YES];
+    
+}
+
+- (void) home
+{
+    NSLog(@"HOME");
+    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
+    [self.navigationController pushViewController:menuController animated:YES];
     
 }
 

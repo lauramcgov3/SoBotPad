@@ -10,7 +10,7 @@
 
 @interface CategoryController : UIViewController
 
-@property (nonatomic) NSString *category;
+//@property (nonatomic) NSString *category;
 
 -(IBAction)animals:(id)sender;
 -(IBAction)colours:(id)sender;

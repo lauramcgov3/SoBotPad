@@ -11,7 +11,6 @@
 @interface MenuController : UITableViewController
 
 @property (strong, nonatomic) NSArray *menuItems;
-//@property (strong, nonatomic) NSArray *imageItems;
 
 
 @end

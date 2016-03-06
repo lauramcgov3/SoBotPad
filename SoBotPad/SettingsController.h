@@ -13,6 +13,6 @@
 @interface SettingsController : UIViewController <MCBrowserViewControllerDelegate>
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
-//@property (nonatomic) NSString *setting;
+@property (nonatomic) NSString *setting;
 
 @end

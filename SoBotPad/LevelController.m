@@ -9,13 +9,21 @@
 #import <Foundation/Foundation.h>
 @import AVFoundation;
 #import "LevelController.h"
+#import "GamesController.h"
+#import "MenuController.h"
+#import "CategoryController.h"
+
 
 @implementation LevelController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Match Game";
+    self.title = @"Levels";
+    NSLog(@"%@", self.title);
+    
+    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [[self navigationItem] setRightBarButtonItem:HomeButton];
 }
 
 -(IBAction)level1:(id)sender;
@@ -27,25 +35,21 @@
 {
     NSString *input = [(UIButton *)sender currentTitle];
     [self speakString:input];
-    //self.level = input;
 }
 -(IBAction)level3:(id)sender;
 {
     NSString *input = [(UIButton *)sender currentTitle];
     [self speakString:input];
-    //self.level = input;
 }
 -(IBAction)level4:(id)sender;
 {
     NSString *input = [(UIButton *)sender currentTitle];
     [self speakString:input];
-    //self.level = input;
 }
 -(IBAction)level5:(id)sender;
 {
     NSString *input = [(UIButton *)sender currentTitle];
     [self speakString:input];
-    //self.level = input;
 }
 
 -(void)speakString:(NSString *) str
@@ -60,6 +64,14 @@
     utterance.rate = 0.40;
     [synthesizer speakUtterance:utterance];
     sleep(1);
+}
+
+- (void) home
+{
+    NSLog(@"HOME");
+    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
+    [self.navigationController pushViewController:menuController animated:YES];
+    
 }
 
 

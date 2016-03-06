@@ -11,14 +11,19 @@
 
 
 @interface LevelOneController : UIViewController
+{
+    IBOutlet UIImageView *imageView;
+}
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonViews;
 
+
 @property (strong, nonatomic) NSArray *animals;
+@property (strong, nonatomic) NSArray *colours;
 
-
+-(void)home;
 -(IBAction)tileClicked:(id)sender;
 
 @end

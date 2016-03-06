@@ -12,6 +12,9 @@
 #import "MenuController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    NSMutableString *category;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) MCManager *mcManager;
@@ -20,6 +23,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong, nonatomic) NSMutableString *category;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

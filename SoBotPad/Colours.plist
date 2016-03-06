@@ -6,163 +6,73 @@
 		<key>Name</key>
 		<string>black</string>
 		<key>Image</key>
-		<string>bear.jpg</string>
+		<string>black.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>bird</string>
+		<string>blue</string>
 		<key>Image</key>
-		<string>bird.jpg</string>
+		<string>blue.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>cat</string>
+		<string>brown</string>
 		<key>Image</key>
-		<string>cat.jpg</string>
+		<string>brown.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>chicken</string>
+		<string>cream</string>
 		<key>Image</key>
-		<string>chicken.jpg</string>
+		<string>cream.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>cow</string>
+		<string>green</string>
 		<key>Image</key>
-		<string>cow.jpg</string>
+		<string>green.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>crocodile</string>
+		<string>grey</string>
 		<key>Image</key>
-		<string>croc.jpg</string>
+		<string>grey.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>dog</string>
+		<string>orange</string>
 		<key>Image</key>
-		<string>dog.jpg</string>
+		<string>orange.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>duck</string>
+		<string>pink</string>
 		<key>Image</key>
-		<string>duck.jpg</string>
+		<string>pink.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>elephant</string>
+		<string>purple</string>
 		<key>Image</key>
-		<string>elephant.jpg</string>
+		<string>purple.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>fish</string>
+		<string>red</string>
 		<key>Image</key>
-		<string>fish.jpg</string>
+		<string>red.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>giraffe</string>
+		<string>turquoise</string>
 		<key>Image</key>
-		<string>giraffe.jpg</string>
+		<string>turquoise.png</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>guineapig</string>
+		<string>white</string>
 		<key>Image</key>
-		<string>guineapig.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>hamster</string>
-		<key>Image</key>
-		<string>hamster.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>hippo</string>
-		<key>Image</key>
-		<string>hippo.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>horse</string>
-		<key>Image</key>
-		<string>horse.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>lamb</string>
-		<key>Image</key>
-		<string>lamb.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>leopard</string>
-		<key>Image</key>
-		<string>leopard.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>lion</string>
-		<key>Image</key>
-		<string>lion.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>monkey</string>
-		<key>Image</key>
-		<string>monkey</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>mouse</string>
-		<key>Image</key>
-		<string>mouse.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>penguin</string>
-		<key>Image</key>
-		<string>penguin.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>pig</string>
-		<key>Image</key>
-		<string>pig.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>rabbit</string>
-		<key>Image</key>
-		<string>rabbit.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>snake</string>
-		<key>Image</key>
-		<string>snake.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>tiger</string>
-		<key>Image</key>
-		<string>tiger.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>turkey</string>
-		<key>Image</key>
-		<string>turkey.jpg</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>zebra</string>
-		<key>Image</key>
-		<string>zebra.jpg</string>
+		<string>white.png</string>
 	</dict>
 </array>
 </plist>

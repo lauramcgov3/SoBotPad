@@ -9,31 +9,46 @@
 #import <Foundation/Foundation.h>
 @import AVFoundation;
 #import <Foundation/Foundation.h>
-#import "GamesController.h"
+#import "LevelController.h"
 #import "CategoryController.h"
+#import "GamesController.h"
+#import "AppDelegate.h"
 
 @implementation CategoryController
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"Categories";
+    
+    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [[self navigationItem] setRightBarButtonItem:HomeButton];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 
 -(IBAction)animals:(id)sender
 {
     NSString *input = [(UIButton *)sender currentTitle];
-    self.category = input;
-    NSLog(@"%@", self.category);
+    NSLog(@"%@", input);
     [self speakString:input];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.category setString:input];
+
 }
 
 -(IBAction)colours:(id)sender
 {
     NSString *input = [(UIButton *)sender currentTitle];
-    self.category = input;
-    NSLog(@"%@", self.category);
+    NSLog(@"%@", input);
     [self speakString:input];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.category setString:input];
 }
 
 -(void)speakString:(NSString *) str
@@ -48,6 +63,20 @@
     utterance.rate = 0.40;
     [synthesizer speakUtterance:utterance];
     sleep(1);
+}
+
+- (void) home
+{
+    NSLog(@"HOME");
+    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
+    [self.navigationController pushViewController:menuController animated:YES];
+    
+}
+- (void) games
+{
+    GamesController *gamesController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GamesController"];
+    [self.navigationController pushViewController:gamesController animated:YES];
+    
 }
 
 

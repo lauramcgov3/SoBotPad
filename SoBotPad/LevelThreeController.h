@@ -11,14 +11,20 @@
 
 
 @interface LevelThreeController : UIViewController
+{
+    IBOutlet UIImageView *imageView;
+}
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonViews;
 
 @property (strong, nonatomic) NSArray *animals;
+@property (strong, nonatomic) NSArray *colours;
 
 @property (nonatomic) NSString *level;
+
+-(void)home;
 
 -(IBAction)tileClicked:(id)sender;
 
