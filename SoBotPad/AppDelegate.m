@@ -17,6 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        [UIApplication sharedApplication].idleTimerDisabled = YES;
     // Override point for customization after application launch.
         self.mcManager = [[MCManager alloc]init];
     category =[[NSMutableString alloc]init];

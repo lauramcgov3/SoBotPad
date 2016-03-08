@@ -154,8 +154,6 @@ static bool isWinner = false;
     NSString *key8;
     NSString *key9;
     NSString *key10;
-    NSString *key11;
-    NSString *key12;
     
     NSArray *array = [self.imageDictionary allKeys];
     int random1 = arc4random()%[array count];
@@ -163,7 +161,6 @@ static bool isWinner = false;
     int random3 = arc4random()%[array count];
     int random4 = arc4random()%[array count];
     int random5 = arc4random()%[array count];
-    int random6 = arc4random()%[array count];
     key1 = [array objectAtIndex:random1];
     key2 = [array objectAtIndex:random1];
     key3 = [array objectAtIndex:random2];
@@ -174,8 +171,6 @@ static bool isWinner = false;
     key8 = [array objectAtIndex:random4];
     key9 = [array objectAtIndex:random5];
     key10 = [array objectAtIndex:random5];
-    key11 = [array objectAtIndex:random6];
-    key12 = [array objectAtIndex:random6];
     
     NSString *img1;
     NSString *img2;
@@ -187,8 +182,6 @@ static bool isWinner = false;
     NSString *img8;
     NSString *img9;
     NSString *img10;
-    NSString *img11;
-    NSString *img12;
     
     img1 = [self.imageDictionary objectForKey:key1];
     img2 = [self.imageDictionary objectForKey:key2];
@@ -200,10 +193,9 @@ static bool isWinner = false;
     img8 = [self.imageDictionary objectForKey:key8];
     img9 = [self.imageDictionary objectForKey:key9];
     img10 = [self.imageDictionary objectForKey:key10];
-    img11 = [self.imageDictionary objectForKey:key11];
-    img12 = [self.imageDictionary objectForKey:key12];
     
-    NSArray *keys = [[NSArray alloc] initWithObjects:key1,
+    NSArray *keys = [[NSArray alloc] initWithObjects:
+                     key1,
                      key2,
                      key3,
                      key4,
@@ -213,8 +205,6 @@ static bool isWinner = false;
                      key8,
                      key9,
                      key10,
-                     key11,
-                     key12,
                      nil];
     self.tiles = [[NSMutableArray alloc] initWithObjects:
                   [UIImage imageNamed:img1],
@@ -227,8 +217,6 @@ static bool isWinner = false;
                   [UIImage imageNamed:img8],
                   [UIImage imageNamed:img9],
                   [UIImage imageNamed:img10],
-                  [UIImage imageNamed:img11],
-                  [UIImage imageNamed:img12],
                   nil];
     self.tileDictionary = [NSDictionary dictionaryWithObjects:self.tiles forKeys:keys];
     NSLog(@" Tile dict: %@", self.tileDictionary);
@@ -393,7 +381,7 @@ static bool isWinner = false;
 {
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Winner!"
-                                  message:@"Level One Complete"
+                                  message:@"Level Four Complete"
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* level = [UIAlertAction

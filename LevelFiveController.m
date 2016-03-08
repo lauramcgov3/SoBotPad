@@ -150,6 +150,8 @@ static bool isWinner = false;
     NSString *key8;
     NSString *key9;
     NSString *key10;
+    NSString *key11;
+    NSString *key12;
     
     NSArray *array = [self.imageDictionary allKeys];
     int random1 = arc4random()%[array count];
@@ -157,6 +159,7 @@ static bool isWinner = false;
     int random3 = arc4random()%[array count];
     int random4 = arc4random()%[array count];
     int random5 = arc4random()%[array count];
+    int random6 = arc4random()%[array count];
     key1 = [array objectAtIndex:random1];
     key2 = [array objectAtIndex:random1];
     key3 = [array objectAtIndex:random2];
@@ -167,6 +170,21 @@ static bool isWinner = false;
     key8 = [array objectAtIndex:random4];
     key9 = [array objectAtIndex:random5];
     key10 = [array objectAtIndex:random5];
+    key11 = [array objectAtIndex:random6];
+    key12 = [array objectAtIndex:random6];
+    
+    NSLog(@"Key 1 = %@", key1);
+    NSLog(@"Key 2 = %@", key2);
+    NSLog(@"Key 3 = %@", key3);
+    NSLog(@"Key 4 = %@", key4);
+    NSLog(@"Key 5 = %@", key5);
+    NSLog(@"Key 6 = %@", key6);
+    NSLog(@"Key 7 = %@", key7);
+    NSLog(@"Key 8 = %@", key8);
+    NSLog(@"Key 9 = %@", key9);
+    NSLog(@"Key 10 = %@", key10);
+    NSLog(@"Key 11 = %@", key11);
+    NSLog(@"Key 12 = %@", key12);
     
     NSString *img1;
     NSString *img2;
@@ -178,6 +196,8 @@ static bool isWinner = false;
     NSString *img8;
     NSString *img9;
     NSString *img10;
+    NSString *img11;
+    NSString *img12;
     
     img1 = [self.imageDictionary objectForKey:key1];
     img2 = [self.imageDictionary objectForKey:key2];
@@ -189,8 +209,25 @@ static bool isWinner = false;
     img8 = [self.imageDictionary objectForKey:key8];
     img9 = [self.imageDictionary objectForKey:key9];
     img10 = [self.imageDictionary objectForKey:key10];
+    img11 = [self.imageDictionary objectForKey:key11];
+    img12 = [self.imageDictionary objectForKey:key12];
     
-    NSArray *keys = [[NSArray alloc] initWithObjects:key1,
+    NSLog(@"Img 1 = %@", img1);
+    NSLog(@"Img 2 = %@", img2);
+    NSLog(@"Img 3 = %@", img3);
+    NSLog(@"Img 4 = %@", img4);
+    NSLog(@"Img 5 = %@", img5);
+    NSLog(@"Img 6 = %@", img6);
+    NSLog(@"Img 7 = %@", img7);
+    NSLog(@"Img 8 = %@", img8);
+    NSLog(@"Img 9 = %@", img9);
+    NSLog(@"Img 10 = %@", img10);
+    NSLog(@"Img 11 = %@", img11);
+    NSLog(@"Img 12 = %@", img12);
+    
+    
+    NSArray *keys = [[NSArray alloc] initWithObjects:
+                     key1,
                      key2,
                      key3,
                      key4,
@@ -200,7 +237,10 @@ static bool isWinner = false;
                      key8,
                      key9,
                      key10,
+                     key11,
+                     key12,
                      nil];
+    
     self.tiles = [[NSMutableArray alloc] initWithObjects:
                   [UIImage imageNamed:img1],
                   [UIImage imageNamed:img2],
@@ -212,6 +252,8 @@ static bool isWinner = false;
                   [UIImage imageNamed:img8],
                   [UIImage imageNamed:img9],
                   [UIImage imageNamed:img10],
+                  [UIImage imageNamed:img11],
+                  [UIImage imageNamed:img12],
                   nil];
     self.tileDictionary = [NSDictionary dictionaryWithObjects:self.tiles forKeys:keys];
     NSLog(@" Tile dict: %@", self.tileDictionary);

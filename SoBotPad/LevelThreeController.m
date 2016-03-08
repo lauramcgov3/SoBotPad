@@ -364,7 +364,7 @@ static bool isWinner = false;
 {
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Winner!"
-                                  message:@"Level One Complete"
+                                  message:@"Level Three Complete"
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* level = [UIAlertAction
