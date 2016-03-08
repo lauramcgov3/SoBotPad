@@ -69,6 +69,7 @@
 //Local Variables
 static bool isDisabled = false;
 static bool isMatch = false;
+static bool isWinner = false;
 
 
 - (void)viewDidLoad
@@ -251,7 +252,30 @@ static bool isMatch = false;
             [self.tile2 setEnabled:false];
             self.matchCounter++;
             isMatch = true;
+            
+            if(self.matchCounter == (self.tiles.count/2))
+            {
+                NSLog(@"Winner if");
+                isWinner = true;
+            }
+            
         }
+        
+        if (isMatch == true && isWinner==false)
+        {
+            [self sendMessage:@"match"];
+        }
+        else if (isMatch == false)
+        {
+            [self sendMessage:@"mismatch"];
+        }
+        else if(self.matchCounter == (self.tiles.count/2))
+        {
+            [self winner];
+            [self sendMessage:@"winner"];
+        }
+        
+        isWinner = false;
         isDisabled = true;
         //set up a timer to flip the tiles over after 1 sec.
         [NSTimer scheduledTimerWithTimeInterval:2.0
@@ -279,18 +303,14 @@ static bool isMatch = false;
     {
         self.tile1.hidden = YES;
         self.tile2.hidden = YES;
-        [self sendMessage:@"match"];
     }
     else if (isMatch==false)
     {
         [self.tile1 setImage: self.backTileImage forState:UIControlStateNormal];
         [self.tile2 setImage: self.backTileImage forState:UIControlStateNormal];
-        [self sendMessage:@"mismatch"];
     }
     isDisabled = false;
     isMatch = false;
-        if(self.matchCounter == (self.tiles.count/2))
-            [self winner];
 }
 
 -(void)sendMessage: (NSString *)str
@@ -312,7 +332,6 @@ static bool isMatch = false;
 
 - (void) winner
 {
-    [self sendMessage:@"winner"];
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Winner!"
                                   message:@"Level One Complete"

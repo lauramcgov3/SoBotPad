@@ -96,12 +96,13 @@
     if ([self.menuItem isEqualToString:@"Games"])
     {
         
+        [self speakString:self.menuItem];
         GamesController *gamesController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GamesController"];
         
         [self.navigationController pushViewController:gamesController animated:NO];
         
     }
-    else if ([self.menuItem isEqualToString:@"Remote"])
+    else if ([self.menuItem isEqualToString:@"Feelings"])
     {
         [self speakString:self.menuItem];
         

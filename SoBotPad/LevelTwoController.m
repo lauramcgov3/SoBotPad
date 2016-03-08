@@ -65,6 +65,7 @@
 //Local Variables
 static bool isDisabled = false;
 static bool isMatch = false;
+static bool isWinner = false;
 
 
 - (void)viewDidLoad
@@ -233,7 +234,6 @@ static bool isMatch = false;
     
     if(isDisabled == true)
         return;
-    //NSLog(@"%@", sender);
     
     
     NSInteger senderID = [sender tag];
@@ -241,14 +241,10 @@ static bool isMatch = false;
     
     
     UIImage *flippedImage = [self.tiles objectAtIndex:senderID];
-    NSLog(@"Flipped image: %@", flippedImage);
     
     
     for (NSString* key in self.tileDictionary) {
-        NSLog(@"%@", [self.tileDictionary objectForKey:key]);
         if ([[self.tileDictionary objectForKey:key] isEqual:flippedImage]){
-            NSString* imageName = key;
-            NSLog(@"Key: %@", imageName);
             AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
             AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:key ];
             utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
@@ -261,13 +257,9 @@ static bool isMatch = false;
     if (error)
         NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
     
-    NSLog(@"%ld", (long)self.tileFlipped);
-    
     if(self.tileFlipped >= 0 && senderID != self.tileFlipped)
     {
         self.tile2 = sender;
-        
-        NSLog(@"HERE");
         
         UIImage *lastImage = [self.tiles objectAtIndex:self.tileFlipped];
         UIImage *tileImage = [self.tiles objectAtIndex:senderID];
@@ -281,10 +273,33 @@ static bool isMatch = false;
             [self.tile2 setEnabled:false];
             self.matchCounter++;
             isMatch = true;
+            
+            if(self.matchCounter == (self.tiles.count/2))
+            {
+                NSLog(@"Winner if");
+                isWinner = true;
+            }
+            
         }
+        
+        if (isMatch == true && isWinner==false)
+        {
+            [self sendMessage:@"match"];
+        }
+        else if (isMatch == false)
+        {
+            [self sendMessage:@"mismatch"];
+        }
+        else if(self.matchCounter == (self.tiles.count/2))
+        {
+            [self winner];
+            [self sendMessage:@"winner"];
+        }
+        
+        isWinner = false;
         isDisabled = true;
         //set up a timer to flip the tiles over after 1 sec.
-        [NSTimer scheduledTimerWithTimeInterval:3.0
+        [NSTimer scheduledTimerWithTimeInterval:2.0
                                          target:self
                                        selector:@selector(resetTiles)
                                        userInfo:nil
@@ -309,18 +324,14 @@ static bool isMatch = false;
     {
         self.tile1.hidden = YES;
         self.tile2.hidden = YES;
-        [self sendMessage:@"match"];
     }
     else if (isMatch==false)
     {
         [self.tile1 setImage: self.backTileImage forState:UIControlStateNormal];
         [self.tile2 setImage: self.backTileImage forState:UIControlStateNormal];
-        [self sendMessage:@"mismatch"];
     }
     isDisabled = false;
     isMatch = false;
-        if(self.matchCounter == (self.tiles.count/2))
-            [self winner];
 }
 
 -(void)sendMessage: (NSString *)str
@@ -342,21 +353,19 @@ static bool isMatch = false;
 
 - (void) winner
 {
-    [self sendMessage:@"winner"];
-    
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Winner!"
-                                  message:@"Level Two Complete"
+                                  message:@"Level One Complete"
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* level = [UIAlertAction
-                             actionWithTitle:@"Level 3"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
-                             {
-                                 [self changeLevel];
-                                 
-                             }];
+                            actionWithTitle:@"Level 3"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                [self changeLevel];
+                                
+                            }];
     UIAlertAction* cancel = [UIAlertAction
                              actionWithTitle:@"Cancel"
                              style:UIAlertActionStyleDefault

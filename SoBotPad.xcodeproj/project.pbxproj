@@ -91,6 +91,15 @@
 		D3CC59F81C853EC9009A1909 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CC59F71C853EC9009A1909 /* MCManager.m */; };
 		D3D9094E1C856913008D180A /* LevelOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D9094D1C856913008D180A /* LevelOneController.m */; };
 		D3F0C8EB1C85523C00DC2728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F0C8EA1C85523C00DC2728 /* Main.storyboard */; };
+		D3FF6CB01C8E5DA300E7CA0F /* afraid.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CA81C8E5DA300E7CA0F /* afraid.png */; };
+		D3FF6CB11C8E5DA300E7CA0F /* angry.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CA91C8E5DA300E7CA0F /* angry.png */; };
+		D3FF6CB21C8E5DA300E7CA0F /* bored.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CAA1C8E5DA300E7CA0F /* bored.png */; };
+		D3FF6CB31C8E5DA300E7CA0F /* confused.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CAB1C8E5DA300E7CA0F /* confused.png */; };
+		D3FF6CB41C8E5DA300E7CA0F /* excited.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CAC1C8E5DA300E7CA0F /* excited.png */; };
+		D3FF6CB51C8E5DA300E7CA0F /* happy.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CAD1C8E5DA300E7CA0F /* happy.png */; };
+		D3FF6CB61C8E5DA300E7CA0F /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CAE1C8E5DA300E7CA0F /* sad.png */; };
+		D3FF6CB71C8E5DA300E7CA0F /* tired.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CAF1C8E5DA300E7CA0F /* tired.png */; };
+		D3FF6CBB1C8E688C00E7CA0F /* feelings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3FF6CBA1C8E688C00E7CA0F /* feelings.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +225,15 @@
 		D3D9094D1C856913008D180A /* LevelOneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOneController.m; sourceTree = "<group>"; };
 		D3D9094F1C85691F008D180A /* LevelOneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelOneController.h; sourceTree = "<group>"; };
 		D3F0C8EA1C85523C00DC2728 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D3FF6CA81C8E5DA300E7CA0F /* afraid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = afraid.png; sourceTree = "<group>"; };
+		D3FF6CA91C8E5DA300E7CA0F /* angry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angry.png; sourceTree = "<group>"; };
+		D3FF6CAA1C8E5DA300E7CA0F /* bored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bored.png; sourceTree = "<group>"; };
+		D3FF6CAB1C8E5DA300E7CA0F /* confused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confused.png; sourceTree = "<group>"; };
+		D3FF6CAC1C8E5DA300E7CA0F /* excited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excited.png; sourceTree = "<group>"; };
+		D3FF6CAD1C8E5DA300E7CA0F /* happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happy.png; sourceTree = "<group>"; };
+		D3FF6CAE1C8E5DA300E7CA0F /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad.png; sourceTree = "<group>"; };
+		D3FF6CAF1C8E5DA300E7CA0F /* tired.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tired.png; sourceTree = "<group>"; };
+		D3FF6CBA1C8E688C00E7CA0F /* feelings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = feelings.jpg; path = ../../Images/Symbols/Words/feelings.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,10 +386,6 @@
 				D3F0C8E11C854C5000DC2728 /* Games */,
 				D319251E1C8BBD1000C6E36E /* Remote */,
 				D3CC59F91C853EE8009A1909 /* Multipeer */,
-				D3CC59AE1C851BDB009A1909 /* Assets.xcassets */,
-				D3CC59B01C851BDB009A1909 /* LaunchScreen.storyboard */,
-				D3CC59B31C851BDB009A1909 /* Info.plist */,
-				D3CC59AB1C851BDB009A1909 /* SoBotPad.xcdatamodeld */,
 				D3CC59DF1C852210009A1909 /* Resources */,
 				D3CC599F1C851BDB009A1909 /* Supporting Files */,
 			);
@@ -381,6 +395,10 @@
 		D3CC599F1C851BDB009A1909 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3CC59AE1C851BDB009A1909 /* Assets.xcassets */,
+				D3CC59B01C851BDB009A1909 /* LaunchScreen.storyboard */,
+				D3CC59B31C851BDB009A1909 /* Info.plist */,
+				D3CC59AB1C851BDB009A1909 /* SoBotPad.xcdatamodeld */,
 				D3CC59A01C851BDB009A1909 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -439,28 +457,9 @@
 		D3D909871C8573B1008D180A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D31925171C8BB6D800C6E36E /* ipod.png */,
-				D31925151C8BAE9E00C6E36E /* background.jpg */,
-				D3C0F0F41C8B4ADF00D0B26C /* animals.jpg */,
-				D31DA87F1C8B680200EA7FB8 /* settings-icon.png */,
-				D3C0F0F51C8B4ADF00D0B26C /* colours.jpg */,
-				D31925221C8BE39500C6E36E /* happyromo.jpg */,
-				D3C0F0FA1C8B4B4600D0B26C /* animalsbkg.png */,
-				D31DA88D1C8B857C00EA7FB8 /* coloursbkg.jpg */,
-				D31925241C8BE42200C6E36E /* romoremote.jpeg */,
-				D3C0F0FB1C8B4B4600D0B26C /* cardbkg.jpg */,
-				D3C0F0FC1C8B4B4600D0B26C /* five.png */,
-				D3C0F0FD1C8B4B4600D0B26C /* four.png */,
-				D3C0F0FE1C8B4B4600D0B26C /* gamesbkg.png */,
-				D3C0F0FF1C8B4B4600D0B26C /* match-icon.png */,
-				D3C0F1001C8B4B4600D0B26C /* one.png */,
-				D3C0F1011C8B4B4600D0B26C /* remote.png */,
-				D3C0F1021C8B4B4600D0B26C /* robot.png */,
-				D31925191C8BBA6100C6E36E /* home.jpg */,
-				D3C0F1041C8B4B4600D0B26C /* three.jpeg */,
-				D3C0F1051C8B4B4600D0B26C /* two.png */,
-				D3C0F1121C8B4B5200D0B26C /* play.jpg */,
+				D3FF6CA61C8E5D8200E7CA0F /* App */,
 				D3C0F14F1C8B654E00D0B26C /* colours */,
+				D3FF6CA71C8E5DA300E7CA0F /* feelings */,
 				D3C0F1161C8B5F3100D0B26C /* animals */,
 			);
 			name = Images;
@@ -483,6 +482,51 @@
 				D3D909C01C85F0DA008D180A /* Match Game */,
 			);
 			name = Games;
+			sourceTree = "<group>";
+		};
+		D3FF6CA61C8E5D8200E7CA0F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D3FF6CBA1C8E688C00E7CA0F /* feelings.jpg */,
+				D31925171C8BB6D800C6E36E /* ipod.png */,
+				D31925151C8BAE9E00C6E36E /* background.jpg */,
+				D3C0F0F41C8B4ADF00D0B26C /* animals.jpg */,
+				D31DA87F1C8B680200EA7FB8 /* settings-icon.png */,
+				D3C0F0F51C8B4ADF00D0B26C /* colours.jpg */,
+				D31925221C8BE39500C6E36E /* happyromo.jpg */,
+				D3C0F0FA1C8B4B4600D0B26C /* animalsbkg.png */,
+				D31DA88D1C8B857C00EA7FB8 /* coloursbkg.jpg */,
+				D31925241C8BE42200C6E36E /* romoremote.jpeg */,
+				D3C0F0FB1C8B4B4600D0B26C /* cardbkg.jpg */,
+				D3C0F0FC1C8B4B4600D0B26C /* five.png */,
+				D3C0F0FD1C8B4B4600D0B26C /* four.png */,
+				D3C0F0FE1C8B4B4600D0B26C /* gamesbkg.png */,
+				D3C0F0FF1C8B4B4600D0B26C /* match-icon.png */,
+				D3C0F1001C8B4B4600D0B26C /* one.png */,
+				D3C0F1011C8B4B4600D0B26C /* remote.png */,
+				D3C0F1021C8B4B4600D0B26C /* robot.png */,
+				D31925191C8BBA6100C6E36E /* home.jpg */,
+				D3C0F1041C8B4B4600D0B26C /* three.jpeg */,
+				D3C0F1051C8B4B4600D0B26C /* two.png */,
+				D3C0F1121C8B4B5200D0B26C /* play.jpg */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		D3FF6CA71C8E5DA300E7CA0F /* feelings */ = {
+			isa = PBXGroup;
+			children = (
+				D3FF6CA81C8E5DA300E7CA0F /* afraid.png */,
+				D3FF6CA91C8E5DA300E7CA0F /* angry.png */,
+				D3FF6CAA1C8E5DA300E7CA0F /* bored.png */,
+				D3FF6CAB1C8E5DA300E7CA0F /* confused.png */,
+				D3FF6CAC1C8E5DA300E7CA0F /* excited.png */,
+				D3FF6CAD1C8E5DA300E7CA0F /* happy.png */,
+				D3FF6CAE1C8E5DA300E7CA0F /* sad.png */,
+				D3FF6CAF1C8E5DA300E7CA0F /* tired.png */,
+			);
+			name = feelings;
+			path = ../../Images/Symbols/feelings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,7 +634,9 @@
 			files = (
 				D31925251C8BE42200C6E36E /* romoremote.jpeg in Resources */,
 				D31925211C8BD66000C6E36E /* play.jpg in Resources */,
+				D3FF6CB61C8E5DA300E7CA0F /* sad.png in Resources */,
 				D31DA8801C8B680200EA7FB8 /* settings-icon.png in Resources */,
+				D3FF6CB71C8E5DA300E7CA0F /* tired.png in Resources */,
 				D3C0F15F1C8B654E00D0B26C /* cream.png in Resources */,
 				D3C0F10B1C8B4B4600D0B26C /* match-icon.png in Resources */,
 				D3C0F1611C8B654E00D0B26C /* grey.png in Resources */,
@@ -605,8 +651,10 @@
 				D3C0F1351C8B5F3100D0B26C /* chicken.jpg in Resources */,
 				D3C0F1481C8B5F3100D0B26C /* rabbit.jpg in Resources */,
 				D3C0F1601C8B654E00D0B26C /* green.png in Resources */,
+				D3FF6CB11C8E5DA300E7CA0F /* angry.png in Resources */,
 				D3C0F1411C8B5F3100D0B26C /* lamb.jpg in Resources */,
 				D3CC59B21C851BDB009A1909 /* LaunchScreen.storyboard in Resources */,
+				D3FF6CB21C8E5DA300E7CA0F /* bored.png in Resources */,
 				D3C0F14B1C8B5F3100D0B26C /* turkey.jpg in Resources */,
 				D3F0C8EB1C85523C00DC2728 /* Main.storyboard in Resources */,
 				D3C0F14A1C8B5F3100D0B26C /* tiger.jpg in Resources */,
@@ -629,7 +677,9 @@
 				D3C0F1651C8B654E00D0B26C /* red.png in Resources */,
 				D3C0F14C1C8B5F3100D0B26C /* zebra.jpg in Resources */,
 				D3C0F1091C8B4B4600D0B26C /* four.png in Resources */,
+				D3FF6CB01C8E5DA300E7CA0F /* afraid.png in Resources */,
 				D3C0F1671C8B654E00D0B26C /* white.png in Resources */,
+				D3FF6CB41C8E5DA300E7CA0F /* excited.png in Resources */,
 				D31925181C8BB6D800C6E36E /* ipod.png in Resources */,
 				D3C0F1391C8B5F3100D0B26C /* duck.jpg in Resources */,
 				D3C0F1631C8B654E00D0B26C /* pink.png in Resources */,
@@ -645,10 +695,13 @@
 				D3C0F1621C8B654E00D0B26C /* orange.png in Resources */,
 				D3C0F13F1C8B5F3100D0B26C /* hippo.jpg in Resources */,
 				D3C0F1491C8B5F3100D0B26C /* snake.jpg in Resources */,
+				D3FF6CBB1C8E688C00E7CA0F /* feelings.jpg in Resources */,
 				D3C0F13C1C8B5F3100D0B26C /* giraffe.jpg in Resources */,
+				D3FF6CB51C8E5DA300E7CA0F /* happy.png in Resources */,
 				D3C0F1321C8B5F3100D0B26C /* bear.jpg in Resources */,
 				D3C0F1641C8B654E00D0B26C /* purple.png in Resources */,
 				D3C0F1081C8B4B4600D0B26C /* five.png in Resources */,
+				D3FF6CB31C8E5DA300E7CA0F /* confused.png in Resources */,
 				D3C0F1101C8B4B4600D0B26C /* three.jpeg in Resources */,
 				D3C0F1361C8B5F3100D0B26C /* cow.jpg in Resources */,
 				D3C0F1661C8B654E00D0B26C /* turquoise.png in Resources */,

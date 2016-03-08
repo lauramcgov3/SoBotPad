@@ -8,17 +8,17 @@
         <scene sceneID="mkD-bB-J6z">
             <objects>
                 <tableViewController storyboardIdentifier="MenuController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iXH-6C-m2l" customClass="MenuController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="222" sectionHeaderHeight="28" sectionFooterHeight="28" id="MSu-Df-sjN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="238" sectionHeaderHeight="28" sectionFooterHeight="28" id="MSu-Df-sjN">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="18" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="222" id="zzY-pQ-1s7">
-                                <rect key="frame" x="0.0" y="92" width="1024" height="222"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="238" id="zzY-pQ-1s7">
+                                <rect key="frame" x="0.0" y="92" width="1024" height="238"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="spatial" tableViewCell="zzY-pQ-1s7" id="K4W-gT-zsl">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="221"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="237"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-JE-lbn">
-                                <rect key="frame" x="392" y="492" width="256" height="76"/>
+                                <rect key="frame" x="384" y="346" width="256" height="76"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Browse for devices"/>
                                 <connections>
@@ -675,22 +675,62 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="62t-rw-OHW">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSx-DD-d8I">
-                                <rect key="frame" x="894" y="590" width="130" height="178"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bw-hn-e1H">
+                                <rect key="frame" x="20" y="152" width="150" height="150"/>
+                                <state key="normal" title="happy" image="happy.png"/>
                                 <connections>
-                                    <action selector="Emotions:" destination="lak-gE-b00" eventType="touchUpInside" id="2mr-L0-XSN"/>
+                                    <action selector="happy:" destination="lak-gE-b00" eventType="touchUpInside" id="2ai-ti-mgv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Emotions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMe-bg-X1c">
-                                <rect key="frame" x="923" y="739" width="72" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZW-uD-ztP">
+                                <rect key="frame" x="293" y="152" width="150" height="150"/>
+                                <state key="normal" title="excited" image="excited.png"/>
+                                <connections>
+                                    <action selector="excited:" destination="lak-gE-b00" eventType="touchUpInside" id="neX-Tp-Rps"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFF-vV-Bkb">
+                                <rect key="frame" x="575" y="152" width="150" height="150"/>
+                                <state key="normal" title="sad" image="sad.png"/>
+                                <connections>
+                                    <action selector="sad:" destination="lak-gE-b00" eventType="touchUpInside" id="SIg-Rf-MCM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6y-fr-W9p">
+                                <rect key="frame" x="854" y="152" width="150" height="150"/>
+                                <state key="normal" title="angry" image="angry.png"/>
+                                <connections>
+                                    <action selector="angry:" destination="lak-gE-b00" eventType="touchUpInside" id="lxT-hu-zAc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoP-si-6bQ">
+                                <rect key="frame" x="20" y="368" width="150" height="150"/>
+                                <state key="normal" title="confused" image="confused.png"/>
+                                <connections>
+                                    <action selector="confused:" destination="lak-gE-b00" eventType="touchUpInside" id="3y4-R3-PyU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-NB-vj7">
+                                <rect key="frame" x="293" y="368" width="150" height="150"/>
+                                <state key="normal" title="tired" image="tired.png"/>
+                                <connections>
+                                    <action selector="tired:" destination="lak-gE-b00" eventType="touchUpInside" id="OxB-jm-3Hi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHU-lv-7wa">
+                                <rect key="frame" x="575" y="368" width="150" height="150"/>
+                                <state key="normal" title="bored" image="bored.png"/>
+                                <connections>
+                                    <action selector="bored:" destination="lak-gE-b00" eventType="touchUpInside" id="2uY-Uq-PbV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQG-f7-ZtY">
+                                <rect key="frame" x="854" y="368" width="150" height="150"/>
+                                <state key="normal" title="afraid" image="afraid.png"/>
+                                <connections>
+                                    <action selector="afraid:" destination="lak-gE-b00" eventType="touchUpInside" id="rrY-M0-Ytf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -763,15 +803,23 @@
         </scene>
     </scenes>
     <resources>
+        <image name="afraid.png" width="274" height="296"/>
+        <image name="angry.png" width="262" height="294"/>
         <image name="animals.jpg" width="262" height="224"/>
         <image name="background.jpg" width="1437" height="1200"/>
+        <image name="bored.png" width="262" height="296"/>
         <image name="cardbkg.jpg" width="239" height="300"/>
         <image name="colours.jpg" width="242" height="219"/>
+        <image name="confused.png" width="274" height="296"/>
+        <image name="excited.png" width="274" height="294"/>
         <image name="five.png" width="333" height="459"/>
         <image name="four.png" width="328" height="459"/>
+        <image name="happy.png" width="268" height="294"/>
         <image name="match-icon.png" width="512" height="512"/>
         <image name="one.png" width="328" height="481"/>
+        <image name="sad.png" width="272" height="294"/>
         <image name="three.jpeg" width="335" height="468"/>
+        <image name="tired.png" width="272" height="296"/>
         <image name="two.png" width="333" height="481"/>
     </resources>
     <inferredMetricsTieBreakers>

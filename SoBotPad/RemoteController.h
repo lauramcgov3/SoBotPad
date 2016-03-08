@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface RemoteController : UIViewController
 
+@property (nonatomic, strong) AppDelegate *appDelegate;
+
 @property (nonatomic) NSString *remote;
 
-- (IBAction)Emotions:(id)sender;
+- (IBAction)happy:(id)sender;
+- (IBAction)excited:(id)sender;
+- (IBAction)sad:(id)sender;
+- (IBAction)angry:(id)sender;
+- (IBAction)confused:(id)sender;
+- (IBAction)tired:(id)sender;
+- (IBAction)bored:(id)sender;
+- (IBAction)afraid:(id)sender;
 
 @end

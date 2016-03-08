@@ -9,18 +9,106 @@
 @import AVFoundation;
 #import <Foundation/Foundation.h>
 #import "RemoteController.h"
+#import "Macros.h"
+#import "AppDelegate.h"
 
 @implementation RemoteController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Remote";
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    self.title = @"Feelings";
     
 }
 
-- (IBAction)Emotions:(id)sender{
-    NSLog(@"Emotions");
+- (IBAction)happy:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    NSLog(@"%@", input);
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+- (IBAction)excited:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+- (IBAction)sad:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+- (IBAction)angry:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+- (IBAction)confused:(id)sender
+{
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+- (IBAction)tired:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+- (IBAction)bored:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+- (IBAction)afraid:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
+
+-(void)sendMessage: (NSString *)str
+{
+    NSString *message = str;
+    NSLog(@"%@", message);
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
+    NSError *error;
+    
+    [self.appDelegate.mcManager.session sendData:data
+                                         toPeers:allPeers
+                                        withMode:MCSessionSendDataUnreliable
+                                           error:&error];
+    
+    if (error)
+        NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
+}
+
+-(void)speakString:(NSString *) str
+{
+    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+    
+    
+    NSString *input = str;
+    
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:input];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+    utterance.rate = 0.40;
+    [synthesizer speakUtterance:utterance];
+    sleep(1);
 }
 
 @end
