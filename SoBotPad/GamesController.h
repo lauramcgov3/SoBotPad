@@ -13,6 +13,7 @@
 @property (nonatomic) NSString *game;
 
 -(IBAction)matchGame:(id)sender;
+-(IBAction)pictureGame:(id)sender;
 
 
 @end

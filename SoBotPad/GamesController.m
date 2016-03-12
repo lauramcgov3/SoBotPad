@@ -26,6 +26,13 @@
     [self speakString:input];
 }
 
+-(IBAction)pictureGame:(id)sender
+{
+    NSString *input = [(UIButton *)sender currentTitle];
+    NSLog(@"%@", input);
+    [self speakString:input];
+}
+
 -(void)speakString:(NSString *) str
 {
     AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];

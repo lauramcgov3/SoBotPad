@@ -67,7 +67,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLd-Hg-JEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="1040"/>
+            <point key="canvasLocation" x="557" y="-160"/>
+        </scene>
+        <!--Picture Game Controller-->
+        <scene sceneID="3ju-ok-lJU">
+            <objects>
+                <viewController storyboardIdentifier="PictureGameController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s3S-t8-nOG" customClass="PictureGameController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2zR-cb-I2d"/>
+                        <viewControllerLayoutGuide type="bottom" id="uhx-Eg-3ot"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9bw-Pb-IfA">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clozebkg.jpg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBF-Qa-mOf">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDe-Ke-Vy7">
+                                <rect key="frame" x="312" y="96" width="400" height="200"/>
+                                <accessibility key="accessibilityConfiguration" identifier="picturegame" label="picturegame">
+                                    <accessibilityTraits key="traits" image="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ3-In-0ie">
+                                <rect key="frame" x="166" y="332" width="150" height="150"/>
+                                <connections>
+                                    <action selector="word1:" destination="s3S-t8-nOG" eventType="touchUpInside" id="BOo-Kf-LSV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHZ-sR-auA">
+                                <rect key="frame" x="344" y="332" width="150" height="150"/>
+                                <connections>
+                                    <action selector="word2:" destination="s3S-t8-nOG" eventType="touchUpInside" id="B4G-6v-7Pd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-2a-jXA">
+                                <rect key="frame" x="708" y="332" width="150" height="150"/>
+                                <connections>
+                                    <action selector="word4:" destination="s3S-t8-nOG" eventType="touchUpInside" id="hld-l3-u9k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-g8-X8L">
+                                <rect key="frame" x="527" y="332" width="150" height="150"/>
+                                <connections>
+                                    <action selector="word3:" destination="s3S-t8-nOG" eventType="touchUpInside" id="4Vd-AZ-xt6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="imageView" destination="RDe-Ke-Vy7" id="hZY-pM-i3e"/>
+                        <outlet property="word1" destination="IZ3-In-0ie" id="ZaB-zS-FMj"/>
+                        <outlet property="word2" destination="EHZ-sR-auA" id="jIa-8w-nrn"/>
+                        <outlet property="word3" destination="8oq-g8-X8L" id="WGQ-aW-JFw"/>
+                        <outlet property="word4" destination="YTA-2a-jXA" id="RRa-JE-ERF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n7w-iR-ZLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="761" y="1040"/>
         </scene>
         <!--LevelController-->
         <scene sceneID="MRO-MA-1l5">
@@ -86,7 +149,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drs-JX-4GV" userLabel="Level1">
                                 <rect key="frame" x="122" y="110" width="150" height="150"/>
-                                <state key="normal" title="Level One" image="one.png"/>
+                                <state key="normal" title="Level One" image="one-sweet.jpg"/>
                                 <connections>
                                     <action selector="level1:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="5bb-7U-XPu"/>
                                     <segue destination="2iS-wZ-5NP" kind="show" id="DzE-2p-gyQ"/>
@@ -94,7 +157,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijW-fn-9fD" userLabel="Level2">
                                 <rect key="frame" x="437" y="110" width="150" height="150"/>
-                                <state key="normal" title="Level Two" image="two.png"/>
+                                <state key="normal" title="Level Two" backgroundImage="two-sweets.jpg"/>
                                 <connections>
                                     <action selector="level2:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="l1E-jF-S83"/>
                                     <segue destination="WfE-zu-Qqk" kind="show" id="HhB-ET-oy7"/>
@@ -102,7 +165,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWH-bg-hYP" userLabel="Level3">
                                 <rect key="frame" x="752" y="110" width="150" height="150"/>
-                                <state key="normal" title="Level Three" image="three.jpeg"/>
+                                <state key="normal" title="Level Three" backgroundImage="three-sweets.png"/>
                                 <connections>
                                     <action selector="level3:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="Du8-3V-15X"/>
                                     <segue destination="a3j-7F-Gqa" kind="show" id="tqv-f1-sxp"/>
@@ -110,18 +173,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yv5-zT-IEj" userLabel="Level4">
                                 <rect key="frame" x="280" y="460" width="150" height="150"/>
-                                <state key="normal" title="Level Four" image="four.png"/>
+                                <state key="normal" backgroundImage="four-sweets.jpg"/>
                                 <connections>
                                     <action selector="level4:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="nX1-95-eBy"/>
                                     <segue destination="UV3-cL-AgH" kind="show" id="8m6-Fz-XfH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-kg-PJy" userLabel="Level5">
-                                <rect key="frame" x="595" y="460" width="150" height="150"/>
-                                <state key="normal" title="Level Five" image="five.png"/>
-                                <connections>
-                                    <action selector="level5:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="fAv-MD-ABa"/>
-                                    <segue destination="8ah-Nb-MqX" kind="show" id="ikh-kd-Azw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-MI-wEk">
@@ -155,6 +210,14 @@
                                 <color key="textColor" red="0.5" green="0.35924069466144226" blue="0.36855420204674544" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-kg-PJy" userLabel="Level5">
+                                <rect key="frame" x="595" y="460" width="150" height="150"/>
+                                <state key="normal" title="Level Five" image="five-sweets.png"/>
+                                <connections>
+                                    <action selector="level5:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="fAv-MD-ABa"/>
+                                    <segue destination="8ah-Nb-MqX" kind="show" id="ikh-kd-Azw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -163,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILD-kB-GJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2141" y="3006"/>
+            <point key="canvasLocation" x="2129" y="3010"/>
         </scene>
         <!--LevelOneController-->
         <scene sceneID="Hbw-rr-bQY">
@@ -637,7 +700,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyB-L7-ZSK">
-                                <rect key="frame" x="437" y="281" width="150" height="150"/>
+                                <rect key="frame" x="599" y="281" width="150" height="150"/>
                                 <state key="normal" title="Match Game" image="match-icon.png"/>
                                 <connections>
                                     <action selector="matchGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="sg8-dd-woy"/>
@@ -645,11 +708,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU0-qM-2zT">
-                                <rect key="frame" x="421" y="444" width="183" height="42"/>
+                                <rect key="frame" x="590" y="444" width="183" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
-                                <color key="textColor" red="0.45648660938747326" green="0.7069689162234043" blue="0.057973305567969473" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-ea-9pp">
+                                <rect key="frame" x="251" y="444" width="183" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KJ-sh-98q">
+                                <rect key="frame" x="267" y="281" width="150" height="150"/>
+                                <state key="normal" title="Picture Game" image="picture-game.png"/>
+                                <connections>
+                                    <action selector="matchGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="FWX-ld-T0E"/>
+                                    <action selector="pictureGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="6Ey-z9-pJK"/>
+                                    <segue destination="s3S-t8-nOG" kind="show" id="KEV-Vx-3ve"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -739,7 +817,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCf-uN-jLH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3513" y="1040"/>
+            <point key="canvasLocation" x="3561" y="-175"/>
         </scene>
         <!--CategoryController-->
         <scene sceneID="d8i-bD-TjQ">
@@ -809,18 +887,20 @@
         <image name="background.jpg" width="1437" height="1200"/>
         <image name="bored.png" width="262" height="296"/>
         <image name="cardbkg.jpg" width="239" height="300"/>
+        <image name="clozebkg.jpg" width="1303" height="839"/>
         <image name="colours.jpg" width="242" height="219"/>
         <image name="confused.png" width="274" height="296"/>
         <image name="excited.png" width="274" height="294"/>
-        <image name="five.png" width="333" height="459"/>
-        <image name="four.png" width="328" height="459"/>
+        <image name="five-sweets.png" width="150" height="150"/>
+        <image name="four-sweets.jpg" width="700" height="370"/>
         <image name="happy.png" width="268" height="294"/>
-        <image name="match-icon.png" width="512" height="512"/>
-        <image name="one.png" width="328" height="481"/>
+        <image name="match-icon.png" width="394" height="336"/>
+        <image name="one-sweet.jpg" width="300" height="300"/>
+        <image name="picture-game.png" width="150" height="150"/>
         <image name="sad.png" width="272" height="294"/>
-        <image name="three.jpeg" width="335" height="468"/>
+        <image name="three-sweets.png" width="150" height="150"/>
         <image name="tired.png" width="272" height="296"/>
-        <image name="two.png" width="333" height="481"/>
+        <image name="two-sweets.jpg" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QQo-z2-Dak"/>
