@@ -92,27 +92,51 @@
                                 </accessibility>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ3-In-0ie">
-                                <rect key="frame" x="166" y="332" width="150" height="150"/>
+                                <rect key="frame" x="110" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word1:" destination="s3S-t8-nOG" eventType="touchUpInside" id="BOo-Kf-LSV"/>
+                                    <action selector="word1:" destination="s3S-t8-nOG" eventType="touchUpInside" id="3gc-tn-vOm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHZ-sR-auA">
-                                <rect key="frame" x="344" y="332" width="150" height="150"/>
+                                <rect key="frame" x="328" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word2:" destination="s3S-t8-nOG" eventType="touchUpInside" id="B4G-6v-7Pd"/>
+                                    <action selector="word2:" destination="s3S-t8-nOG" eventType="touchUpInside" id="deJ-GL-MGF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-2a-jXA">
-                                <rect key="frame" x="708" y="332" width="150" height="150"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-g8-X8L">
+                                <rect key="frame" x="546" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word4:" destination="s3S-t8-nOG" eventType="touchUpInside" id="hld-l3-u9k"/>
+                                    <action selector="word3:" destination="s3S-t8-nOG" eventType="touchUpInside" id="JoG-tw-P01"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-g8-X8L">
-                                <rect key="frame" x="527" y="332" width="150" height="150"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-2a-jXA">
+                                <rect key="frame" x="764" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word3:" destination="s3S-t8-nOG" eventType="touchUpInside" id="4Vd-AZ-xt6"/>
+                                    <action selector="word4:" destination="s3S-t8-nOG" eventType="touchUpInside" id="mA7-my-5q1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-ab-aD0">
+                                <rect key="frame" x="110" y="598" width="150" height="150"/>
+                                <connections>
+                                    <action selector="choice1:" destination="s3S-t8-nOG" eventType="touchUpInside" id="hcP-dN-bqq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPO-rn-dZT">
+                                <rect key="frame" x="328" y="598" width="150" height="150"/>
+                                <connections>
+                                    <action selector="choice2:" destination="s3S-t8-nOG" eventType="touchUpInside" id="3Fp-9E-n02"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-uE-UfR">
+                                <rect key="frame" x="546" y="598" width="150" height="150"/>
+                                <connections>
+                                    <action selector="choice3:" destination="s3S-t8-nOG" eventType="touchUpInside" id="aGn-gB-DGe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL2-tU-xq2">
+                                <rect key="frame" x="764" y="598" width="150" height="150"/>
+                                <connections>
+                                    <action selector="choice4:" destination="s3S-t8-nOG" eventType="touchUpInside" id="7et-Mu-Lbl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -121,11 +145,15 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="choice1" destination="G6C-ab-aD0" id="j5f-Rq-04J"/>
+                        <outlet property="choice2" destination="ZPO-rn-dZT" id="R6d-jD-jeR"/>
+                        <outlet property="choice3" destination="Ytf-uE-UfR" id="rhy-d6-jhb"/>
+                        <outlet property="choice4" destination="ZL2-tU-xq2" id="YKe-51-ZkM"/>
                         <outlet property="imageView" destination="RDe-Ke-Vy7" id="hZY-pM-i3e"/>
-                        <outlet property="word1" destination="IZ3-In-0ie" id="ZaB-zS-FMj"/>
-                        <outlet property="word2" destination="EHZ-sR-auA" id="jIa-8w-nrn"/>
-                        <outlet property="word3" destination="8oq-g8-X8L" id="WGQ-aW-JFw"/>
-                        <outlet property="word4" destination="YTA-2a-jXA" id="RRa-JE-ERF"/>
+                        <outlet property="word1" destination="IZ3-In-0ie" id="Uq0-3f-GP5"/>
+                        <outlet property="word2" destination="EHZ-sR-auA" id="RGW-H2-vf4"/>
+                        <outlet property="word3" destination="8oq-g8-X8L" id="0Td-Xr-LWW"/>
+                        <outlet property="word4" destination="YTA-2a-jXA" id="hBA-ph-nxv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7w-iR-ZLp" userLabel="First Responder" sceneMemberID="firstResponder"/>

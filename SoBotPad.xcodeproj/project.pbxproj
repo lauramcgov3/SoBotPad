@@ -20,6 +20,8 @@
 		D32E27131C86538000B71D25 /* LevelThreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E27121C86538000B71D25 /* LevelThreeController.m */; };
 		D32E27151C86538A00B71D25 /* LevelFourController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E27141C86538A00B71D25 /* LevelFourController.m */; };
 		D32E27191C86540000B71D25 /* LevelFiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E27181C86540000B71D25 /* LevelFiveController.m */; };
+		D37900001C94DEA600CF22F7 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = D379FFFF1C94DEA600CF22F7 /* yellow.png */; };
+		D379FFFC1C949F0100CF22F7 /* highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = D379FFFB1C949F0100CF22F7 /* highlight.png */; };
 		D3852BDE1C8B32280012FDD4 /* CategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3852BDD1C8B32280012FDD4 /* CategoryController.m */; };
 		D3C0F0F61C8B4ADF00D0B26C /* animals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3C0F0F41C8B4ADF00D0B26C /* animals.jpg */; };
 		D3C0F0F71C8B4ADF00D0B26C /* colours.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3C0F0F51C8B4ADF00D0B26C /* colours.jpg */; };
@@ -155,6 +157,8 @@
 		D32E27171C8653B700B71D25 /* LevelFourController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelFourController.h; sourceTree = "<group>"; };
 		D32E27181C86540000B71D25 /* LevelFiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelFiveController.m; path = ../LevelFiveController.m; sourceTree = "<group>"; };
 		D32E271A1C86541800B71D25 /* LevelFiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelFiveController.h; path = ../LevelFiveController.h; sourceTree = "<group>"; };
+		D379FFFB1C949F0100CF22F7 /* highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = highlight.png; path = ../../Images/Symbols/Cloze/highlight.png; sourceTree = "<group>"; };
+		D379FFFF1C94DEA600CF22F7 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		D3852BDD1C8B32280012FDD4 /* CategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryController.m; sourceTree = "<group>"; };
 		D3C0F0F41C8B4ADF00D0B26C /* animals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = animals.jpg; path = ../../Images/Symbols/Words/animals.jpg; sourceTree = "<group>"; };
 		D3C0F0F51C8B4ADF00D0B26C /* colours.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = colours.jpg; path = ../../Images/Symbols/Words/colours.jpg; sourceTree = "<group>"; };
@@ -305,6 +309,17 @@
 			name = Remote;
 			sourceTree = "<group>";
 		};
+		D379FFFA1C94995A00CF22F7 /* Property Lists */ = {
+			isa = PBXGroup;
+			children = (
+				D3DE668A1C90D6DF00DB4432 /* Sentences.plist */,
+				D3DE668E1C90E43D00DB4432 /* Words.plist */,
+				D318B2841C8B1E93006AE44F /* Animals.plist */,
+				D3C0F14D1C8B62CF00D0B26C /* Colours.plist */,
+			);
+			name = "Property Lists";
+			sourceTree = "<group>";
+		};
 		D3852BDC1C8B32120012FDD4 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,8 +335,6 @@
 				D32E27141C86538A00B71D25 /* LevelFourController.m */,
 				D32E271A1C86541800B71D25 /* LevelFiveController.h */,
 				D32E27181C86540000B71D25 /* LevelFiveController.m */,
-				D318B2841C8B1E93006AE44F /* Animals.plist */,
-				D3C0F14D1C8B62CF00D0B26C /* Colours.plist */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -384,6 +397,7 @@
 				D3C0F1581C8B654E00D0B26C /* purple.png */,
 				D3C0F1591C8B654E00D0B26C /* red.png */,
 				D3C0F15A1C8B654E00D0B26C /* turquoise.png */,
+				D379FFFF1C94DEA600CF22F7 /* yellow.png */,
 				D3C0F15B1C8B654E00D0B26C /* white.png */,
 			);
 			name = colours;
@@ -460,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				D3CC59F41C853E98009A1909 /* MultipeerConnectivity.framework */,
+				D379FFFA1C94995A00CF22F7 /* Property Lists */,
 				D3D909871C8573B1008D180A /* Images */,
 			);
 			name = Resources;
@@ -532,8 +547,6 @@
 			children = (
 				D3DE66801C90CB0400DB4432 /* PictureGameController.h */,
 				D3DE66811C90CBDE00DB4432 /* PictureGameController.m */,
-				D3DE668A1C90D6DF00DB4432 /* Sentences.plist */,
-				D3DE668E1C90E43D00DB4432 /* Words.plist */,
 			);
 			name = "Picture Game";
 			sourceTree = "<group>";
@@ -544,6 +557,7 @@
 				D3D282911C937DF9001B6D5B /* a.png */,
 				D3D2828F1C937D2D001B6D5B /* milk.jpg */,
 				D3D282881C937B9A001B6D5B /* are.jpg */,
+				D379FFFB1C949F0100CF22F7 /* highlight.png */,
 				D3D282891C937B9A001B6D5B /* two.jpg */,
 				D3D282951C93889B001B6D5B /* placeholder.png */,
 				D3D282711C937A28001B6D5B /* cat-milk.jpg */,
@@ -725,6 +739,7 @@
 				D3C0F1431C8B5F3100D0B26C /* lion.jpg in Resources */,
 				D3C0F1441C8B5F3100D0B26C /* monkey.jpg in Resources */,
 				D3C0F13B1C8B5F3100D0B26C /* fish.jpg in Resources */,
+				D379FFFC1C949F0100CF22F7 /* highlight.png in Resources */,
 				D3DE66941C90F4FD00DB4432 /* is.jpg in Resources */,
 				D3C0F1451C8B5F3100D0B26C /* mouse.jpg in Resources */,
 				D31925161C8BAE9E00C6E36E /* background.jpg in Resources */,
@@ -756,6 +771,7 @@
 				D3D282901C937D2D001B6D5B /* milk.jpg in Resources */,
 				D3C0F15E1C8B654E00D0B26C /* brown.png in Resources */,
 				D3C0F1381C8B5F3100D0B26C /* dog.jpg in Resources */,
+				D37900001C94DEA600CF22F7 /* yellow.png in Resources */,
 				D3C0F1071C8B4B4600D0B26C /* cardbkg.jpg in Resources */,
 				D3C0F13A1C8B5F3100D0B26C /* elephant.jpg in Resources */,
 				D3DE66951C90F4FD00DB4432 /* the.jpg in Resources */,
