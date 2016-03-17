@@ -6,10 +6,12 @@
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 
 @interface PictureGameController : UIViewController
 
+@property (nonatomic, strong) AppDelegate *appDelegate;
 //Image
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 

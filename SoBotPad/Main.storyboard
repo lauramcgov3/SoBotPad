@@ -69,10 +69,87 @@
             </objects>
             <point key="canvasLocation" x="557" y="-160"/>
         </scene>
-        <!--Picture Game Controller-->
+        <!--RomoTalkController-->
+        <scene sceneID="bwG-5X-RRl">
+            <objects>
+                <viewController storyboardIdentifier="RomoTalkController" title="RomoTalkController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d74-qe-gnD" customClass="RomoTalkController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xzU-H2-Eik"/>
+                        <viewControllerLayoutGuide type="bottom" id="cnJ-Oc-mgT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Vp-Ih-EMB">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romotalk.jpg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-T5-IWb">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hiw-ml-upJ">
+                                <rect key="frame" x="636" y="449" width="200" height="200"/>
+                                <state key="normal" title="no" image="no.png"/>
+                                <connections>
+                                    <action selector="noButton:" destination="d74-qe-gnD" eventType="touchUpInside" id="c6U-gw-qXp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuY-n8-1R6">
+                                <rect key="frame" x="336" y="449" width="200" height="200"/>
+                                <state key="normal" title="yes" image="yes.png"/>
+                                <connections>
+                                    <action selector="yesButton:" destination="d74-qe-gnD" eventType="touchDown" id="K4Q-rF-BdK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpi-ke-XHj">
+                                <rect key="frame" x="413" y="670" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKs-Fu-Kl9">
+                                <rect key="frame" x="715" y="670" width="46" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-cM-S67">
+                                <rect key="frame" x="271" y="225" width="100" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOA-7h-5t1">
+                                <rect key="frame" x="392" y="225" width="100" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bkq-vz-sFp">
+                                <rect key="frame" x="526" y="225" width="100" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wDC-xr-YdD">
+                                <rect key="frame" x="649" y="225" width="100" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pEx-gG-S3T">
+                                <rect key="frame" x="770" y="225" width="100" height="100"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="noButton" destination="Hiw-ml-upJ" id="H82-4L-8iy"/>
+                        <outlet property="noLabel" destination="NKs-Fu-Kl9" id="JrH-IM-iVI"/>
+                        <outlet property="question1" destination="aeg-cM-S67" id="vrZ-9O-J0u"/>
+                        <outlet property="question2" destination="fOA-7h-5t1" id="sBa-jq-NHt"/>
+                        <outlet property="question3" destination="Bkq-vz-sFp" id="har-EI-vMf"/>
+                        <outlet property="question4" destination="wDC-xr-YdD" id="Kv6-Dr-uIn"/>
+                        <outlet property="question5" destination="pEx-gG-S3T" id="L7e-jN-VT0"/>
+                        <outlet property="yesButton" destination="cuY-n8-1R6" id="Iui-4A-qj6"/>
+                        <outlet property="yesLabel" destination="Wpi-ke-XHj" id="Rjf-e8-bSl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LxF-nJ-kcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-481" y="1040"/>
+        </scene>
+        <!--PictureGameController-->
         <scene sceneID="3ju-ok-lJU">
             <objects>
-                <viewController storyboardIdentifier="PictureGameController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s3S-t8-nOG" customClass="PictureGameController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PictureGameController" title="PictureGameController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s3S-t8-nOG" customClass="PictureGameController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2zR-cb-I2d"/>
                         <viewControllerLayoutGuide type="bottom" id="uhx-Eg-3ot"/>
@@ -94,25 +171,29 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ3-In-0ie">
                                 <rect key="frame" x="110" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word1:" destination="s3S-t8-nOG" eventType="touchUpInside" id="3gc-tn-vOm"/>
+                                    <action selector="finishWord1:" destination="s3S-t8-nOG" eventType="touchUpInside" id="qh6-AJ-2he"/>
+                                    <action selector="word1:" destination="s3S-t8-nOG" eventType="touchDown" id="IZU-3m-a9u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHZ-sR-auA">
                                 <rect key="frame" x="328" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word2:" destination="s3S-t8-nOG" eventType="touchUpInside" id="deJ-GL-MGF"/>
+                                    <action selector="finishWord2:" destination="s3S-t8-nOG" eventType="touchUpInside" id="eAg-IC-w67"/>
+                                    <action selector="word2:" destination="s3S-t8-nOG" eventType="touchDown" id="yWJ-ts-chX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-g8-X8L">
                                 <rect key="frame" x="546" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word3:" destination="s3S-t8-nOG" eventType="touchUpInside" id="JoG-tw-P01"/>
+                                    <action selector="finishWord3:" destination="s3S-t8-nOG" eventType="touchUpInside" id="bEC-mH-wZY"/>
+                                    <action selector="word3:" destination="s3S-t8-nOG" eventType="touchDown" id="bGM-pK-Bdb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-2a-jXA">
                                 <rect key="frame" x="764" y="330" width="150" height="150"/>
                                 <connections>
-                                    <action selector="word4:" destination="s3S-t8-nOG" eventType="touchUpInside" id="mA7-my-5q1"/>
+                                    <action selector="finishWord4:" destination="s3S-t8-nOG" eventType="touchUpInside" id="Jl3-HI-PWr"/>
+                                    <action selector="word4:" destination="s3S-t8-nOG" eventType="touchDown" id="Sjc-Hk-MyT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-ab-aD0">
@@ -154,6 +235,7 @@
                         <outlet property="word2" destination="EHZ-sR-auA" id="RGW-H2-vf4"/>
                         <outlet property="word3" destination="8oq-g8-X8L" id="0Td-Xr-LWW"/>
                         <outlet property="word4" destination="YTA-2a-jXA" id="hBA-ph-nxv"/>
+                        <segue destination="d74-qe-gnD" kind="show" identifier="RomoTalkController" id="S07-lj-Uae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7w-iR-ZLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -753,7 +835,7 @@
                                 <connections>
                                     <action selector="matchGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="FWX-ld-T0E"/>
                                     <action selector="pictureGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="6Ey-z9-pJK"/>
-                                    <segue destination="s3S-t8-nOG" kind="show" id="KEV-Vx-3ve"/>
+                                    <segue destination="s3S-t8-nOG" kind="show" identifier="PictureGameController" id="KEV-Vx-3ve"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -923,12 +1005,15 @@
         <image name="four-sweets.jpg" width="700" height="370"/>
         <image name="happy.png" width="268" height="294"/>
         <image name="match-icon.png" width="394" height="336"/>
+        <image name="no.png" width="394" height="336"/>
         <image name="one-sweet.jpg" width="300" height="300"/>
         <image name="picture-game.png" width="150" height="150"/>
+        <image name="romotalk.jpg" width="1303" height="839"/>
         <image name="sad.png" width="272" height="294"/>
         <image name="three-sweets.png" width="150" height="150"/>
         <image name="tired.png" width="272" height="296"/>
         <image name="two-sweets.jpg" width="150" height="150"/>
+        <image name="yes.png" width="394" height="336"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QQo-z2-Dak"/>
