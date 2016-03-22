@@ -15,16 +15,28 @@
 #import "AppDelegate.h"
 
 @implementation CategoryController
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.title = @"Categories";
     
-    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
-    [[self navigationItem] setRightBarButtonItem:HomeButton];
+    //Set back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    
+    //Set home button
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar.png"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [self.navigationItem setRightBarButtonItem:homeButton];
 }
 
-- (void)didReceiveMemoryWarning {
+-(void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

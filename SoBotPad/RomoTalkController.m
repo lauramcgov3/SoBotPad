@@ -9,19 +9,18 @@
 @import AVFoundation;
 #import <Foundation/Foundation.h>
 #import "RomoTalkController.h"
+#import "PictureGameController.h"
 #import "Macros.h"
 #import "AppDelegate.h"
 
 @interface RomoTalkController ()
 
-@property NSString *question;
+@property NSString *talk;
 
 @end
 
 @implementation RomoTalkController
 
-static bool first = true;
-static bool second = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,26 +28,37 @@ static bool second = false;
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     self.title = @"Romo Talk";
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    //Set back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
     
     //Set home button
-    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Home"
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(home)];
-    [[self navigationItem] setRightBarButtonItem:HomeButton];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [self.navigationItem setRightBarButtonItem:homeButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveDataWithNotification:)
                                                  name:NOTIFICATION_MC_DID_RECEIVE_DATA
                                                object:nil];
-
     
+    self.playAgain.hidden = YES;
+    self.playAgainLabel.hidden = YES;
+    self.homeButton.hidden = YES;
+    self.homeLabel.hidden = YES;
+    
+}
+
+-(void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [self sendMessage:self.title];
+    [self speakString:self.talk];
 }
 
 
@@ -65,135 +75,124 @@ static bool second = false;
     
     [[NSOperationQueue mainQueue]addOperationWithBlock:
      ^{
-         if ([receivedMessage isEqualToString:@"do you like dogs ?"])
+         if ([receivedMessage isEqualToString:@"dogs are my favourite animal"])
          {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
+             self.talk = receivedMessage;
+             NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
+             return;
          }
-         else if ([receivedMessage isEqualToString:@"do you like sleeping ?"])
+         if ([receivedMessage isEqualToString:@"sleep gives me more energy"])
          {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
+             self.talk = receivedMessage;
+             NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
+             return;
          }
-         else if ([receivedMessage isEqualToString:@"do you like cats ?"])
+         if ([receivedMessage isEqualToString:@"i really hate cats !"])
          {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
+             self.talk = receivedMessage;
+             NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
+             return;
          }
-         else if ([receivedMessage isEqualToString:@"do you like playing ?"])
+         if ([receivedMessage isEqualToString:@"i could play all day"])
          {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
+             self.talk = receivedMessage;
+             NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
+             return;
          }
-         else if ([receivedMessage isEqualToString:@"dogs are my favourite animal"])
+         if ([receivedMessage isEqualToString:@"this is how i run"])
          {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
+             self.talk = receivedMessage;
+             NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
+             return;
          }
-         else if ([receivedMessage isEqualToString:@"sleep gives me more energy"])
+         if ([receivedMessage isEqualToString:@"robots cannot go swimming !"])
          {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
+             self.talk = receivedMessage;
+             NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
+             return;
          }
-         else if ([receivedMessage isEqualToString:@"i really hate cats !"])
+         if ([receivedMessage isEqualToString:@"done"])
          {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
-             [self splitQuestion];
+             [self getButtons];
+             return;
          }
-         else if ([receivedMessage isEqualToString:@"i could play all day"])
-         {
-             NSLog(@"Received: %@", receivedMessage);
-             self.question = receivedMessage;
-             [self splitQuestion];
-         }
+         
      }];
 
 }
 
 - (void) splitQuestion
 {
-    self.words = [self.question componentsSeparatedByString:@" "];
-    NSLog(@"Question words: %@", self.words);
+    self.words = [self.talk componentsSeparatedByString:@" "];
     [self getQuestionImages:self.words];
     
 }
 
 - (void) getQuestionImages: (NSArray *)arr
 {
-    NSLog(@"%@", arr);
     
-    self.questionImageViews = [[ NSArray alloc] initWithObjects:self.question1,self.question2,self.question3, self.question4, self.question5,nil];
+    self.talkImageViews = [[ NSArray alloc] initWithObjects:self.talk1,self.talk2,self.talk3, self.talk4, self.talk5,nil];
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Words" ofType:@"plist"];
-    self.questionImages = [NSDictionary dictionaryWithContentsOfFile:filePath];
-    NSLog(@"Question images: %@", self.questionImages);
+    self.talkImages = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    [NSThread sleepForTimeInterval:1.5f];
     
     for (int i = 0; i<[arr count];)
     {
-        for (int j = 0; j<[self.questionImageViews count]; j++)
+        for (int j = 0; j<[self.talkImageViews count]; j++)
         {
             NSString *word = [arr objectAtIndex:i];
-            NSString *imageName = [self.questionImages objectForKey:word];
-            UIImageView *imageView = [self.questionImageViews objectAtIndex:j];
+            NSString *imageName = [self.talkImages objectForKey:word];
+            UIImageView *imageView = [self.talkImageViews objectAtIndex:j];
             imageView.image = [UIImage imageNamed:imageName];
-            NSLog(@"here");
             i++;
-            
         }
     }
+    NSLog(@"Done");
+    [self sendDone];
     
-    if (first == false)
-    {
-        self.yesButton.hidden = YES;
-        self.yesLabel.hidden = YES;
-        self.noButton.hidden = YES;
-        self.noLabel.hidden = YES;
-        second = true;
-    }
-    else if (second == true)
-    {
-        NSLog(@"second");
-    }
-    
-    
-    first = false;
 }
 
-- (IBAction)yesButton:(id)sender
+- (void) sendDone
 {
-    NSString *yes = @"yes";
-    
-    NSString *word = [self.words objectAtIndex:3];
-    
-    NSString *combined = [NSString stringWithFormat:@"%@ %@", yes, word];
-    NSLog(@"Combined: %@", combined);
-    
-    [self sendMessage:combined];
+    [NSThread sleepForTimeInterval:2.5f];
+    [self sendMessage:@"buttons loaded"];
 }
 
-- (IBAction)noButton:(id)sender
+- (void) getButtons
 {
-    NSString *no = @"no";
-    
-    NSString *word = [self.words objectAtIndex:3];
-    
-    NSString *combined = [NSString stringWithFormat:@"%@ %@", no, word];
-    NSLog(@"Combined: %@", combined);
-    
-    [self sendMessage:combined];
+    [NSThread sleepForTimeInterval:2.5f];
+    self.playAgain.hidden = NO;
+    self.playAgainLabel.hidden = NO;
+    self.homeButton.hidden = NO;
+    self.homeLabel.hidden = NO;
+
+}
+
+
+- (IBAction)playAgain:(id)sender
+{
+    [self speakString:@"Play again"];
+    [self changeToGame];
+}
+
+- (IBAction)homeButton:(id)sender
+{
+    [self speakString:@"Home"];
+    [self home];
 }
 
 -(void)sendMessage: (NSString *)str
 {
-    NSLog(@"Message: %@", str);
+    
     NSString *message = str;
+    NSLog(@"Message: %@", message);
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
     NSError *error;
@@ -209,12 +208,43 @@ static bool second = false;
     return;
 }
 
-
+-(void)speakString: (NSString *)str
+{
+    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+    
+    
+    NSString *input = str;
+    
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:input];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+    utterance.rate = 0.40;
+    [synthesizer speakUtterance:utterance];
+}
 
 - (void) home
 {
+    
     MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
     [self.navigationController pushViewController:menuController animated:YES];
     
 }
+
+
+
+- (void) changeToGame
+{
+    
+    PictureGameController *pictureGameController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PictureGameController"];
+    [self.navigationController pushViewController:pictureGameController animated:NO];
+    
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NOTIFICATION_MC_DID_RECEIVE_DATA
+                                                  object:nil];
+}
+
+
 @end

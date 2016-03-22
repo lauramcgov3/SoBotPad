@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PictureGameController.h"
 #import "MenuController.h"
-#import "RomoTalkController.h"
+#import "RomoAskController.h"
 #import "Macros.h"
 #import "AppDelegate.h"
 
@@ -26,17 +26,12 @@
 @property NSString* missingTitle2;
 @property NSArray* choiceImages;
 @property NSInteger match;
-@property NSString *question;
-
 
 @end
+
 @implementation PictureGameController
 
-// Static bools
-static bool firstGuess = true;
-static bool gameWinner = false;
-static bool isMatch = false;
-static bool firstMatch = false;
+bool isMatch = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,21 +41,31 @@ static bool firstMatch = false;
     // Set page title
     self.title = @"Picture Game";
     
-    //Call first method
-    [self getSentences];
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    //Set back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
     
     //Set home button
-    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Home"
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(home)];
-    [[self navigationItem] setRightBarButtonItem:HomeButton];
-    
-    // Initialise match count
-    self.match = 0;
-    
-    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [self.navigationItem setRightBarButtonItem:homeButton];
+}
+
+-(void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    //Call first method
+    [self getSentences];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self speakString:self.sentenceChosen];
 }
 
 - (void) getSentences
@@ -76,6 +81,7 @@ static bool firstMatch = false;
     self.imageView.image = [UIImage imageNamed:self.sentenceImage];
     
     self.sentenceChosen = [sentenceObject objectForKey:@"Sentence"];
+    [self sendMessage:self.sentenceChosen];
     [self splitSentence:self.sentenceChosen];
     
 }
@@ -108,7 +114,7 @@ static bool firstMatch = false;
         }
     }
     
-    [NSTimer scheduledTimerWithTimeInterval:5.0
+    [NSTimer scheduledTimerWithTimeInterval:3.0
                                      target:self
                                    selector:@selector(removeButtons)
                                    userInfo:nil
@@ -187,259 +193,39 @@ static bool firstMatch = false;
     
 }
 
-- (IBAction)finishWord1:(id)sender
+- (IBAction)choiceButton:(id)sender
 {
-    //NSInteger match = 1;
-    if (gameWinner == true)
-    {
-        [self speakWinner];
-        [self sendMessage:@"won"];
-        [self sendMessage:self.sentenceChosen];
-        [self changeToRomo];
-        return;
-    }
-    else if (isMatch == true)
-    {
-        [self sendMessage:@"match"];
-    }
-    else if (isMatch == false)
-    {
-        [self sendMessage:@"mismatch"];
-    }
-    else if (isMatch == false && firstMatch == true)
-    {
-        [self sendMessage:@"mismatch"];
-    }
+    self.missing1.highlighted = YES;
+    self.missing2.highlighted = YES;
+    NSString *title = [sender currentTitle];
+    NSLog(@"Choice title: %@", title);
+    self.guess1 = title;
+    NSLog(@"Guess 1: %@", self.guess1);
     
-    
+   self.guess1Tag = [sender tag];
+    NSLog(@"Tag: %lu", (unsigned long)self.guess1Tag);
+    [self speakString:title];
 }
 
-- (IBAction)finishWord2:(id)sender
+- (IBAction)sentenceButton:(id)sender
 {
-    NSInteger match = 1;
-    if (gameWinner == true)
-    {
-        [self speakWinner];
-        [self sendMessage:@"won"];
-        [self sendMessage:self.sentenceChosen];
-        [self changeToRomo];
-        return;
-    }
-    else if (isMatch == true)
-    {
-        [self sendMessage:@"match"];
-    }
-    else if (isMatch == false)
-    {
-        [self sendMessage:@"mismatch"];
-    }
-    else if (self.match == match && isMatch == true)
-    {
-        [self sendMessage:@"match"];
-    }
-    else if (self.match == match && isMatch == false)
-    {
-        [self sendMessage:@"mismatch"];
-    }
-    
-}
-
-- (IBAction)finishWord3:(id)sender
-{
-    NSInteger match = 1;
-    if (gameWinner == true)
-    {
-        [self speakWinner];
-        [self sendMessage:@"won"];
-        [self sendMessage:self.sentenceChosen];
-        [self changeToRomo];
-        return;
-    }
-    else if (isMatch == true)
-    {
-        [self sendMessage:@"match"];
-    }
-    else if (isMatch == false)
-    {
-        [self sendMessage:@"mismatch"];
-    }
-    else if (self.match == match && isMatch == true)
-    {
-        [self sendMessage:@"match"];
-    }
-    else if (self.match == match && isMatch == false)
-    {
-        [self sendMessage:@"mismatch"];
-    }
-    
-}
-
-- (IBAction)finishWord4:(id)sender
-{
-    NSInteger nomatch = 0;
-    NSInteger match = 1;
-    if (gameWinner == true)
-    {
-        [self speakWinner];
-        [self sendMessage:@"won"];
-        [self sendMessage:self.sentenceChosen];
-        [self changeToRomo];
-        return;
-    }
-    else if (self.match == match && isMatch == true)
-    {
-        [self sendMessage:@"match"];
-    }
-    else if (self.match == match && isMatch == false)
-    {
-        [self sendMessage:@"mismatch"];
-    }
-    else if (self.match == nomatch && isMatch == true)
-    {
-        [self sendMessage:@"match"];
-    }
-    else if (self.match == nomatch && isMatch == true)
-    {
-        [self sendMessage:@"mismatch"];
-    }
-    
-}
-
-
--(IBAction)word1:(id)sender
-{
-    [self speakString:[sender currentTitle]];
+    NSString *title = [sender currentTitle];
     NSUInteger tag = [sender tag];
+    self.guess2 = title;
+    [self speakString:title];
     
-    self.guess2 = [sender currentTitle];
-    [self buttonAction:&tag];
-}
-
--(IBAction)word2:(id)sender
-{
-    [self speakString:[sender currentTitle]];
-    NSUInteger tag = [sender tag];
-    
-    self.guess2 = [sender currentTitle];
-    [self buttonAction:&tag];
-    
-}
-
--(IBAction)word3:(id)sender
-{
-    [self speakString:[sender currentTitle]];
-    NSUInteger tag = [sender tag];
-    
-    self.guess2 = [sender currentTitle];
-    [self buttonAction:&tag];
-}
-
--(IBAction)word4:(id)sender
-{
-    [self speakString:[sender currentTitle]];
-    NSUInteger tag = [sender tag];
-    
-    self.guess2 = [sender currentTitle];
-    [self buttonAction:&tag];
-}
-
--(IBAction)choice1:(id)sender
-{
-    [self speakString:[sender currentTitle]];
-    self.guess1 = [sender currentTitle];
-    self.guess1Tag = [sender tag];
-    [self.missing1 setHighlighted:YES];
-    [self.missing2 setHighlighted:YES];
-}
-
--(IBAction)choice2:(id)sender
-{
-    [self speakString: [sender currentTitle]];
-    self.guess1 = [sender currentTitle];
-    self.guess1Tag = [sender tag];
-    [self.missing1 setHighlighted:YES];
-    [self.missing2 setHighlighted:YES];
-
-}
-
--(IBAction)choice3:(id)sender
-{
-    [self speakString: [sender currentTitle]];
-    self.guess1 = [sender currentTitle];
-    self.guess1Tag = [sender tag];
-    [self.missing1 setHighlighted:YES];
-    [self.missing2 setHighlighted:YES];
-
-}
-
--(IBAction)choice4:(id)sender
-{
-    [self speakString: [sender currentTitle]];
-    self.guess1 = [sender currentTitle];
-    self.guess1Tag = [sender tag];
-    [self.missing1 setHighlighted:YES];
-    [self.missing2 setHighlighted:YES];
-}
-
-- (void) buttonAction: (NSUInteger *)tag
-{
-    
-    // If not a match for missingTitle1
-    if (![self.missingTitle1 isEqualToString:self.guess2] && ![self.guess1 isEqualToString:self.guess2])
-    {
-        // Set missing buttons to not hightlighted
-        [self.missing1 setHighlighted:NO];
-        [self.missing2 setHighlighted:NO];
-        
-        // Check result
-        [self checkResult];
-    }
-
-    // If not a match for missingTitle2
-    else if (![self.missingTitle2 isEqualToString:self.guess2] && ![self.guess1 isEqualToString:self.guess2])
-    {
-        // Set missing buttons to not highlighted
-        [self.missing1 setHighlighted:NO];
-        [self.missing2 setHighlighted:NO];
-        
-        // Check result
-        [self checkResult];
-    }
-    
-    // If match for missingTitle1
-    else if ([self.missingTitle1 isEqualToString:self.guess2] && [self.guess1 isEqualToString:self.guess2])
+    if ([self.guess1 isEqualToString:self.guess2])
     {
         // Increment match int
         self.match++;
         
-        // Get image name, get image, set button to image
-        NSString *imageName = [self.sentenceImages objectForKey:self.guess2];
-        UIImage *buttonImage = [UIImage imageNamed:imageName];
-        UIButton *button = [self.sentenceButtons objectAtIndex:*tag];
-        [button setImage:buttonImage forState: UIControlStateNormal];
-        UIButton *matchButton = [self.allButtons objectAtIndex:self.guess1Tag];
-        
-        // Hide the button that has been matched
-        matchButton.hidden = YES;
-        
-        //Set missing buttons to not hightlighted
-        [self.missing1 setHighlighted:NO];
-        [self.missing2 setHighlighted:NO];
-        
-        // Check result
-        [self checkResult];
-    }
-    
-    // If match for missingTitle2
-    else if ([self.missingTitle2 isEqualToString:self.guess2] && [self.guess1 isEqualToString:self.guess2])
-    {
-        // Increment match int
-        self.match++;
+        //Set match to true
+        isMatch = true;
         
         // Get image name, get image, set button to image
         NSString *imageName = [self.sentenceImages objectForKey:self.guess2];
         UIImage *buttonImage = [UIImage imageNamed:imageName];
-        UIButton *button = [self.sentenceButtons objectAtIndex:*tag];
+        UIButton *button = [self.sentenceButtons objectAtIndex:tag];
         [button setImage:buttonImage forState: UIControlStateNormal];
         UIButton *matchButton = [self.allButtons objectAtIndex:self.guess1Tag];
         
@@ -449,84 +235,40 @@ static bool firstMatch = false;
         // Set missing buttons to not hightlighted
         [self.missing1 setHighlighted:NO];
         [self.missing2 setHighlighted:NO];
-        
-        // Check result
-        [self checkResult];
-        
+    }
+    else if (![self.guess1 isEqualToString:self.guess2])
+    {
+        isMatch = false;
+        [self.missing1 setHighlighted:NO];
+        [self.missing2 setHighlighted:NO];
     }
 }
 
-
-- (void) checkResult
+- (void)setHighlighted:(BOOL)highlighted
 {
-    // If it is the first guess
-    if (firstGuess == true)
-    {
-        NSLog(@"First guess: %d", firstGuess);
-        
-        //Possible results
-        NSInteger nomatch = 0;
-        NSInteger match = 1;
-        
-        //Set to second guess
-        firstGuess = false;
-        
-        // Compare match value to possible results
-        if (self.match == nomatch)
-        {
-            // If no match
-            NSLog(@"No match");
-            isMatch = false;
-        }
-        else if (self.match == match)
-        {
-            // If match
-            NSLog(@"Match");
-            isMatch = true;
-            firstMatch = true;
-        }
-    }
-    // If it is the second guess
-    else if (firstGuess == false)
-    {
-        NSLog(@"Second guess: %d", firstGuess);
-        
-        //Possible results
-        NSInteger win = 2;
-        NSInteger match = 1;
-        NSInteger nomatch = 0;
-        
-        // Compare match value to possible results
-        if (self.match == nomatch)
-        {
-            // If no match
-            NSLog(@"No match");
-            [self sendMessage:@"mismatch"];
-            gameWinner = false;
-            isMatch = false;
-        }
-        else if (self.match == match)
-        {
-            // If match but not winer
-            NSLog(@"Match but not winner");
-            gameWinner = false;
-            isMatch = true;
-            firstMatch = true;
-        }
-        else if (self.match == win)
-        {
-            // Winner
-            NSLog(@"Win");
-            gameWinner = true;
-            isMatch = false;
-        }
-    }
+    [self.missing1 setImage:[UIImage imageNamed:@"highlight.jpg"] forState:UIControlStateHighlighted];
+    [self.missing2 setImage:[UIImage imageNamed:@"highlight.jpg"] forState:UIControlStateHighlighted];
 }
 
-- (void) speakWinner
+- (IBAction)finishSentenceButton:(id)sender
 {
-    [self speakString:self.sentenceChosen];
-    return;
+    NSInteger win = 2;
+    
+    if (self.match == win)
+    {
+        NSLog(@"Win");
+        [self changeToRomoAsk];
+    }
+    else if (isMatch == true)
+    {
+        NSLog(@"Match after");
+        [self sendMessage:@"match"];
+    }
+    else if (isMatch == false)
+    {
+        NSLog(@"Mistmatch after");
+        [self sendMessage:@"mismatch"];
+    }
 }
 
 -(void)speakString: (NSString *)str
@@ -559,19 +301,6 @@ static bool firstMatch = false;
     if (error)
         NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
 }
-
-- (void) didReceiveDataWithNotification:(NSNotification *)notification
-{
-    MCPeerID *peerID = [[notification userInfo]objectForKey:SESSION_KEY_PEER_ID];
-    NSString *peerDisplayName = peerID.displayName;
-    
-    NSData *receivedData = [[notification userInfo]objectForKey:SESSION_KEY_DATA];
-    NSString *receivedMessage = [[NSString alloc]initWithData:receivedData encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"peerDisplayName = %@", peerDisplayName);
-    NSLog(@"receivedMessage = %@", receivedMessage);
-}
-
 - (void) home
 {
     MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
@@ -579,15 +308,17 @@ static bool firstMatch = false;
     
 }
 
-- (void) changeToRomo
+- (void) changeToRomoAsk
 {
-    RomoTalkController *romoTalkController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RomoTalkController"];
-    [self.navigationController pushViewController:romoTalkController animated:YES];
+    RomoAskController *romoAskController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RomoAskController"];
+    [self.navigationController pushViewController:romoAskController animated:YES];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void) viewWillDisappear:(BOOL)animated
 {
-    [self speakString:self.sentenceChosen];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NOTIFICATION_MC_DID_RECEIVE_DATA
+                                                  object:nil];
 }
 
 @end

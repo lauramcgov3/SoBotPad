@@ -6,79 +6,85 @@
 		<key>Name</key>
 		<string>black</string>
 		<key>Image</key>
-		<string>black.png</string>
+		<string>black.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>blue</string>
 		<key>Image</key>
-		<string>blue.png</string>
+		<string>blue.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>brown</string>
 		<key>Image</key>
-		<string>brown.png</string>
+		<string>brown.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>cream</string>
+		<string>gold</string>
 		<key>Image</key>
-		<string>cream.png</string>
+		<string>gold.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>green</string>
 		<key>Image</key>
-		<string>green.png</string>
+		<string>green.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>grey</string>
 		<key>Image</key>
-		<string>grey.png</string>
+		<string>gray.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>orange</string>
 		<key>Image</key>
-		<string>orange.png</string>
+		<string>orange.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>pink</string>
 		<key>Image</key>
-		<string>pink.png</string>
+		<string>pink.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>purple</string>
 		<key>Image</key>
-		<string>purple.png</string>
+		<string>purple.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>red</string>
 		<key>Image</key>
-		<string>red.png</string>
+		<string>red.jpeg</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>silver</string>
+		<key>Image</key>
+		<string>silver.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>turquoise</string>
 		<key>Image</key>
-		<string>turquoise.png</string>
+		<string>turquoise.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>yellow</string>
 		<key>Image</key>
-		<string>yellow.png</string>
+		<string>yellow.jpeg</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>white</string>
 		<key>Image</key>
-		<string>white.png</string>
+		<string>white.jpeg</string>
 	</dict>
 </array>
 </plist>

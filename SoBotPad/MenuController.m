@@ -42,6 +42,7 @@
     self.navigationItem.hidesBackButton = YES;
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self.navigationController setNavigationBarHidden:NO];
     
     // Set title
     self.title = @"Home";
@@ -102,7 +103,7 @@
         [self.navigationController pushViewController:gamesController animated:NO];
         
     }
-    else if ([self.menuItem isEqualToString:@"Feelings"])
+    else if ([self.menuItem isEqualToString:@"Remote"])
     {
         [self speakString:self.menuItem];
         

@@ -1,8 +1,8 @@
 //
-//  RemoteController.h
+//  RemoteViewController.h
 //  SoBotPad
 //
-//  Created by Laura on 06/03/2016.
+//  Created by Laura on 21/03/2016.
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
@@ -10,18 +10,16 @@
 #import "AppDelegate.h"
 
 @interface RemoteController : UIViewController
+{
+    CGPoint playerOrigin;
+    IBOutlet UIView *player;
+}
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 
-@property (nonatomic) NSString *remote;
+@property (strong, nonatomic) IBOutlet UIButton *forward;
+@property (strong, nonatomic) IBOutlet UIButton *backward;
+@property (strong, nonatomic) NSString *startLocation;
 
-- (IBAction)happy:(id)sender;
-- (IBAction)excited:(id)sender;
-- (IBAction)sad:(id)sender;
-- (IBAction)angry:(id)sender;
-- (IBAction)confused:(id)sender;
-- (IBAction)tired:(id)sender;
-- (IBAction)bored:(id)sender;
-- (IBAction)afraid:(id)sender;
 
 @end

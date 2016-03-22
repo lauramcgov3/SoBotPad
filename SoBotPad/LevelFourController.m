@@ -77,8 +77,13 @@ static bool isWinner = false;
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
-    [[self navigationItem] setRightBarButtonItem:HomeButton];
+    //Set back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    
+    //Set home button
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [self.navigationItem setRightBarButtonItem:homeButton];
     
     NSString *level = self.level;
     NSLog(@"%@", level);
@@ -99,6 +104,11 @@ static bool isWinner = false;
     
     
     [self getTiles];
+}
+
+-(void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) getTiles

@@ -18,6 +18,14 @@
     [super viewDidLoad];
     
     self.title = @"Games";
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+}
+
+-(void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)matchGame:(id)sender
@@ -29,7 +37,6 @@
 -(IBAction)pictureGame:(id)sender
 {
     NSString *input = [(UIButton *)sender currentTitle];
-    NSLog(@"%@", input);
     [self speakString:input];
 }
 

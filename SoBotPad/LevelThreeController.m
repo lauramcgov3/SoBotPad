@@ -75,8 +75,13 @@ static bool isWinner = false;
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    UIBarButtonItem *HomeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(home)];
-    [[self navigationItem] setRightBarButtonItem:HomeButton];
+    //Set back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    
+    //Set home button
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    [self.navigationItem setRightBarButtonItem:homeButton];
     
     NSString *level = self.level;
     NSLog(@"%@", level);
@@ -97,6 +102,11 @@ static bool isWinner = false;
     
     
     [self getTiles];
+}
+
+-(void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) getTiles
@@ -183,7 +193,8 @@ static bool isWinner = false;
     img7 = [self.imageDictionary objectForKey:key7];
     img8 = [self.imageDictionary objectForKey:key8];
     
-    NSArray *keys = [[NSArray alloc] initWithObjects:key1,
+    NSArray *keys = [[NSArray alloc] initWithObjects:
+                     key1,
                      key2,
                      key3,
                      key4,
@@ -192,6 +203,8 @@ static bool isWinner = false;
                      key7,
                      key8,
                      nil];
+    NSLog(@"Keys: %@", keys);
+    
     self.tiles = [[NSMutableArray alloc] initWithObjects:
                   [UIImage imageNamed:img1],
                   [UIImage imageNamed:img2],
@@ -202,6 +215,8 @@ static bool isWinner = false;
                   [UIImage imageNamed:img7],
                   [UIImage imageNamed:img8],
                   nil];
+    NSLog(@"Tiles: %@", self.tiles);
+    
     self.tileDictionary = [NSDictionary dictionaryWithObjects:self.tiles forKeys:keys];
     NSLog(@" Tile dict: %@", self.tileDictionary);
     NSLog(@"Self tiles: %@", self.tiles);

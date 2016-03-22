@@ -1,89 +1,83 @@
 //
-//  RemoteController.m
+//  RemoteViewController.m
 //  SoBotPad
 //
-//  Created by Laura on 06/03/2016.
+//  Created by Laura on 21/03/2016.
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
-@import AVFoundation;
 #import <Foundation/Foundation.h>
 #import "RemoteController.h"
 #import "Macros.h"
 #import "AppDelegate.h"
 
+@interface RemoteController ()
+{
+    CGPoint originalCenter;
+}
+
+@end
+
 @implementation RemoteController
 
-- (void)viewDidLoad {
+
+-(void)viewDidLoad
+{
     [super viewDidLoad];
     
+    self.title = @"Remote";
+    [self sendMessage:self.title];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    self.title = @"Feelings";
     
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver: self
+                           selector: @selector (onStickChanged:)
+                               name: @"StickChanged"
+                             object: nil];
+
+    //Set back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
 }
 
-- (IBAction)happy:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    NSLog(@"%@", input);
-    [self speakString:input];
-    [self sendMessage:input];
+- (void)viewDidAppear:(BOOL)animated {
+    //    [self showAssistant];
+    [self sendMessage:self.title];
 }
 
-- (IBAction)excited:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)sad:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)angry:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)confused:(id)sender
+- (void)didReceiveMemoryWarning
 {
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)tired:(id)sender{
+- (void)onStickChanged:(id)notification
+{
+    NSDictionary *dict = [notification userInfo];
+    NSValue *vdir = [dict valueForKey:@"dir"];
+    CGPoint dir = [vdir CGPointValue];
     
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
+    CGPoint newpos = playerOrigin;
+    newpos.x = 30.0 * dir.x + playerOrigin.x;
+    newpos.y = 30.0 * dir.y + playerOrigin.y;
+    int wholeX = (int) newpos.x;
+    int wholeY = (int) newpos.y;
+    NSLog(@"X: %d", wholeX);
+    NSLog(@"Y: %d", wholeY);
+    NSString *coordinates = [NSString stringWithFormat:@"%d %d", wholeX, wholeY];
+    NSLog(@"Coordinates: %@", coordinates);
+    CGRect fr = player.frame;
+    fr.origin = newpos;
+    player.frame = fr;
+    [self sendMessage:coordinates];
 }
 
-- (IBAction)bored:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)afraid:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
 
 -(void)sendMessage: (NSString *)str
 {
+    NSLog(@"Message: %@", str);
     NSString *message = str;
-    NSLog(@"%@", message);
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
     NSError *error;
@@ -97,18 +91,10 @@
         NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
 }
 
--(void)speakString:(NSString *) str
+-(void)goBack
 {
-    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-    
-    
-    NSString *input = str;
-    
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:input];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
-    utterance.rate = 0.40;
-    [synthesizer speakUtterance:utterance];
-    sleep(1);
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end

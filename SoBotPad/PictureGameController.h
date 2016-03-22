@@ -21,10 +21,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *word3;
 @property (weak, nonatomic) IBOutlet UIButton *word4;
 
+//Buttons for choices
 @property (weak, nonatomic) IBOutlet UIButton *choice1;
 @property (weak, nonatomic) IBOutlet UIButton *choice2;
 @property (weak, nonatomic) IBOutlet UIButton *choice3;
 @property (weak, nonatomic) IBOutlet UIButton *choice4;
+
 
 @property (strong, nonatomic) NSArray *allSentences;
 @property (strong, nonatomic) NSArray *sentenceButtons;
@@ -32,6 +34,8 @@
 @property (strong, nonatomic) NSArray *allButtons;
 @property (strong, nonatomic) NSArray *animals;
 @property (strong, nonatomic) NSArray *colours;
+
+
 @property (strong, nonatomic) NSDictionary *sentenceImages;
 @property (strong, nonatomic) NSString *sentenceChosen;
 @property (strong, nonatomic) NSString *sentenceImage;

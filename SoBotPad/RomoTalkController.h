@@ -13,21 +13,23 @@
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 
-@property (strong, nonatomic) NSArray *questionImageViews;
+@property (strong, nonatomic) NSArray *talkImageViews;
 @property (strong, nonatomic) NSArray *words;
 
-@property (strong, nonatomic) NSDictionary *questionImages;
+@property (strong, nonatomic) NSDictionary *talkImages;
 
-@property (weak, nonatomic) IBOutlet UIButton* yesButton;
-@property (weak, nonatomic) IBOutlet UIButton* noButton;
-@property (weak, nonatomic) IBOutlet UILabel *yesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *noLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *question1;
-@property (weak, nonatomic) IBOutlet UIImageView *question2;
-@property (weak, nonatomic) IBOutlet UIImageView *question3;
-@property (weak, nonatomic) IBOutlet UIImageView *question4;
-@property (weak, nonatomic) IBOutlet UIImageView *question5;
-- (IBAction)yesButton:(id)sender;
--(IBAction)noButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *playAgain;
+@property (weak, nonatomic) IBOutlet UILabel *playAgainLabel;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
+@property (weak, nonatomic) IBOutlet UILabel *homeLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *talk1;
+@property (weak, nonatomic) IBOutlet UIImageView *talk2;
+@property (weak, nonatomic) IBOutlet UIImageView *talk3;
+@property (weak, nonatomic) IBOutlet UIImageView *talk4;
+@property (weak, nonatomic) IBOutlet UIImageView *talk5;
+
+
+-(IBAction)playAgain:(id)sender;
 
 @end

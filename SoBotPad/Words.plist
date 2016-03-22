@@ -2,45 +2,97 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>run</key>
+	<string>run.jpeg</string>
+	<key>how</key>
+	<string>how.jpeg</string>
+	<key>this</key>
+	<string>this.jpeg</string>
+	<key>sitting</key>
+	<string>sitting.jpeg</string>
+	<key>swim</key>
+	<string>swim.jpeg</string>
+	<key>cannot</key>
+	<string>cannot.jpeg</string>
+	<key>robots</key>
+	<string>robots.jpeg</string>
+	<key>go</key>
+	<string>go.jpeg</string>
+	<key>swimming</key>
+	<string>swimming.jpeg</string>
+	<key>goes</key>
+	<string>goes.jpeg</string>
+	<key>sleep</key>
+	<string>sleep.jpeg</string>
+	<key>!</key>
+	<string>exclamation.jpeg</string>
+	<key>play</key>
+	<string>play.jpeg</string>
+	<key>i</key>
+	<string>i.jpeg</string>
+	<key>day</key>
+	<string>day.jpeg</string>
+	<key>all</key>
+	<string>all.jpeg</string>
+	<key>could</key>
+	<string>could.jpeg</string>
+	<key>hate</key>
+	<string>hate.jpeg</string>
+	<key>really</key>
+	<string>really.jpeg</string>
+	<key>energy</key>
+	<string>energy.jpeg</string>
+	<key>more</key>
+	<string>more.jpeg</string>
+	<key>gives</key>
+	<string>gives.jpeg</string>
+	<key>animal</key>
+	<string>animal.jpeg</string>
+	<key>favourite</key>
+	<string>favourite.jpeg</string>
+	<key>me</key>
+	<string>me.jpeg</string>
+	<key>my</key>
+	<string>my.jpeg</string>
 	<key>?</key>
-	<string>question.jpg</string>
+	<string>questionmark.jpeg</string>
 	<key>cats</key>
-	<string>cats.jpg</string>
+	<string>cats.jpeg</string>
 	<key>like</key>
-	<string>like.jpg</string>
+	<string>like.jpeg</string>
 	<key>you</key>
-	<string>you.jpg</string>
+	<string>you.jpeg</string>
 	<key>do</key>
 	<string>do.jpg</string>
 	<key>milk</key>
-	<string>milk.jpg</string>
+	<string>milk.jpeg</string>
 	<key>a</key>
-	<string>a.png</string>
+	<string>a.jpeg</string>
 	<key>playing</key>
-	<string>playing.jpg</string>
+	<string>playing.jpeg</string>
 	<key>cat</key>
-	<string>cat.jpg</string>
+	<string>cat.jpeg</string>
 	<key>two</key>
-	<string>two.jpg</string>
+	<string>two.jpeg</string>
 	<key>sleeping</key>
-	<string>sleeping.jpg</string>
+	<string>sleeping.jpeg</string>
 	<key>drinks</key>
-	<string>drinks.jpg</string>
+	<string>drinks.jpeg</string>
 	<key>running</key>
-	<string>running.png</string>
+	<string>running.jpeg</string>
 	<key>dogs</key>
-	<string>dogs.png</string>
+	<string>dogs.jpeg</string>
 	<key>are</key>
-	<string>are.jpg</string>
+	<string>are.jpeg</string>
 	<key>happy</key>
-	<string>happy.png</string>
+	<string>happy.jpeg</string>
 	<key>tired</key>
-	<string>tired.png</string>
+	<string>tired.jpeg</string>
 	<key>is</key>
-	<string>is.jpg</string>
+	<string>is.jpeg</string>
 	<key>dog</key>
-	<string>dog.jpg</string>
+	<string>dog.jpeg</string>
 	<key>the</key>
-	<string>the.jpg</string>
+	<string>the.jpeg</string>
 </dict>
 </plist>
