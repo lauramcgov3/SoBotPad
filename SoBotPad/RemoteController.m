@@ -20,15 +20,17 @@
 
 @implementation RemoteController
 
+@synthesize slider;
+
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.title = @"Remote";
-    [self sendMessage:self.title];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
+    [self.navigationController setNavigationBarHidden:NO];
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver: self
@@ -39,6 +41,10 @@
     //Set back button
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     [self.navigationItem setLeftBarButtonItem:backButton];
+    
+    CGAffineTransform sliderRotation = CGAffineTransformIdentity;
+    sliderRotation = CGAffineTransformRotate(sliderRotation, -(M_PI / 2));
+    self.slider.transform = sliderRotation;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,10 +69,7 @@
     newpos.y = 30.0 * dir.y + playerOrigin.y;
     int wholeX = (int) newpos.x;
     int wholeY = (int) newpos.y;
-    NSLog(@"X: %d", wholeX);
-    NSLog(@"Y: %d", wholeY);
     NSString *coordinates = [NSString stringWithFormat:@"%d %d", wholeX, wholeY];
-    NSLog(@"Coordinates: %@", coordinates);
     CGRect fr = player.frame;
     fr.origin = newpos;
     player.frame = fr;
@@ -94,6 +97,22 @@
 -(void)goBack
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (float)degrees2radians:(float)d
+{
+    float r = d * (M_PI / 180);
+    return r;
+}
+
+- (IBAction)sliderValueChanged:(UISlider *)sender
+{
+    NSString *tiltValue = [NSString stringWithFormat:@"%d", (int)sender.value];
+    NSString *title = @"tilt:";
+    NSString *decimal = @".00";
+    NSString *tilt = [NSString stringWithFormat:@"%@ %@%@", title, tiltValue, decimal];
+    NSLog(@"%@", tilt);
+    [self sendMessage:tilt];
 }
 
 

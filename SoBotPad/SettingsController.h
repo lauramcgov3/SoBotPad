@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic) NSString *setting;
+@property (weak, nonatomic) IBOutlet UIButton *browseForDevices;
 
 @end

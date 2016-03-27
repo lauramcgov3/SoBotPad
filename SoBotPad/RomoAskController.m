@@ -70,7 +70,6 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [self sendMessage:self.title];
-    [self speakString:self.question];
 }
 
 
@@ -104,7 +103,7 @@
             
         }
     }
-    
+    [NSThread sleepForTimeInterval:1.0f];
     [self getButtons];
 }
 
@@ -114,6 +113,7 @@
     self.yesLabel.hidden = NO;
     self.noButton.hidden = NO;
     self.noLabel.hidden = NO;
+    [self speakString:self.question];
 }
 
 - (IBAction)yesButton:(id)sender
@@ -126,6 +126,7 @@
     NSLog(@"Combined: %@", combined);
     
     [self sendMessage:combined];
+    [self speakString:yes];
 }
 
 - (IBAction)noButton:(id)sender
@@ -138,6 +139,7 @@
     NSLog(@"Combined: %@", combined);
     
     [self sendMessage:combined];
+    [self speakString:no];
 }
 
 -(void)sendMessage: (NSString *)str
@@ -233,6 +235,10 @@
          {
              self.question = receivedMessage;
              [self splitQuestion];
+         }
+         else
+         {
+             [self getButtons];
          }
      }];
     

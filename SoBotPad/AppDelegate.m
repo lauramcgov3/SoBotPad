@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MenuController.h"
 
 @interface AppDelegate ()
 
@@ -17,9 +18,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
     // Override point for customization after application launch.
-        self.mcManager = [[MCManager alloc]init];
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    UINavigationController *navController = [[UINavigationController alloc]init];
+    [self.window makeKeyAndVisible];
+    navController.navigationBar.tintColor = [UIColor blueColor];
+    
+    self.mcManager = [[MCManager alloc]init];
     category =[[NSMutableString alloc]init];
     return YES;
 }

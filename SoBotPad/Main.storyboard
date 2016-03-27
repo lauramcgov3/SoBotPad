@@ -8,19 +8,27 @@
         <scene sceneID="mkD-bB-J6z">
             <objects>
                 <tableViewController storyboardIdentifier="MenuController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iXH-6C-m2l" customClass="MenuController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="238" sectionHeaderHeight="28" sectionFooterHeight="28" id="MSu-Df-sjN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="242" sectionHeaderHeight="28" sectionFooterHeight="28" id="MSu-Df-sjN">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="18" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="238" id="zzY-pQ-1s7">
-                                <rect key="frame" x="0.0" y="92" width="1024" height="238"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="235" id="zzY-pQ-1s7">
+                                <rect key="frame" x="0.0" y="92" width="1024" height="235"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="spatial" tableViewCell="zzY-pQ-1s7" id="K4W-gT-zsl">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="237"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="zzY-pQ-1s7" id="K4W-gT-zsl">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="234"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <edgeInsets key="layoutMargins" top="8" left="10" bottom="8" right="8"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.027450980392156862" green="0.027450980392156862" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.027450980390000001" green="0.027450980390000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="qUV-Er-DaZ" kind="show" identifier="RemoteController" id="OhY-RX-KtC"/>
                                 </connections>
@@ -53,10 +61,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-JE-lbn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bkg-app.png" translatesAutoresizingMaskIntoConstraints="NO" id="xSo-4I-yCr">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-JE-lbn">
                                 <rect key="frame" x="384" y="346" width="256" height="76"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Browse for devices"/>
+                                <state key="normal" title="Browse for devices">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="button_browseForDevices:" destination="7hb-7L-IEn" eventType="touchUpInside" id="byy-7z-F9n"/>
                                 </connections>
@@ -66,6 +79,9 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="browseForDevices" destination="Qk7-JE-lbn" id="LUy-Fy-GbW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLd-Hg-JEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,70 +255,155 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clozebkg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iBF-Qa-mOf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bkg-app.png" translatesAutoresizingMaskIntoConstraints="NO" id="iBF-Qa-mOf">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDe-Ke-Vy7">
-                                <rect key="frame" x="312" y="96" width="400" height="200"/>
+                                <rect key="frame" x="312" y="57" width="400" height="200"/>
                                 <accessibility key="accessibilityConfiguration" identifier="picturegame" label="picturegame">
                                     <accessibilityTraits key="traits" image="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ3-In-0ie">
-                                <rect key="frame" x="110" y="330" width="150" height="150"/>
+                                <rect key="frame" x="110" y="299" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.96478872029308582" blue="0.44288948476515744" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="finishSentenceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="5pA-3C-Pez"/>
                                     <action selector="sentenceButton:" destination="s3S-t8-nOG" eventType="touchDown" id="zhd-18-Oba"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHZ-sR-auA">
-                                <rect key="frame" x="328" y="330" width="150" height="150"/>
+                                <rect key="frame" x="328" y="299" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.96478872029999996" blue="0.44288948480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="finishSentenceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="Gmc-lD-aMw"/>
                                     <action selector="sentenceButton:" destination="s3S-t8-nOG" eventType="touchDown" id="Aee-Tz-LLw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-g8-X8L">
-                                <rect key="frame" x="546" y="330" width="150" height="150"/>
+                                <rect key="frame" x="546" y="299" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.96478872029999996" blue="0.44288948480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="finishSentenceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="hFb-31-FXJ"/>
                                     <action selector="sentenceButton:" destination="s3S-t8-nOG" eventType="touchDown" id="X14-FW-fNJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-2a-jXA">
-                                <rect key="frame" x="764" y="330" width="150" height="150"/>
+                                <rect key="frame" x="764" y="299" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.96478872029999996" blue="0.44288948480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="finishSentenceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="6PE-J6-Qxf"/>
                                     <action selector="sentenceButton:" destination="s3S-t8-nOG" eventType="touchDown" id="IB2-oM-QpB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-ab-aD0">
-                                <rect key="frame" x="110" y="598" width="150" height="150"/>
+                                <rect key="frame" x="123" y="579" width="125" height="125"/>
                                 <connections>
                                     <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="gt4-HC-Qgd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPO-rn-dZT">
-                                <rect key="frame" x="328" y="598" width="150" height="150"/>
+                                <rect key="frame" x="341" y="579" width="125" height="125"/>
                                 <connections>
                                     <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="tMQ-xO-L6B"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-uE-UfR">
-                                <rect key="frame" x="546" y="598" width="150" height="150"/>
+                                <rect key="frame" x="559" y="579" width="125" height="125"/>
                                 <connections>
                                     <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="3eD-ei-DbA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL2-tU-xq2">
-                                <rect key="frame" x="764" y="598" width="150" height="150"/>
+                                <rect key="frame" x="777" y="579" width="125" height="125"/>
                                 <connections>
                                     <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="hmD-9N-Fah"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="under-image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k30-i1-iEU">
+                                <rect key="frame" x="110" y="457" width="150" height="10"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="under-image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-IB-IOr">
+                                <rect key="frame" x="328" y="457" width="150" height="10"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="under-image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nxo-fK-ptr">
+                                <rect key="frame" x="546" y="457" width="150" height="10"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="under-image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EZB-G1-9pf">
+                                <rect key="frame" x="764" y="457" width="150" height="10"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxM-AG-y9I">
+                                <rect key="frame" x="789" y="107" width="100" height="100"/>
+                                <state key="normal" title="listen again" image="listen-again.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="listenAgain:" destination="s3S-t8-nOG" eventType="touchUpInside" id="H34-Cr-DIU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -316,6 +417,10 @@
                         <outlet property="choice3" destination="Ytf-uE-UfR" id="rhy-d6-jhb"/>
                         <outlet property="choice4" destination="ZL2-tU-xq2" id="YKe-51-ZkM"/>
                         <outlet property="imageView" destination="RDe-Ke-Vy7" id="hZY-pM-i3e"/>
+                        <outlet property="underscore1" destination="k30-i1-iEU" id="cQy-iq-oEf"/>
+                        <outlet property="underscore2" destination="3Yw-IB-IOr" id="x9B-g1-d6w"/>
+                        <outlet property="underscore3" destination="nxo-fK-ptr" id="Lal-nU-VFe"/>
+                        <outlet property="underscore4" destination="EZB-G1-9pf" id="62y-2r-xsg"/>
                         <outlet property="word1" destination="IZ3-In-0ie" id="Uq0-3f-GP5"/>
                         <outlet property="word2" destination="EHZ-sR-auA" id="RGW-H2-vf4"/>
                         <outlet property="word3" destination="8oq-g8-X8L" id="0Td-Xr-LWW"/>
@@ -344,7 +449,13 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drs-JX-4GV" userLabel="Level1">
                                 <rect key="frame" x="122" y="110" width="150" height="150"/>
-                                <state key="normal" title="Level One" image="one-sweet.jpg"/>
+                                <state key="normal" title="Level One" image="level-one.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="level1:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="5bb-7U-XPu"/>
                                     <segue destination="2iS-wZ-5NP" kind="show" id="DzE-2p-gyQ"/>
@@ -352,7 +463,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijW-fn-9fD" userLabel="Level2">
                                 <rect key="frame" x="437" y="110" width="150" height="150"/>
-                                <state key="normal" backgroundImage="two-sweets.jpg"/>
+                                <state key="normal" title="level two" image="level-two.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="level2:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="l1E-jF-S83"/>
                                     <segue destination="WfE-zu-Qqk" kind="show" id="HhB-ET-oy7"/>
@@ -360,7 +477,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWH-bg-hYP" userLabel="Level3">
                                 <rect key="frame" x="752" y="110" width="150" height="150"/>
-                                <state key="normal" backgroundImage="three-sweets.png"/>
+                                <state key="normal" title="level three" image="level-three.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="level3:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="Du8-3V-15X"/>
                                     <segue destination="a3j-7F-Gqa" kind="show" id="tqv-f1-sxp"/>
@@ -368,7 +491,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yv5-zT-IEj" userLabel="Level4">
                                 <rect key="frame" x="280" y="460" width="150" height="150"/>
-                                <state key="normal" backgroundImage="four-sweets.jpg"/>
+                                <state key="normal" title="level four" image="level-four.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="level4:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="nX1-95-eBy"/>
                                     <segue destination="UV3-cL-AgH" kind="show" id="8m6-Fz-XfH"/>
@@ -377,7 +506,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-MI-wEk">
                                 <rect key="frame" x="122" y="283" width="150" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="37"/>
-                                <color key="textColor" red="0.25608400386148478" green="0.63979200383748314" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.68672753835823763" blue="0.015408705366736997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LF-x1-gyC">
@@ -389,25 +518,31 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqZ-Bv-h0B">
                                 <rect key="frame" x="752" y="283" width="150" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="37"/>
-                                <color key="textColor" red="0.015009555438325176" green="0.55990670857698011" blue="0.66694711538461537" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPf-em-IDM">
                                 <rect key="frame" x="280" y="633" width="150" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="37"/>
-                                <color key="textColor" red="0.44339151575308455" green="0.6834134615384615" blue="0.058254306569136431" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co4-aW-TBZ">
                                 <rect key="frame" x="595" y="633" width="150" height="42"/>
                                 <color key="tintColor" red="0.5" green="0.35924069469999997" blue="0.368554202" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="37"/>
-                                <color key="textColor" red="0.5" green="0.35924069466144226" blue="0.36855420204674544" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-kg-PJy" userLabel="Level5">
                                 <rect key="frame" x="595" y="460" width="150" height="150"/>
-                                <state key="normal" image="five-sweets.png"/>
+                                <state key="normal" title="level five" image="level-five.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="level5:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="fAv-MD-ABa"/>
                                     <segue destination="8ah-Nb-MqX" kind="show" id="ikh-kd-Azw"/>
@@ -438,16 +573,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdo-08-mv0" userLabel="imgView">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c8-O2-eNA">
-                                <rect key="frame" x="279" y="165" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="2iS-wZ-5NP" eventType="touchUpInside" id="1xA-Gi-E4g"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZl-y3-odG">
                                 <rect key="frame" x="595" y="452" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="2iS-wZ-5NP" eventType="touchUpInside" id="zn3-8y-iwt"/>
                                 </connections>
@@ -455,6 +589,12 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-02-uZ8">
                                 <rect key="frame" x="595" y="165" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="2iS-wZ-5NP" eventType="touchUpInside" id="AWh-uM-hsZ"/>
                                 </connections>
@@ -462,8 +602,27 @@
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thy-V4-b5T">
                                 <rect key="frame" x="279" y="452" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="2iS-wZ-5NP" eventType="touchUpInside" id="SJ9-Fp-tfq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c8-O2-eNA">
+                                <rect key="frame" x="279" y="165" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="2iS-wZ-5NP" eventType="touchUpInside" id="1xA-Gi-E4g"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -501,43 +660,79 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBw-Lz-yAo">
                                 <rect key="frame" x="125" y="165" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="WfE-zu-Qqk" eventType="touchUpInside" id="lXK-co-9PB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wj5-l1-lwe">
-                                <rect key="frame" x="749" y="452" width="150" height="150"/>
+                                <rect key="frame" x="749" y="453" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="WfE-zu-Qqk" eventType="touchUpInside" id="dzY-E7-T4x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-hM-28b">
-                                <rect key="frame" x="441" y="452" width="150" height="150"/>
+                                <rect key="frame" x="437" y="453" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="WfE-zu-Qqk" eventType="touchUpInside" id="xv3-cs-fe9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-ck-edH">
-                                <rect key="frame" x="125" y="452" width="150" height="150"/>
+                                <rect key="frame" x="125" y="453" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="WfE-zu-Qqk" eventType="touchUpInside" id="Wwu-sL-sUE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zf-Ar-1YJ">
+                                <rect key="frame" x="437" y="165" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="WfE-zu-Qqk" eventType="touchUpInside" id="gJX-fh-ikH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FB-3s-KKA">
                                 <rect key="frame" x="749" y="165" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="WfE-zu-Qqk" eventType="touchUpInside" id="gKR-Tp-c5u"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zf-Ar-1YJ">
-                                <rect key="frame" x="441" y="165" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="WfE-zu-Qqk" eventType="touchUpInside" id="gJX-fh-ikH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -575,29 +770,53 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-Pb-TZ5">
-                                <rect key="frame" x="315" y="189" width="150" height="150"/>
+                                <rect key="frame" x="314" y="189" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="fkX-gm-3Mu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0K-Oa-DCX">
-                                <rect key="frame" x="562" y="189" width="150" height="150"/>
+                                <rect key="frame" x="560" y="189" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="bVD-yR-rrD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlC-fH-BPg">
-                                <rect key="frame" x="562" y="428" width="150" height="150"/>
+                                <rect key="frame" x="560" y="429" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="yUQ-6j-W3e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yem-qz-YVW">
-                                <rect key="frame" x="805" y="428" width="150" height="150"/>
+                                <rect key="frame" x="805" y="429" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="755-0F-Af5"/>
                                 </connections>
@@ -605,29 +824,53 @@
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tld-Ve-ya7">
                                 <rect key="frame" x="805" y="189" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="jBI-mo-C0k"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-Th-cbI">
-                                <rect key="frame" x="69" y="428" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="8w2-tB-7kY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isB-9n-brN">
                                 <rect key="frame" x="69" y="189" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="vnm-oA-8tN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8S-fL-Cbp">
-                                <rect key="frame" x="315" y="428" width="150" height="150"/>
+                                <rect key="frame" x="314" y="429" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="SlV-5N-ka1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-Th-cbI">
+                                <rect key="frame" x="69" y="429" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="a3j-7F-Gqa" eventType="touchUpInside" id="8w2-tB-7kY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -665,75 +908,135 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="guv-La-IP3">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-Wp-5EQ">
-                                <rect key="frame" x="20" y="438" width="150" height="150"/>
+                                <rect key="frame" x="45" y="465" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="ZG9-tu-sRU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flt-0L-mvI">
-                                <rect key="frame" x="236" y="438" width="150" height="150"/>
+                                <rect key="frame" x="241" y="465" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="kER-xC-AkH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-nc-WBa">
-                                <rect key="frame" x="218" y="180" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="OKt-fl-vXv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTo-jI-nON">
-                                <rect key="frame" x="20" y="180" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="uQq-wc-b1n"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-pj-mNJ">
-                                <rect key="frame" x="437" y="180" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="Jgf-Nh-1rk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmC-bk-rTH">
-                                <rect key="frame" x="653" y="180" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="k8r-B7-3r9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqI-71-kCN">
-                                <rect key="frame" x="854" y="180" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="Stv-dR-An4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbT-Td-2NS">
-                                <rect key="frame" x="437" y="438" width="150" height="150"/>
+                                <rect key="frame" x="437" y="465" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="iG2-aQ-Sih"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M7-2v-dka">
-                                <rect key="frame" x="854" y="438" width="150" height="150"/>
+                                <rect key="frame" x="829" y="460" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="aw9-Wk-0uS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOG-cz-9uf">
-                                <rect key="frame" x="653" y="438" width="150" height="150"/>
+                                <rect key="frame" x="633" y="460" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="EcG-LW-7c9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTo-jI-nON">
+                                <rect key="frame" x="45" y="153" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="uQq-wc-b1n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-pj-mNJ">
+                                <rect key="frame" x="437" y="153" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="Jgf-Nh-1rk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqI-71-kCN">
+                                <rect key="frame" x="829" y="153" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="Stv-dR-An4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgJ-au-T0B">
+                                <rect key="frame" x="633" y="153" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="B3j-3M-xmW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-nc-WBa">
+                                <rect key="frame" x="241" y="153" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <connections>
+                                    <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="OKt-fl-vXv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -747,7 +1050,6 @@
                         <outletCollection property="buttonViews" destination="flt-0L-mvI" id="c3T-zD-p99"/>
                         <outletCollection property="buttonViews" destination="aWj-pj-mNJ" id="aiF-2u-Drl"/>
                         <outletCollection property="buttonViews" destination="gbT-Td-2NS" id="UDz-Jg-KiR"/>
-                        <outletCollection property="buttonViews" destination="MmC-bk-rTH" id="8Gv-O3-b3V"/>
                         <outletCollection property="buttonViews" destination="jOG-cz-9uf" id="pBU-h0-Swe"/>
                         <outletCollection property="buttonViews" destination="eqI-71-kCN" id="WvD-kX-jtf"/>
                         <outletCollection property="buttonViews" destination="8M7-2v-dka" id="liv-xc-AKA"/>
@@ -770,90 +1072,162 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02m-4m-d0a">
-                                <rect key="frame" x="0.0" y="-96" width="1024" height="864"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
-                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crg-Jf-0Hi">
-                                <rect key="frame" x="854" y="294" width="150" height="150"/>
-                                <state key="normal" title="Button" image="cardbkg.jpg"/>
-                                <connections>
-                                    <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="E2T-9L-cQV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovm-BI-UpK">
-                                <rect key="frame" x="291" y="98" width="150" height="150"/>
+                                <rect key="frame" x="301" y="98" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="eff-Ip-Ccg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxk-9C-004">
-                                <rect key="frame" x="20" y="98" width="150" height="150"/>
+                                <rect key="frame" x="30" y="98" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="veu-jG-wsf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCl-wH-62K">
-                                <rect key="frame" x="590" y="294" width="150" height="150"/>
+                                <rect key="frame" x="573" y="309" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="F8I-2Y-Bx7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtk-y0-LYJ">
-                                <rect key="frame" x="854" y="98" width="150" height="150"/>
+                                <rect key="frame" x="844" y="98" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="a0I-A5-hWt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bo-Fd-mkW">
-                                <rect key="frame" x="291" y="294" width="150" height="150"/>
+                                <rect key="frame" x="301" y="309" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="ktR-8T-q3m"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1l-nY-TXv">
-                                <rect key="frame" x="20" y="294" width="150" height="150"/>
+                                <rect key="frame" x="30" y="309" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="UJZ-bW-0Hy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4p-T0-3zg">
-                                <rect key="frame" x="854" y="496" width="150" height="150"/>
+                                <rect key="frame" x="844" y="520" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="3rg-nv-55H"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfK-5b-tbO">
-                                <rect key="frame" x="590" y="496" width="150" height="150"/>
+                                <rect key="frame" x="573" y="520" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="NKo-w2-E91"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2h-n3-xHV">
-                                <rect key="frame" x="291" y="496" width="150" height="150"/>
+                                <rect key="frame" x="301" y="520" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="7CP-gE-yQH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcA-NK-X1x">
-                                <rect key="frame" x="20" y="496" width="150" height="150"/>
+                                <rect key="frame" x="30" y="520" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="jWD-Is-RJ9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbj-Oi-jsy">
-                                <rect key="frame" x="590" y="98" width="150" height="150"/>
+                                <rect key="frame" x="573" y="98" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="0O0-AN-lg1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crg-Jf-0Hi">
+                                <rect key="frame" x="844" y="309" width="150" height="150"/>
+                                <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tileClicked:" destination="8ah-Nb-MqX" eventType="touchUpInside" id="E2T-9L-cQV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -949,29 +1323,91 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1p-FN-fEq">
-                                <rect key="frame" x="528" y="144" width="320" height="480"/>
+                                <rect key="frame" x="452" y="65" width="375" height="666"/>
                                 <connections>
                                     <segue destination="OsW-3d-aRk" kind="embed" id="HSe-Dc-6zu"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="epp-yt-IgA">
-                                <rect key="frame" x="388" y="324" width="120" height="120"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="DB7-T1-B15">
-                                <rect key="frame" x="20" y="324" width="120" height="120"/>
-                            </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvp-Xu-zQ6">
-                                <rect key="frame" x="183" y="303" width="162" height="162"/>
+                                <rect key="frame" x="151" y="309" width="150" height="150"/>
                                 <connections>
                                     <segue destination="YiN-yU-p1X" kind="embed" id="Dt3-Xz-iPr"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="forward.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="v0L-3Y-rlb">
-                                <rect key="frame" x="204" y="144" width="120" height="120"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="cHP-RK-xDy">
+                                <rect key="frame" x="327" y="334" width="100" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backward.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="J6r-Ym-cHo">
-                                <rect key="frame" x="204" y="504" width="120" height="120"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="010-cP-kwD">
+                                <rect key="frame" x="25" y="334" width="100" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="forward.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="6mL-1M-AFw">
+                                <rect key="frame" x="176" y="183" width="100" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backward.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bj3-OP-s5u">
+                                <rect key="frame" x="176" y="485" width="100" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Zgw-Rr-skc">
+                                <rect key="frame" x="878" y="81" width="100" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="eE8-9i-hse">
+                                <rect key="frame" x="878" y="631" width="100" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="130" minValue="50" maxValue="130" translatesAutoresizingMaskIntoConstraints="NO" id="0WS-6G-6X9">
+                                <rect key="frame" x="753" y="391" width="350" height="31"/>
+                                <color key="backgroundColor" red="1" green="0.96512321850889593" blue="0.17530455345539508" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="minimumTrackTintColor" red="0.63339722750000005" green="0.11064472089999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.63339722750000005" green="0.11064472089999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.63339722754544225" green="0.11064472089813338" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="qUV-Er-DaZ" eventType="valueChanged" id="RPP-dN-Xkd"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-eX-xzA">
+                                <rect key="frame" x="176" y="660" width="100" height="100"/>
+                                <state key="normal" title="feelings" image="feelings.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="lak-gE-b00" kind="popoverPresentation" popoverAnchorView="vCc-eX-xzA" id="xq3-RM-sf9">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -980,6 +1416,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="slider" destination="0WS-6G-6X9" id="fDk-IY-2iT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yS-DB-v3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -994,77 +1433,135 @@
                         <viewControllerLayoutGuide type="bottom" id="kee-WO-eAn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pSf-AZ-w9W">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appbkg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="62t-rw-OHW">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bw-hn-e1H">
-                                <rect key="frame" x="20" y="152" width="150" height="150"/>
+                                <rect key="frame" x="15" y="39" width="100" height="100"/>
                                 <state key="normal" title="happy" image="happy.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="happy:" destination="lak-gE-b00" eventType="touchUpInside" id="2ai-ti-mgv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZW-uD-ztP">
-                                <rect key="frame" x="293" y="152" width="150" height="150"/>
+                                <rect key="frame" x="140" y="39" width="100" height="100"/>
                                 <state key="normal" title="excited" image="excited.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="excited:" destination="lak-gE-b00" eventType="touchUpInside" id="neX-Tp-Rps"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFF-vV-Bkb">
-                                <rect key="frame" x="575" y="152" width="150" height="150"/>
+                                <rect key="frame" x="265" y="39" width="100" height="100"/>
                                 <state key="normal" title="sad" image="sad.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="sad:" destination="lak-gE-b00" eventType="touchUpInside" id="SIg-Rf-MCM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6y-fr-W9p">
-                                <rect key="frame" x="854" y="152" width="150" height="150"/>
+                                <rect key="frame" x="15" y="229" width="100" height="100"/>
                                 <state key="normal" title="angry" image="angry.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="angry:" destination="lak-gE-b00" eventType="touchUpInside" id="lxT-hu-zAc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoP-si-6bQ">
-                                <rect key="frame" x="20" y="368" width="150" height="150"/>
-                                <state key="normal" title="confused" image="confused.jpeg"/>
-                                <connections>
-                                    <action selector="confused:" destination="lak-gE-b00" eventType="touchUpInside" id="3y4-R3-PyU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-NB-vj7">
-                                <rect key="frame" x="293" y="368" width="150" height="150"/>
-                                <state key="normal" title="tired" image="tired.jpeg"/>
-                                <connections>
-                                    <action selector="tired:" destination="lak-gE-b00" eventType="touchUpInside" id="OxB-jm-3Hi"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHU-lv-7wa">
-                                <rect key="frame" x="575" y="368" width="150" height="150"/>
+                                <rect key="frame" x="15" y="419" width="100" height="100"/>
                                 <state key="normal" title="bored" image="bored.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="bored:" destination="lak-gE-b00" eventType="touchUpInside" id="2uY-Uq-PbV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQG-f7-ZtY">
-                                <rect key="frame" x="854" y="368" width="150" height="150"/>
+                                <rect key="frame" x="140" y="419" width="100" height="100"/>
                                 <state key="normal" title="afraid" image="scared.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="afraid:" destination="lak-gE-b00" eventType="touchUpInside" id="rrY-M0-Ytf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lur-ds-eds">
+                                <rect key="frame" x="265" y="419" width="100" height="100"/>
+                                <state key="normal" title="disgust" image="disgust.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="afraid:" destination="lak-gE-b00" eventType="touchUpInside" id="eVv-7Z-ZlB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoP-si-6bQ">
+                                <rect key="frame" x="140" y="229" width="100" height="100"/>
+                                <state key="normal" title="confused" image="confused.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confused:" destination="lak-gE-b00" eventType="touchUpInside" id="3y4-R3-PyU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-NB-vj7">
+                                <rect key="frame" x="265" y="229" width="100" height="100"/>
+                                <state key="normal" title="tired" image="tired.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tired:" destination="lak-gE-b00" eventType="touchUpInside" id="OxB-jm-3Hi"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40784313725490196" green="0.14117647058823529" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad-2/3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCf-uN-jLH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3699" y="1040"/>
+            <point key="canvasLocation" x="3945" y="756"/>
         </scene>
         <!--CategoryController-->
         <scene sceneID="d8i-bD-TjQ">
@@ -1084,14 +1581,26 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOs-1x-3KG">
                                 <rect key="frame" x="294" y="309" width="150" height="150"/>
                                 <state key="normal" title="animals" image="animals.jpeg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="animals:" destination="HEB-3l-eym" eventType="touchUpInside" id="4Px-nh-D6n"/>
                                     <segue destination="ZTp-Le-p4J" kind="show" identifier="LevelController" id="tvu-qK-Dfb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2M-nm-rXJ">
-                                <rect key="frame" x="580" y="309" width="150" height="150"/>
+                                <rect key="frame" x="581" y="309" width="150" height="150"/>
                                 <state key="normal" title="colours" image="colours.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="colours:" destination="HEB-3l-eym" eventType="touchUpInside" id="d9z-vJ-VHR"/>
                                     <segue destination="ZTp-Le-p4J" kind="show" identifier="LevelController" id="QQo-z2-Dak"/>
@@ -1135,48 +1644,55 @@
                         <viewControllerLayoutGuide type="bottom" id="KVE-YX-3uF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tis-NN-NQu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUD-po-hNR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romo-placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="nUD-po-hNR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="imageView" destination="nUD-po-hNR" id="Q7j-J1-6Uc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2m-Xg-Scv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4558" y="-154"/>
+            <point key="canvasLocation" x="4557.5" y="-154.5"/>
         </scene>
         <!--JoyStickController-->
         <scene sceneID="5We-Uc-XmV">
             <objects>
                 <viewController storyboardIdentifier="JoyStickController" title="JoyStickController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YiN-yU-p1X" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4OD-Mi-uv1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bbb-zu-WvJ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yg9-b9-fiK" customClass="JoyStickView">
-                        <rect key="frame" x="0.0" y="0.0" width="162" height="162"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stick-base.png" translatesAutoresizingMaskIntoConstraints="NO" id="vG2-eB-qrh">
-                                <rect key="frame" x="0.0" y="0.0" width="162" height="162"/>
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stick-normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="2aI-CJ-vmr">
-                                <rect key="frame" x="0.0" y="0.0" width="162" height="162"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="js-stick.png" translatesAutoresizingMaskIntoConstraints="NO" id="b6P-6A-i2E">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stick-normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="H8V-Z0-H3N">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="baseStickView" destination="vG2-eB-qrh" id="TGW-cF-KNT"/>
-                            <outlet property="stickButtonView" destination="2aI-CJ-vmr" id="fir-4C-RmR"/>
+                            <outlet property="stickButtonView" destination="H8V-Z0-H3N" id="c7x-ln-SSS"/>
                         </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="162" height="162"/>
+                    <size key="freeformSize" width="150" height="150"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QmJ-h2-sl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1188,32 +1704,41 @@
         <image name="animals.jpeg" width="500" height="500"/>
         <image name="appbkg.jpg" width="1437" height="1200"/>
         <image name="backward.jpg" width="500" height="500"/>
+        <image name="bkg-app.png" width="1303" height="839"/>
         <image name="bored.jpeg" width="500" height="500"/>
         <image name="cardbkg.jpg" width="239" height="300"/>
         <image name="clozebkg.jpg" width="1303" height="839"/>
         <image name="colours.jpg" width="500" height="500"/>
         <image name="confused.jpeg" width="500" height="500"/>
+        <image name="disgust.jpeg" width="500" height="500"/>
+        <image name="down.jpeg" width="500" height="500"/>
         <image name="excited.jpeg" width="500" height="500"/>
-        <image name="five-sweets.png" width="150" height="150"/>
+        <image name="feelings.jpeg" width="150" height="150"/>
         <image name="forward.jpeg" width="500" height="500"/>
-        <image name="four-sweets.jpg" width="700" height="370"/>
         <image name="happy.jpeg" width="500" height="500"/>
         <image name="home.png" width="394" height="336"/>
+        <image name="js-stick.png" width="150" height="150"/>
         <image name="left.jpeg" width="500" height="500"/>
+        <image name="level-five.png" width="150" height="150"/>
+        <image name="level-four.png" width="150" height="150"/>
+        <image name="level-one.png" width="150" height="150"/>
+        <image name="level-three.png" width="500" height="500"/>
+        <image name="level-two.png" width="150" height="150"/>
+        <image name="listen-again.jpeg" width="500" height="500"/>
         <image name="match-icon.png" width="394" height="336"/>
         <image name="no.png" width="394" height="336"/>
-        <image name="one-sweet.jpg" width="300" height="300"/>
         <image name="picture-game.png" width="394" height="336"/>
         <image name="play-again.png" width="394" height="336"/>
         <image name="right.jpeg" width="500" height="500"/>
+        <image name="romo-placeholder.png" width="180" height="267"/>
         <image name="romotalk-bkg.jpeg" width="1303" height="839"/>
         <image name="sad.jpeg" width="500" height="500"/>
         <image name="scared.jpeg" width="500" height="500"/>
-        <image name="stick-base.png" width="162" height="162"/>
+        <image name="stick-base.png" width="160" height="160"/>
         <image name="stick-normal.png" width="162" height="162"/>
-        <image name="three-sweets.png" width="150" height="150"/>
         <image name="tired.jpeg" width="500" height="500"/>
-        <image name="two-sweets.jpg" width="150" height="150"/>
+        <image name="under-image.jpg" width="150" height="30"/>
+        <image name="up.jpeg" width="500" height="500"/>
         <image name="yes.png" width="394" height="336"/>
     </resources>
     <inferredMetricsTieBreakers>

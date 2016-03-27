@@ -40,6 +40,13 @@
                                                  name:NOTIFICATION_MC_DID_CHANGE_STATE
                                                object:nil];
     
+    self.browseForDevices.layer.cornerRadius = 10;
+    self.browseForDevices.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.browseForDevices.layer.borderWidth = 3.0;
+    self.browseForDevices.clipsToBounds = YES;
+    
+    
+    
 }
 
 -(void)goBack

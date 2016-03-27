@@ -44,12 +44,13 @@
     
     [self.navigationController setNavigationBarHidden:NO];
     
+    
     // Set title
     self.title = @"Home";
     [self speakString:self.title];
     
     // Load Menu Items
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"MenuItems" ofType:@"plist"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Menu-Items" ofType:@"plist"];
     self.menuItems = [NSArray arrayWithContentsOfFile:filePath];
     self.tableView.separatorColor = [UIColor colorWithRed:0/255.0 green:122/255.0 blue:255/255.0 alpha:0.25];
     
@@ -78,8 +79,20 @@
     
     // Configure Cell
     [cell.textLabel setText:[menuItem objectForKey:@"Menu"]];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:27.0];
+    cell.textLabel.center = cell.center;
+    
+    
     cell.imageView.image = [UIImage imageNamed:[menuItem objectForKey:@"Image"]];
-    //cell.imageView.frame = self.imageView.frame;
+    CGPoint centerImageView = cell.imageView.center;
+    centerImageView.x = self.view.center.x;
+    cell.imageView.center = CGPointMake(cell.contentView.bounds.size.width/2,cell.contentView.bounds.size.height/2);
+    
+    
+    cell.backgroundColor = [UIColor colorWithRed:7.0f/255.0f green:7.0f/255.0f blue:99.0f/255.0f alpha:1.0f];
+    cell.layer.borderColor = [[UIColor cyanColor] CGColor];
+    cell.layer.borderWidth = 10.f;
     
     return cell;
 }

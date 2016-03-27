@@ -18,8 +18,8 @@
     imgStickNormal = [UIImage imageNamed:@"stick-normal.png"];
     imgStickHold = [UIImage imageNamed:@"stick-hold.png"];
     //    stickView.image = imgStickNormal;
-    mCenter.x = 80;
-    mCenter.y = 80u;
+    mCenter.x = 75;
+    mCenter.y = 75;
 }
 
 - (id)initWithFrame:(CGRect)frame

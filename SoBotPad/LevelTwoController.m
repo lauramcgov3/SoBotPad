@@ -142,7 +142,7 @@ static bool isWinner = false;
         self.images = [self.colours valueForKey:@"Image"];
         NSLog(@"%@", self.names);
         NSLog(@"%@", self.images);
-        UIImage *img1 = [UIImage imageNamed:@"coloursbkg.jpg"];
+        UIImage *img1 = [UIImage imageNamed:@"colour-bkg.png"];
         [imageView setImage:img1];
     }
     

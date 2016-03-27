@@ -17,9 +17,10 @@
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 
-@property (strong, nonatomic) IBOutlet UIButton *forward;
-@property (strong, nonatomic) IBOutlet UIButton *backward;
-@property (strong, nonatomic) NSString *startLocation;
+@property (nonatomic, strong) IBOutlet UISlider *slider;
+
+- (IBAction)sliderValueChanged:(UISlider *)sender;
+
 
 
 @end

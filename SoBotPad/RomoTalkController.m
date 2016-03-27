@@ -82,45 +82,49 @@
              [self splitQuestion];
              return;
          }
-         if ([receivedMessage isEqualToString:@"sleep gives me more energy"])
+         else if ([receivedMessage isEqualToString:@"sleep gives me more energy"])
          {
              self.talk = receivedMessage;
              NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
              return;
          }
-         if ([receivedMessage isEqualToString:@"i really hate cats !"])
+         else if ([receivedMessage isEqualToString:@"i really hate cats !"])
          {
              self.talk = receivedMessage;
              NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
              return;
          }
-         if ([receivedMessage isEqualToString:@"i could play all day"])
+         else if ([receivedMessage isEqualToString:@"i could play all day"])
          {
              self.talk = receivedMessage;
              NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
              return;
          }
-         if ([receivedMessage isEqualToString:@"this is how i run"])
+         else if ([receivedMessage isEqualToString:@"this is how i run"])
          {
              self.talk = receivedMessage;
              NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
              return;
          }
-         if ([receivedMessage isEqualToString:@"robots cannot go swimming !"])
+         else if ([receivedMessage isEqualToString:@"robots cannot go swimming !"])
          {
              self.talk = receivedMessage;
              NSLog(@"Talk: %@", self.talk);
              [self splitQuestion];
              return;
          }
-         if ([receivedMessage isEqualToString:@"done"])
+         else if ([receivedMessage isEqualToString:@"done"])
          {
              [self getButtons];
              return;
+         }
+         else
+         {
+             [self getButtons];
          }
          
      }];
@@ -161,13 +165,13 @@
 
 - (void) sendDone
 {
-    [NSThread sleepForTimeInterval:2.5f];
+    [self speakString:self.talk];
+    [NSThread sleepForTimeInterval:2.0f];
     [self sendMessage:@"buttons loaded"];
 }
 
 - (void) getButtons
 {
-    [NSThread sleepForTimeInterval:2.5f];
     self.playAgain.hidden = NO;
     self.playAgainLabel.hidden = NO;
     self.homeButton.hidden = NO;

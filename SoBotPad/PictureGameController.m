@@ -50,6 +50,14 @@ bool isMatch = false;
     //Set home button
     UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
     [self.navigationItem setRightBarButtonItem:homeButton];
+    
+    self.imageView.layer.borderWidth = 7.0;
+    self.imageView.layer.borderColor = [[UIColor blackColor] CGColor];
+    
+    self.underscore1.hidden = YES;
+    self.underscore2.hidden = YES;
+    self.underscore3.hidden = YES;
+    self.underscore4.hidden = YES;
 }
 
 -(void)goBack
@@ -57,15 +65,15 @@ bool isMatch = false;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self speakString:self.sentenceChosen];
+}
+
 - (void) viewWillAppear:(BOOL)animated
 {
     //Call first method
     [self getSentences];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self speakString:self.sentenceChosen];
 }
 
 - (void) getSentences
@@ -114,7 +122,7 @@ bool isMatch = false;
         }
     }
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0
+    [NSTimer scheduledTimerWithTimeInterval:1.5
                                      target:self
                                    selector:@selector(removeButtons)
                                    userInfo:nil
@@ -123,15 +131,23 @@ bool isMatch = false;
 
 - (void) removeButtons
 {
+    [NSThread sleepForTimeInterval:1.5f];
     int random2 = arc4random()%[self.sentenceButtons count];
     int random3 = arc4random()%[self.sentenceButtons count];
     
+    NSArray *underscores = [[NSArray alloc] initWithObjects:self.underscore1,self.underscore2,self.underscore3,self.underscore4, nil];
     
     if (random2 != random3) {
         self.missing1 = [self.sentenceButtons objectAtIndex:random2];
         self.missing2 = [self.sentenceButtons objectAtIndex:random3];
         self.missingTitle1 = [self.missing1 currentTitle];
         self.missingTitle2 = [self.missing2 currentTitle];
+        
+        UIImageView *setunderscore1 = [underscores objectAtIndex:random2];
+        UIImageView *setunderscore2 = [underscores objectAtIndex:random3];
+        
+        setunderscore1.hidden = NO;
+        setunderscore2.hidden = NO;
         
         
         [self.missing1 setImage:[UIImage imageNamed:@"placeholder.png"] forState:UIControlStateNormal];
@@ -160,7 +176,7 @@ bool isMatch = false;
     NSString *choice3 = [self.sentenceImages objectForKey:self.missingTitle1];
     NSString *choice4 = [self.sentenceImages objectForKey:self.missingTitle2];
     self.choiceImages = [[NSArray alloc] initWithObjects:choice1,choice2,choice3,choice4, nil];
-    self.choiceButtons = [[NSArray alloc] initWithObjects: self.choice1,self.choice2,self.choice3,self.choice4, nil];
+    self.choiceButtons = [[NSMutableArray alloc] initWithObjects: self.choice1,self.choice2,self.choice3,self.choice4, nil];
     
     //Assign titles of choice buttons
     NSString *choiceTitle1 = [choice1Dict objectForKey:@"Name"];
@@ -170,6 +186,14 @@ bool isMatch = false;
     NSArray *choiceButtonTitles = [[NSArray alloc] initWithObjects: choiceTitle1,choiceTitle2,choiceTitle3, choiceTitle4, nil];
     
     self.allButtons = [[NSArray alloc] initWithObjects:self.word1,self.word2,self.word3,self.word4,self.choice1,self.choice2,self.choice3,self.choice4, nil];
+    
+    NSUInteger count = [self.choiceButtons count];
+    if (count < 1) return;
+    for (NSUInteger i = 0; i < count - 1; ++i) {
+        NSInteger remainingCount = count - i;
+        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
+        [self.choiceButtons exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
     
     // Assign images for choice buttons
     
@@ -269,6 +293,11 @@ bool isMatch = false;
         NSLog(@"Mistmatch after");
         [self sendMessage:@"mismatch"];
     }
+}
+
+-(IBAction)listenAgain:(id)sender
+{
+    [self speakString:self.sentenceChosen];
 }
 
 -(void)speakString: (NSString *)str

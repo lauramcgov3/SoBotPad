@@ -87,6 +87,12 @@
     [self speakString:input];
     [self sendMessage:input];
 }
+- (IBAction)disgust:(id)sender{
+    
+    NSString *input = [(UIButton *)sender currentTitle];
+    [self speakString:input];
+    [self sendMessage:input];
+}
 
 -(void)sendMessage: (NSString *)str
 {

@@ -30,7 +30,7 @@
 
 @property (strong, nonatomic) NSArray *allSentences;
 @property (strong, nonatomic) NSArray *sentenceButtons;
-@property (strong, nonatomic) NSArray *choiceButtons;
+@property (strong, nonatomic) NSMutableArray *choiceButtons;
 @property (strong, nonatomic) NSArray *allButtons;
 @property (strong, nonatomic) NSArray *animals;
 @property (strong, nonatomic) NSArray *colours;
@@ -40,6 +40,10 @@
 @property (strong, nonatomic) NSString *sentenceChosen;
 @property (strong, nonatomic) NSString *sentenceImage;
 
+@property (weak, nonatomic) IBOutlet UIImageView *underscore1;
+@property (weak, nonatomic) IBOutlet UIImageView *underscore2;
+@property (weak, nonatomic) IBOutlet UIImageView *underscore3;
+@property (weak, nonatomic) IBOutlet UIImageView *underscore4;
 
 
 @end

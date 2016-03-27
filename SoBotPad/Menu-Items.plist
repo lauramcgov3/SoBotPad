@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Menu</key>
+		<string>Games</string>
+		<key>Image</key>
+		<string>game-section.png</string>
+	</dict>
+	<dict>
+		<key>Menu</key>
+		<string>Remote</string>
+		<key>Image</key>
+		<string>remote.png</string>
+	</dict>
+	<dict>
+		<key>Menu</key>
+		<string>Settings</string>
+		<key>Image</key>
+		<string>setting.png</string>
+	</dict>
+</array>
+</plist>
