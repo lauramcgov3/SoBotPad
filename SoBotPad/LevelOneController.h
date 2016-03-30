@@ -12,18 +12,20 @@
 
 @interface LevelOneController : UIViewController
 {
+    // Background image outlet
     IBOutlet UIImageView *imageView;
 }
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 
+// Tile button
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonViews;
 
-
+// Animals and colours arrays
 @property (strong, nonatomic) NSArray *animals;
 @property (strong, nonatomic) NSArray *colours;
 
--(void)home;
+// Tile action
 -(IBAction)tileClicked:(id)sender;
 
 @end

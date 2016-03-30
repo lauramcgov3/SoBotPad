@@ -6,6 +6,7 @@
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
+#import "TextToSpeech.h"
 #import <Foundation/Foundation.h>
 #import "RemoteController.h"
 #import "Macros.h"
@@ -76,6 +77,12 @@
     [self sendMessage:coordinates];
 }
 
+- (IBAction)feelings:(id)sender
+{
+    NSString *feelings = [sender currentTitle];
+    [TextToSpeech speakString:feelings];
+}
+
 
 -(void)sendMessage: (NSString *)str
 {
@@ -115,5 +122,10 @@
     [self sendMessage:tilt];
 }
 
+- (void) viewDidDisappear:(BOOL)animated
+{
+    NSLog(@"reset");
+    [self sendMessage:@"reset"];
+}
 
 @end

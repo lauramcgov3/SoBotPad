@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *choice3;
 @property (weak, nonatomic) IBOutlet UIButton *choice4;
 
-
+// Arrays for sentences, buttons and words
 @property (strong, nonatomic) NSArray *allSentences;
 @property (strong, nonatomic) NSArray *sentenceButtons;
 @property (strong, nonatomic) NSMutableArray *choiceButtons;
@@ -35,11 +35,14 @@
 @property (strong, nonatomic) NSArray *animals;
 @property (strong, nonatomic) NSArray *colours;
 
-
+// Dictionary of sentence images from Sentences.plist
 @property (strong, nonatomic) NSDictionary *sentenceImages;
+
+// Strings for sentence and image for that sentence chosen
 @property (strong, nonatomic) NSString *sentenceChosen;
 @property (strong, nonatomic) NSString *sentenceImage;
 
+// Image views for yellow bar under sentence images
 @property (weak, nonatomic) IBOutlet UIImageView *underscore1;
 @property (weak, nonatomic) IBOutlet UIImageView *underscore2;
 @property (weak, nonatomic) IBOutlet UIImageView *underscore3;

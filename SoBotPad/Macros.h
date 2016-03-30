@@ -9,7 +9,7 @@
 #ifndef Macros_h
 #define Macros_h
 
-#define SERVICE_ID                              @"eduardo-mc-test"
+#define SERVICE_ID                              @"SoBotPad"
 
 #define NOTIFICATION_MC_DID_CHANGE_STATE        @"MCDidChangeStateNotification"
 #define NOTIFICATION_MC_DID_RECEIVE_DATA        @"MCDidReceiveDataNotification"

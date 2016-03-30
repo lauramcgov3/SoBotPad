@@ -6,9 +6,6 @@
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@import AVFoundation;
 #import "LevelFourController.h"
 #import "LevelFiveController.h"
 #import "LevelController.h"
@@ -16,11 +13,9 @@
 
 @interface LevelFourController ()
 //Declare Private Properties
-//add a blank tile image and an image of the tile that is flipped over
-@property UIImage *blankTileImage;
+
+// Add image for back of tile
 @property UIImage *backTileImage;
-
-
 
 //Array of names
 @property NSArray *names;
@@ -31,8 +26,6 @@
 //Array of tile images
 @property NSMutableArray *tiles;
 
-
-//----------------------
 //Dictionary of images and names
 @property NSDictionary *imageDictionary;
 
@@ -41,12 +34,16 @@
 
 //Array of shuffled tile IDs
 @property NSMutableArray *shuffledTiles;
+
 //How many times did the player get a match
 @property NSInteger matchCounter;
+
 //How many times did the player guess
 @property NSInteger guessCounter;
+
 //The ID of the first flipped tile
 @property NSInteger tileFlipped;
+
 //The first button object that was clicked
 @property UIButton *tile1;
 //The second button object that was clicked
@@ -61,6 +58,7 @@
 @end
 
 @implementation LevelFourController
+
 //Local Variables
 static bool isDisabled = false;
 static bool isMatch = false;
@@ -71,9 +69,8 @@ static bool isWinner = false;
 {
     [super viewDidLoad];
     
+    // Set tile of view
     self.title = @"Level Four";
-    
-    //[self.navigationController setNavigationBarHidden:YES];
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
@@ -85,42 +82,35 @@ static bool isWinner = false;
     UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
     [self.navigationItem setRightBarButtonItem:homeButton];
     
-    NSString *level = self.level;
-    NSLog(@"%@", level);
-    
-    //Assign images to the blank and back image properties
+    // Assign images to the blank and back image properties
     self.backTileImage = [UIImage imageNamed:@"cardbkg.jpg"];
-    self.blankTileImage = [UIImage imageNamed:@"blank.png"];
     
     //Set the tile flipped variable less than zero so we know that a tile has not been clicked yet
     self.tileFlipped = -1;
     
-    //set our guesses and matches to zero
+    // Set guesses and matches to zero
     self.matchCounter = 0;
     self.guessCounter = 0;
-    
-    
-    
-    
     
     [self getTiles];
 }
 
+// Method to back to previous view
 -(void)goBack
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+// Get all images for tiles
 - (void) getTiles
 {
-    //get & define category
+    // Get & define category
     NSString *anis = @"animals";
     NSString *cols = @"colours";
     NSString *category =self.appDelegate.category;
     NSLog(@"%@", category);
     
-    //Get images
-    
+    //Get images for categories
     if ([category isEqualToString:anis])
     {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
@@ -147,11 +137,12 @@ static bool isWinner = false;
         [imageView setImage:img1];
     }
     
-    
+    // All images and titles
     self.imageDictionary = [NSDictionary dictionaryWithObjects:self.images forKeys:self.names];
     [self setTiles];
 }
 
+// Swt images and titles for tiles
 - (void)setTiles
 {
     NSString *key1;
@@ -229,13 +220,11 @@ static bool isWinner = false;
                   [UIImage imageNamed:img10],
                   nil];
     self.tileDictionary = [NSDictionary dictionaryWithObjects:self.tiles forKeys:keys];
-    NSLog(@" Tile dict: %@", self.tileDictionary);
-    NSLog(@"Self tiles: %@", self.tiles);
     
     [self shuffleTiles];
 }
 
-
+// Shuffle tiles
 - (void)shuffleTiles
 {
     
@@ -260,11 +249,7 @@ static bool isWinner = false;
     
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
+// Action for tile clicked
 -(IBAction)tileClicked:(id)sender
 {
     
@@ -273,19 +258,14 @@ static bool isWinner = false;
     
     
     NSInteger senderID = [sender tag];
-    NSLog(@"Sender ID: %ld", (long)senderID);
     
-    
+    // Image of flipped tile
     UIImage *flippedImage = [self.tiles objectAtIndex:senderID];
     
-    
+    // Speak flipped tile
     for (NSString* key in self.tileDictionary) {
         if ([[self.tileDictionary objectForKey:key] isEqual:flippedImage]){
-            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:key ];
-            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
-            utterance.rate = 0.40;
-            [synthesizer speakUtterance:utterance];
+            [TextToSpeech speakString:key];
         }
         
     }
@@ -293,6 +273,7 @@ static bool isWinner = false;
     if (error)
         NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
     
+    // Match or mismatch tile
     if(self.tileFlipped >= 0 && senderID != self.tileFlipped)
     {
         self.tile2 = sender;
@@ -332,9 +313,11 @@ static bool isWinner = false;
             [self sendMessage:@"winner"];
         }
         
+        // Reset variables
         isWinner = false;
         isDisabled = true;
-        //set up a timer to flip the tiles over after 1 sec.
+        
+        // Set up a timer to flip the tiles over after 2 seconds
         [NSTimer scheduledTimerWithTimeInterval:2.0
                                          target:self
                                        selector:@selector(resetTiles)
@@ -342,9 +325,9 @@ static bool isWinner = false;
                                         repeats:NO];
         self.tileFlipped = -1;
     }
+    // First guess
     else
     {
-        
         self.tileFlipped = senderID;
         self.tile1 = sender;
         UIImage *tileImage = [self.tiles objectAtIndex:senderID];
@@ -353,6 +336,7 @@ static bool isWinner = false;
     
 }
 
+// Reset tiles
 - (void)resetTiles
 {
     
@@ -370,6 +354,7 @@ static bool isWinner = false;
     isMatch = false;
 }
 
+// Send message
 -(void)sendMessage: (NSString *)str
 {
     NSString *message = str;
@@ -386,38 +371,62 @@ static bool isWinner = false;
         NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
 }
 
-
+// Winner notification
 - (void) winner
 {
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Winner!"
-                                  message:@"Level Four Complete"
-                                  preferredStyle:UIAlertControllerStyleAlert];
+    // Add alert controller
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:@"\n\n\n\n\n\n"
+                                message:nil
+                                preferredStyle:UIAlertControllerStyleAlert];
+    alert.view.backgroundColor = [UIColor purpleColor];
     
-    UIAlertAction* level = [UIAlertAction
+    // Add image for winner
+    UIImageView *winnerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(65, 15, 150, 150)];
+    winnerImageView.image = [UIImage imageNamed:@"winner.png"];
+    [alert.view addSubview:winnerImageView];
+    
+    // Add level action button
+    UIAlertAction *level = [UIAlertAction
                             actionWithTitle:@"Level 5"
                             style:UIAlertActionStyleDefault
-                            handler:^(UIAlertAction * action)
+                            handler:^(UIAlertAction * _Nonnull action)
                             {
                                 [self changeLevel];
                                 
                             }];
-    UIAlertAction* cancel = [UIAlertAction
+    // Add image to level button
+    UIImage *levelImage = [UIImage imageNamed:@"level-five.png"];
+    levelImage = [levelImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [level setValue:levelImage forKey:@"image"];
+    
+    // Add level action
+    [alert addAction:level];
+    
+    // Add exit action button
+    UIAlertAction *cancel = [UIAlertAction
                              actionWithTitle:@"Cancel"
                              style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
+                             handler:^(UIAlertAction * _Nonnull action)
                              {
                                  [self cancel];
                                  
                              }];
     
-    [alert addAction:level];
+    // Add image to cancel button
+    UIImage *cancelImage = [UIImage imageNamed:@"exit.jpg"];
+    cancelImage = [cancelImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [cancel setValue:cancelImage forKey:@"image"];
+    
+    // Add exit action
     [alert addAction:cancel];
     
+    // Add alert view
     [self presentViewController:alert animated:YES completion:nil];
     
 }
 
+// Level up message
 - (void) changeLevel
 {
     LevelFiveController *levelFiveController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelFiveController"];
@@ -425,6 +434,7 @@ static bool isWinner = false;
     
 }
 
+// Exit method
 - (void) cancel
 {
     LevelController *levelController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LevelController"];
@@ -432,14 +442,15 @@ static bool isWinner = false;
     
 }
 
+// Go home method
 - (void) home
 {
-    NSLog(@"HOME");
     MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
     [self.navigationController pushViewController:menuController animated:YES];
     
 }
 
+// Exit view
 -(void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];

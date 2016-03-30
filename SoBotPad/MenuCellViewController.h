@@ -6,6 +6,7 @@
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
+// Imports for class
 #import <UIKit/UIKit.h>
 
 @interface MenuCellView : UITableViewCell 

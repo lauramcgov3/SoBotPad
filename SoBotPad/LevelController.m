@@ -6,12 +6,11 @@
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-@import AVFoundation;
 #import "LevelController.h"
 #import "GamesController.h"
 #import "MenuController.h"
 #import "CategoryController.h"
+#import "TextToSpeech.h"
 
 
 @implementation LevelController
@@ -31,57 +30,24 @@
     [self.navigationItem setRightBarButtonItem:homeButton];
 }
 
+// Method to return to previous view
 -(void)goBack
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(IBAction)level1:(id)sender;
+// Action for buttons
+-(IBAction)level:(id)sender;
 {
     NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-}
--(IBAction)level2:(id)sender;
-{
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-}
--(IBAction)level3:(id)sender;
-{
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-}
--(IBAction)level4:(id)sender;
-{
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-}
--(IBAction)level5:(id)sender;
-{
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
+    [TextToSpeech speakString:input];
 }
 
--(void)speakString:(NSString *) str
-{
-    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-    
-    
-    NSString *input = str;
-    
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:input];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
-    utterance.rate = 0.40;
-    [synthesizer speakUtterance:utterance];
-    sleep(1);
-}
-
+// Method to go home
 - (void) home
 {
-    NSLog(@"HOME");
     MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
     [self.navigationController pushViewController:menuController animated:YES];
-    
 }
 
 

@@ -12,9 +12,6 @@
 #import "MenuController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-{
-    NSMutableString *category;
-}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) MCManager *mcManager;

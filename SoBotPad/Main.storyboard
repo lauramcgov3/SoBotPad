@@ -64,14 +64,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bkg-app.png" translatesAutoresizingMaskIntoConstraints="NO" id="xSo-4I-yCr">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-JE-lbn">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-JE-lbn">
                                 <rect key="frame" x="384" y="346" width="256" height="76"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Browse for devices">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="button_browseForDevices:" destination="7hb-7L-IEn" eventType="touchUpInside" id="byy-7z-F9n"/>
+                                    <action selector="button_browseForDevices:" destination="7hb-7L-IEn" eventType="touchUpInside" id="RCS-HT-QYa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romotalk-bkg.jpeg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-T5-IWb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romotalk-bkg.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-T5-IWb">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hiw-ml-upJ">
@@ -178,7 +178,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romotalk-bkg.jpeg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Be-o5-lpz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romotalk-bkg.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="CPl-4Z-GR7">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pdq-er-uYr">
@@ -449,7 +449,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drs-JX-4GV" userLabel="Level1">
                                 <rect key="frame" x="122" y="110" width="150" height="150"/>
-                                <state key="normal" title="Level One" image="level-one.png"/>
+                                <state key="normal" title="level one" image="level-one.png"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -457,7 +457,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="level1:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="5bb-7U-XPu"/>
+                                    <action selector="level:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="Y0T-S6-DEs"/>
                                     <segue destination="2iS-wZ-5NP" kind="show" id="DzE-2p-gyQ"/>
                                 </connections>
                             </button>
@@ -471,7 +471,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="level2:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="l1E-jF-S83"/>
+                                    <action selector="level:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="gz3-J1-h2K"/>
                                     <segue destination="WfE-zu-Qqk" kind="show" id="HhB-ET-oy7"/>
                                 </connections>
                             </button>
@@ -485,7 +485,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="level3:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="Du8-3V-15X"/>
+                                    <action selector="level:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="NY7-ri-L5u"/>
                                     <segue destination="a3j-7F-Gqa" kind="show" id="tqv-f1-sxp"/>
                                 </connections>
                             </button>
@@ -499,8 +499,22 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="level4:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="nX1-95-eBy"/>
+                                    <action selector="level:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="UP8-SV-zD8"/>
                                     <segue destination="UV3-cL-AgH" kind="show" id="8m6-Fz-XfH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-kg-PJy" userLabel="Level5">
+                                <rect key="frame" x="595" y="460" width="150" height="150"/>
+                                <state key="normal" title="level five" image="level-five.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="level:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="d4I-jw-PdZ"/>
+                                    <segue destination="8ah-Nb-MqX" kind="show" id="ikh-kd-Azw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-MI-wEk">
@@ -534,20 +548,6 @@
                                 <color key="textColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-kg-PJy" userLabel="Level5">
-                                <rect key="frame" x="595" y="460" width="150" height="150"/>
-                                <state key="normal" title="level five" image="level-five.png"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="level5:" destination="ZTp-Le-p4J" eventType="touchUpInside" id="fAv-MD-ABa"/>
-                                    <segue destination="8ah-Nb-MqX" kind="show" id="ikh-kd-Azw"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1035,6 +1035,12 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-nc-WBa">
                                 <rect key="frame" x="241" y="153" width="150" height="150"/>
                                 <state key="normal" title="Button" image="cardbkg.jpg"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tileClicked:" destination="UV3-cL-AgH" eventType="touchUpInside" id="OKt-fl-vXv"/>
                                 </connections>
@@ -1272,7 +1278,7 @@
                                 <rect key="frame" x="599" y="281" width="150" height="150"/>
                                 <state key="normal" title="Match Game" image="match-icon.png"/>
                                 <connections>
-                                    <action selector="matchGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="sg8-dd-woy"/>
+                                    <action selector="gameButton:" destination="5PO-rW-sXB" eventType="touchUpInside" id="L9f-32-lfZ"/>
                                     <segue destination="HEB-3l-eym" kind="show" identifier="LevelController" id="fjO-NU-27u"/>
                                 </connections>
                             </button>
@@ -1292,8 +1298,7 @@
                                 <rect key="frame" x="267" y="281" width="150" height="150"/>
                                 <state key="normal" title="Picture Game" image="picture-game.png"/>
                                 <connections>
-                                    <action selector="matchGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="FWX-ld-T0E"/>
-                                    <action selector="pictureGame:" destination="5PO-rW-sXB" eventType="touchUpInside" id="6Ey-z9-pJK"/>
+                                    <action selector="gameButton:" destination="5PO-rW-sXB" eventType="touchUpInside" id="TdF-Z8-nYw"/>
                                     <segue destination="s3S-t8-nOG" kind="show" identifier="PictureGameController" id="KEV-Vx-3ve"/>
                                 </connections>
                             </button>
@@ -1319,7 +1324,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clozebkg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SSc-yH-qKG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bkg-app.png" translatesAutoresizingMaskIntoConstraints="NO" id="SSc-yH-qKG">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1p-FN-fEq">
@@ -1403,6 +1408,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="feelings:" destination="qUV-Er-DaZ" eventType="touchUpInside" id="hfE-4K-kyk"/>
                                     <segue destination="lak-gE-b00" kind="popoverPresentation" popoverAnchorView="vCc-eX-xzA" id="xq3-RM-sf9">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -1638,7 +1644,7 @@
         <!--ContainerController-->
         <scene sceneID="r3p-J7-JkP">
             <objects>
-                <viewController storyboardIdentifier="ContainerController" title="ContainerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OsW-3d-aRk" customClass="ContainerController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContainerController" title="ContainerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OsW-3d-aRk" customClass="VideoController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WHZ-fy-P7j"/>
                         <viewControllerLayoutGuide type="bottom" id="KVE-YX-3uF"/>
@@ -1647,7 +1653,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romo-placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="nUD-po-hNR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUD-po-hNR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -1678,9 +1684,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stick-base.png" translatesAutoresizingMaskIntoConstraints="NO" id="vG2-eB-qrh">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="js-stick.png" translatesAutoresizingMaskIntoConstraints="NO" id="b6P-6A-i2E">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stick-normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="H8V-Z0-H3N">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                             </imageView>
@@ -1707,7 +1710,6 @@
         <image name="bkg-app.png" width="1303" height="839"/>
         <image name="bored.jpeg" width="500" height="500"/>
         <image name="cardbkg.jpg" width="239" height="300"/>
-        <image name="clozebkg.jpg" width="1303" height="839"/>
         <image name="colours.jpg" width="500" height="500"/>
         <image name="confused.jpeg" width="500" height="500"/>
         <image name="disgust.jpeg" width="500" height="500"/>
@@ -1717,12 +1719,11 @@
         <image name="forward.jpeg" width="500" height="500"/>
         <image name="happy.jpeg" width="500" height="500"/>
         <image name="home.png" width="394" height="336"/>
-        <image name="js-stick.png" width="150" height="150"/>
         <image name="left.jpeg" width="500" height="500"/>
         <image name="level-five.png" width="150" height="150"/>
         <image name="level-four.png" width="150" height="150"/>
         <image name="level-one.png" width="150" height="150"/>
-        <image name="level-three.png" width="500" height="500"/>
+        <image name="level-three.png" width="150" height="150"/>
         <image name="level-two.png" width="150" height="150"/>
         <image name="listen-again.jpeg" width="500" height="500"/>
         <image name="match-icon.png" width="394" height="336"/>
@@ -1730,7 +1731,6 @@
         <image name="picture-game.png" width="394" height="336"/>
         <image name="play-again.png" width="394" height="336"/>
         <image name="right.jpeg" width="500" height="500"/>
-        <image name="romo-placeholder.png" width="180" height="267"/>
         <image name="romotalk-bkg.jpeg" width="1303" height="839"/>
         <image name="sad.jpeg" width="500" height="500"/>
         <image name="scared.jpeg" width="500" height="500"/>

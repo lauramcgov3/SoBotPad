@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TextToSpeech.h"
 
 @interface MenuController : UITableViewController
 
+// Array of menu items
 @property (strong, nonatomic) NSArray *menuItems;
 
 

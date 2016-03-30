@@ -26,9 +26,11 @@
 		D32E27111C86537300B71D25 /* LevelTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E27101C86537300B71D25 /* LevelTwoController.m */; };
 		D32E27131C86538000B71D25 /* LevelThreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E27121C86538000B71D25 /* LevelThreeController.m */; };
 		D32E27151C86538A00B71D25 /* LevelFourController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E27141C86538A00B71D25 /* LevelFourController.m */; };
-		D32E27191C86540000B71D25 /* LevelFiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E27181C86540000B71D25 /* LevelFiveController.m */; };
+		D35E8F951CAC4294007A81CC /* winner.png in Resources */ = {isa = PBXBuildFile; fileRef = D35E8F941CAC4294007A81CC /* winner.png */; };
+		D35E8F971CAC4599007A81CC /* home-alert.png in Resources */ = {isa = PBXBuildFile; fileRef = D35E8F961CAC4599007A81CC /* home-alert.png */; };
+		D35E8F991CAC4A02007A81CC /* exit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D35E8F981CAC4A02007A81CC /* exit.jpg */; };
 		D376A4341CA0516D00F906FB /* RemoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = D376A4331CA0516D00F906FB /* RemoteController.m */; };
-		D376A4391CA0525F00F906FB /* ContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D376A4361CA0525F00F906FB /* ContainerController.m */; };
+		D376A4391CA0525F00F906FB /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D376A4361CA0525F00F906FB /* VideoController.m */; };
 		D376A43A1CA0525F00F906FB /* VideoPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = D376A4381CA0525F00F906FB /* VideoPeer.m */; };
 		D376A43C1CA0596200F906FB /* remote.png in Resources */ = {isa = PBXBuildFile; fileRef = D376A43B1CA0596200F906FB /* remote.png */; };
 		D376A43E1CA0736F00F906FB /* adjv.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D376A43D1CA0736F00F906FB /* adjv.jpeg */; };
@@ -36,8 +38,11 @@
 		D3852BDE1C8B32280012FDD4 /* CategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3852BDD1C8B32280012FDD4 /* CategoryController.m */; };
 		D39AFFF41CA229F7004819D6 /* down.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D39AFFF21CA229F7004819D6 /* down.jpeg */; };
 		D39AFFF51CA229F7004819D6 /* up.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D39AFFF31CA229F7004819D6 /* up.jpeg */; };
+		D3A882551CA890C10008E862 /* MenuControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A882541CA890C10008E862 /* MenuControllerTests.m */; };
 		D3ACFE791C9CAC98003BE370 /* exclamation.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D3ACFE771C9CAC98003BE370 /* exclamation.jpeg */; };
 		D3ACFE7A1C9CAC98003BE370 /* questionmark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D3ACFE781C9CAC98003BE370 /* questionmark.jpeg */; };
+		D3AE39BD1CAB2CC90049E8AA /* LevelFiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE39BC1CAB2CC90049E8AA /* LevelFiveController.m */; };
+		D3AE39C31CAC2EC90049E8AA /* TextToSpeech.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE39C21CAC2EC90049E8AA /* TextToSpeech.m */; };
 		D3C0F14E1C8B62CF00D0B26C /* Colours.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3C0F14D1C8B62CF00D0B26C /* Colours.plist */; };
 		D3CC59A11C851BDB009A1909 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CC59A01C851BDB009A1909 /* main.m */; };
 		D3CC59A41C851BDB009A1909 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CC59A31C851BDB009A1909 /* AppDelegate.m */; };
@@ -224,18 +229,20 @@
 		D31FEFA11CA453EF004E8C77 /* level-two.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "level-two.png"; sourceTree = "<group>"; };
 		D31FEFA71CA6CC30004E8C77 /* under-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "under-image.jpg"; sourceTree = "<group>"; };
 		D31FEFA91CA6E182004E8C77 /* listen-again.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "listen-again.jpeg"; sourceTree = "<group>"; };
-		D32E270F1C86534B00B71D25 /* LevelTwoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelTwoController.h; sourceTree = "<group>"; };
 		D32E27101C86537300B71D25 /* LevelTwoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTwoController.m; sourceTree = "<group>"; };
 		D32E27121C86538000B71D25 /* LevelThreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelThreeController.m; sourceTree = "<group>"; };
 		D32E27141C86538A00B71D25 /* LevelFourController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFourController.m; sourceTree = "<group>"; };
-		D32E27161C8653A700B71D25 /* LevelThreeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelThreeController.h; sourceTree = "<group>"; };
-		D32E27171C8653B700B71D25 /* LevelFourController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelFourController.h; sourceTree = "<group>"; };
-		D32E27181C86540000B71D25 /* LevelFiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelFiveController.m; path = ../LevelFiveController.m; sourceTree = "<group>"; };
-		D32E271A1C86541800B71D25 /* LevelFiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelFiveController.h; path = ../LevelFiveController.h; sourceTree = "<group>"; };
+		D35E8F941CAC4294007A81CC /* winner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winner.png; sourceTree = "<group>"; };
+		D35E8F961CAC4599007A81CC /* home-alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-alert.png"; sourceTree = "<group>"; };
+		D35E8F981CAC4A02007A81CC /* exit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = exit.jpg; path = ../symbolstix/verbs/exit.jpg; sourceTree = "<group>"; };
+		D35E8F9A1CAC675B007A81CC /* LevelFiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelFiveController.h; sourceTree = "<group>"; };
+		D35E8F9B1CAC675B007A81CC /* LevelFourController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelFourController.h; sourceTree = "<group>"; };
+		D35E8F9C1CAC675B007A81CC /* LevelThreeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelThreeController.h; sourceTree = "<group>"; };
+		D35E8F9D1CAC675B007A81CC /* LevelTwoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelTwoController.h; sourceTree = "<group>"; };
 		D376A4321CA0511500F906FB /* RemoteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteController.h; sourceTree = "<group>"; };
 		D376A4331CA0516D00F906FB /* RemoteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteController.m; sourceTree = "<group>"; };
-		D376A4351CA0525F00F906FB /* ContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerController.h; path = ../../ContainerController.h; sourceTree = "<group>"; };
-		D376A4361CA0525F00F906FB /* ContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerController.m; path = ../../ContainerController.m; sourceTree = "<group>"; };
+		D376A4351CA0525F00F906FB /* VideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoController.h; path = ../../VideoController.h; sourceTree = "<group>"; };
+		D376A4361CA0525F00F906FB /* VideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoController.m; path = ../../VideoController.m; sourceTree = "<group>"; };
 		D376A4371CA0525F00F906FB /* VideoPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoPeer.h; path = ../../VideoPeer.h; sourceTree = "<group>"; };
 		D376A4381CA0525F00F906FB /* VideoPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoPeer.m; path = ../../VideoPeer.m; sourceTree = "<group>"; };
 		D376A43B1CA0596200F906FB /* remote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remote.png; sourceTree = "<group>"; };
@@ -244,8 +251,12 @@
 		D3852BDD1C8B32280012FDD4 /* CategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryController.m; sourceTree = "<group>"; };
 		D39AFFF21CA229F7004819D6 /* down.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = down.jpeg; sourceTree = "<group>"; };
 		D39AFFF31CA229F7004819D6 /* up.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = up.jpeg; sourceTree = "<group>"; };
+		D3A882541CA890C10008E862 /* MenuControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuControllerTests.m; sourceTree = "<group>"; };
 		D3ACFE771C9CAC98003BE370 /* exclamation.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = exclamation.jpeg; sourceTree = "<group>"; };
 		D3ACFE781C9CAC98003BE370 /* questionmark.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = questionmark.jpeg; sourceTree = "<group>"; };
+		D3AE39BC1CAB2CC90049E8AA /* LevelFiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFiveController.m; sourceTree = "<group>"; };
+		D3AE39C21CAC2EC90049E8AA /* TextToSpeech.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextToSpeech.m; sourceTree = "<group>"; };
+		D3AE39C41CAC2F910049E8AA /* TextToSpeech.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToSpeech.h; sourceTree = "<group>"; };
 		D3C0F14D1C8B62CF00D0B26C /* Colours.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colours.plist; sourceTree = "<group>"; };
 		D3CC599C1C851BDB009A1909 /* SoBotPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoBotPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CC59A01C851BDB009A1909 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -443,8 +454,8 @@
 		D319251E1C8BBD1000C6E36E /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				D376A4351CA0525F00F906FB /* ContainerController.h */,
-				D376A4361CA0525F00F906FB /* ContainerController.m */,
+				D376A4351CA0525F00F906FB /* VideoController.h */,
+				D376A4361CA0525F00F906FB /* VideoController.m */,
 				D376A4371CA0525F00F906FB /* VideoPeer.h */,
 				D376A4381CA0525F00F906FB /* VideoPeer.m */,
 				D376A4321CA0511500F906FB /* RemoteController.h */,
@@ -455,6 +466,15 @@
 				D3CF979F1CA0D78F00CF585B /* JoyStickController.m */,
 			);
 			name = Remote;
+			sourceTree = "<group>";
+		};
+		D35E8F931CAC4027007A81CC /* TextToSpeech */ = {
+			isa = PBXGroup;
+			children = (
+				D3AE39C41CAC2F910049E8AA /* TextToSpeech.h */,
+				D3AE39C21CAC2EC90049E8AA /* TextToSpeech.m */,
+			);
+			name = TextToSpeech;
 			sourceTree = "<group>";
 		};
 		D379FFFA1C94995A00CF22F7 /* Property Lists */ = {
@@ -475,14 +495,14 @@
 				D318B28A1C8B310F006AE44F /* LevelController.m */,
 				D3D9094F1C85691F008D180A /* LevelOneController.h */,
 				D3D9094D1C856913008D180A /* LevelOneController.m */,
-				D32E270F1C86534B00B71D25 /* LevelTwoController.h */,
+				D35E8F9D1CAC675B007A81CC /* LevelTwoController.h */,
 				D32E27101C86537300B71D25 /* LevelTwoController.m */,
-				D32E27161C8653A700B71D25 /* LevelThreeController.h */,
+				D35E8F9C1CAC675B007A81CC /* LevelThreeController.h */,
 				D32E27121C86538000B71D25 /* LevelThreeController.m */,
-				D32E27171C8653B700B71D25 /* LevelFourController.h */,
+				D35E8F9B1CAC675B007A81CC /* LevelFourController.h */,
 				D32E27141C86538A00B71D25 /* LevelFourController.m */,
-				D32E271A1C86541800B71D25 /* LevelFiveController.h */,
-				D32E27181C86540000B71D25 /* LevelFiveController.m */,
+				D35E8F9A1CAC675B007A81CC /* LevelFiveController.h */,
+				D3AE39BC1CAB2CC90049E8AA /* LevelFiveController.m */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -523,6 +543,7 @@
 				D3CC59A21C851BDB009A1909 /* AppDelegate.h */,
 				D3CC59A31C851BDB009A1909 /* AppDelegate.m */,
 				D3F0C8EA1C85523C00DC2728 /* Main.storyboard */,
+				D35E8F931CAC4027007A81CC /* TextToSpeech */,
 				D3CC59F11C853B75009A1909 /* Menu */,
 				D3F0C8E11C854C5000DC2728 /* Games */,
 				D319251E1C8BBD1000C6E36E /* Remote */,
@@ -550,6 +571,7 @@
 			children = (
 				D3CC59BC1C851BDB009A1909 /* SoBotPadTests.m */,
 				D3CC59BE1C851BDB009A1909 /* Info.plist */,
+				D3A882541CA890C10008E862 /* MenuControllerTests.m */,
 			);
 			path = SoBotPadTests;
 			sourceTree = SOURCE_ROOT;
@@ -801,6 +823,9 @@
 		D3FE58B11C9B468B0029F57E /* App Images */ = {
 			isa = PBXGroup;
 			children = (
+				D35E8F981CAC4A02007A81CC /* exit.jpg */,
+				D35E8F961CAC4599007A81CC /* home-alert.png */,
+				D35E8F941CAC4294007A81CC /* winner.png */,
 				D31FEFA71CA6CC30004E8C77 /* under-image.jpg */,
 				D31FEF9B1CA435BC004E8C77 /* colour-bkg.png */,
 				D31FEF971CA42F57004E8C77 /* bkg-app.png */,
@@ -1066,11 +1091,13 @@
 				D3DE668B1C90D6DF00DB4432 /* Sentences.plist in Resources */,
 				D318B2851C8B1E93006AE44F /* Animals.plist in Resources */,
 				D3E72C101C9E1F6800EC9610 /* robots.jpeg in Resources */,
+				D35E8F971CAC4599007A81CC /* home-alert.png in Resources */,
 				D3FE58761C9B46820029F57E /* scared.jpeg in Resources */,
 				D3FE58921C9B46820029F57E /* lamb.jpeg in Resources */,
 				D3FE58811C9B46820029F57E /* bear.jpeg in Resources */,
 				D3FE586A1C9B46820029F57E /* gold.jpeg in Resources */,
 				D3FE58FE1C9B62B30029F57E /* hate.jpeg in Resources */,
+				D35E8F991CAC4A02007A81CC /* exit.jpg in Resources */,
 				D3E72C0C1C9E1A6C00EC9610 /* home-bar.png in Resources */,
 				D3FE58881C9B46820029F57E /* dogs.jpeg in Resources */,
 				D3FE58891C9B46820029F57E /* duck.jpeg in Resources */,
@@ -1082,6 +1109,7 @@
 				D3FE586D1C9B46820029F57E /* happy.jpeg in Resources */,
 				D3FE58EF1C9B49B20029F57E /* yes.png in Resources */,
 				D3FE58DB1C9B468B0029F57E /* match-icon.png in Resources */,
+				D35E8F951CAC4294007A81CC /* winner.png in Resources */,
 				D3E72C071C9E06DD00EC9610 /* swim.jpeg in Resources */,
 				D3FE58A91C9B46820029F57E /* like.jpeg in Resources */,
 				D3FE58B01C9B46820029F57E /* stop.jpeg in Resources */,
@@ -1137,15 +1165,16 @@
 				D3CC59A71C851BDB009A1909 /* MenuController.m in Sources */,
 				D3CC59AD1C851BDB009A1909 /* SoBotPad.xcdatamodeld in Sources */,
 				D3852BDE1C8B32280012FDD4 /* CategoryController.m in Sources */,
-				D32E27191C86540000B71D25 /* LevelFiveController.m in Sources */,
+				D3AE39BD1CAB2CC90049E8AA /* LevelFiveController.m in Sources */,
 				D3E72BF01C9DA62500EC9610 /* RomoAskController.m in Sources */,
 				D3D9094E1C856913008D180A /* LevelOneController.m in Sources */,
 				D32E27131C86538000B71D25 /* LevelThreeController.m in Sources */,
 				D3CC59A41C851BDB009A1909 /* AppDelegate.m in Sources */,
 				D3CC59E71C853412009A1909 /* GamesController.m in Sources */,
 				D319251D1C8BBD0800C6E36E /* FeelingsController.m in Sources */,
-				D376A4391CA0525F00F906FB /* ContainerController.m in Sources */,
+				D376A4391CA0525F00F906FB /* VideoController.m in Sources */,
 				D376A4341CA0516D00F906FB /* RemoteController.m in Sources */,
+				D3AE39C31CAC2EC90049E8AA /* TextToSpeech.m in Sources */,
 				D3DE66821C90CBDE00DB4432 /* PictureGameController.m in Sources */,
 				D32E27111C86537300B71D25 /* LevelTwoController.m in Sources */,
 				D3CC59F81C853EC9009A1909 /* MCManager.m in Sources */,
@@ -1157,6 +1186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A882551CA890C10008E862 /* MenuControllerTests.m in Sources */,
 				D3CC59BD1C851BDB009A1909 /* SoBotPadTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

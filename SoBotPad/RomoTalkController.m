@@ -6,50 +6,67 @@
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
+
+// Imports for class
 @import AVFoundation;
 #import <Foundation/Foundation.h>
 #import "RomoTalkController.h"
 #import "PictureGameController.h"
 #import "Macros.h"
 #import "AppDelegate.h"
+#import "TextToSpeech.h"
 
 @interface RomoTalkController ()
 
+// Interface variables
 @property NSString *talk;
 
 @end
 
 @implementation RomoTalkController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Shared application for Multipeer Connectivity
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
+    // Set title of view
     self.title = @"Romo Talk";
+    
+    // Hide the navigation bar
     [self.navigationController setNavigationBarHidden:YES];
     
     //Set back button
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithImage:[UIImage imageNamed:@"back-key.png"]
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(goBack)];
     [self.navigationItem setLeftBarButtonItem:backButton];
     
     //Set home button
-    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc]
+                                   initWithImage:[UIImage imageNamed:@"home-bar"]
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(home)];
     [self.navigationItem setRightBarButtonItem:homeButton];
     
+    // Add notification center for Multipeer Connectivity
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveDataWithNotification:)
                                                  name:NOTIFICATION_MC_DID_RECEIVE_DATA
                                                object:nil];
     
+    // Hide home and play again buttons
     self.playAgain.hidden = YES;
     self.playAgainLabel.hidden = YES;
     self.homeButton.hidden = YES;
     self.homeLabel.hidden = YES;
-    
 }
 
+// Method to go back to previous screen
 -(void)goBack
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -57,21 +74,16 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    // Send title of view and speak the reply from Romo
     [self sendMessage:self.title];
-    [self speakString:self.talk];
+    [TextToSpeech speakString:self.talk];
 }
 
-
+// Method for handling received messages - dictates behaviour
 - (void) didReceiveDataWithNotification:(NSNotification *)notification
 {
-    MCPeerID *peerID = [[notification userInfo]objectForKey:SESSION_KEY_PEER_ID];
-    NSString *peerDisplayName = peerID.displayName;
-    
     NSData *receivedData = [[notification userInfo]objectForKey:SESSION_KEY_DATA];
     NSString *receivedMessage = [[NSString alloc]initWithData:receivedData encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"peerDisplayName = %@", peerDisplayName);
-    NSLog(@"receivedMessage = %@", receivedMessage);
     
     [[NSOperationQueue mainQueue]addOperationWithBlock:
      ^{
@@ -128,25 +140,27 @@
          }
          
      }];
-
 }
 
+// Split sentence into words
 - (void) splitQuestion
 {
     self.words = [self.talk componentsSeparatedByString:@" "];
-    [self getQuestionImages:self.words];
-    
+    [self getTalkImages:self.words];
 }
 
-- (void) getQuestionImages: (NSArray *)arr
+// Method to get images for talking
+- (void) getTalkImages: (NSArray *)arr
 {
-    
+    // All talk image views
     self.talkImageViews = [[ NSArray alloc] initWithObjects:self.talk1,self.talk2,self.talk3, self.talk4, self.talk5,nil];
     
+    // Get words and images from words.plist
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Words" ofType:@"plist"];
     self.talkImages = [NSDictionary dictionaryWithContentsOfFile:filePath];
     [NSThread sleepForTimeInterval:1.5f];
     
+    // Assign images to image views
     for (int i = 0; i<[arr count];)
     {
         for (int j = 0; j<[self.talkImageViews count]; j++)
@@ -158,45 +172,46 @@
             i++;
         }
     }
-    NSLog(@"Done");
     [self sendDone];
-    
 }
 
 - (void) sendDone
 {
-    [self speakString:self.talk];
+    // Notify Romo that images are loaded
+    [TextToSpeech speakString:self.talk];
     [NSThread sleepForTimeInterval:2.0f];
     [self sendMessage:@"buttons loaded"];
 }
 
 - (void) getButtons
 {
+    // Show play again and home buttons and labels
+    [NSThread sleepForTimeInterval:0.5f];
     self.playAgain.hidden = NO;
     self.playAgainLabel.hidden = NO;
     self.homeButton.hidden = NO;
     self.homeLabel.hidden = NO;
-
 }
 
-
+// Play again button action
 - (IBAction)playAgain:(id)sender
 {
-    [self speakString:@"Play again"];
+    [TextToSpeech speakString:@"Play again"];
     [self changeToGame];
 }
 
+// Home button action
 - (IBAction)homeButton:(id)sender
 {
-    [self speakString:@"Home"];
+    [TextToSpeech speakString:@"Home"];
     [self home];
 }
 
+// Method to send message
 -(void)sendMessage: (NSString *)str
 {
     
     NSString *message = str;
-    NSLog(@"Message: %@", message);
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
     NSError *error;
@@ -212,43 +227,26 @@
     return;
 }
 
--(void)speakString: (NSString *)str
-{
-    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-    
-    
-    NSString *input = str;
-    
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:input];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
-    utterance.rate = 0.40;
-    [synthesizer speakUtterance:utterance];
-}
-
+// Method to go home
 - (void) home
 {
-    
     MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
     [self.navigationController pushViewController:menuController animated:YES];
-    
 }
 
-
-
+// Method to back to Picture Game
 - (void) changeToGame
 {
-    
     PictureGameController *pictureGameController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PictureGameController"];
     [self.navigationController pushViewController:pictureGameController animated:NO];
-    
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    // Remove notification center for Multipeer Connectivity
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:NOTIFICATION_MC_DID_RECEIVE_DATA
                                                   object:nil];
 }
-
 
 @end

@@ -20,12 +20,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Override point for customization after application launch.
-    [UIApplication sharedApplication].idleTimerDisabled = YES;
-    UINavigationController *navController = [[UINavigationController alloc]init];
-    [self.window makeKeyAndVisible];
-    navController.navigationBar.tintColor = [UIColor blueColor];
     
+    // Stop the screen from dimming while the app is running
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
+    // Initialize the manager for the multipeer connectivity
     self.mcManager = [[MCManager alloc]init];
+    
+    // Declare a mutable string for category of match game
     category =[[NSMutableString alloc]init];
     return YES;
 }

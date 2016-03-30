@@ -10,8 +10,7 @@
 
 @interface CategoryController : UIViewController
 
-//@property (nonatomic) NSString *category;
-
+// Button actions for categories of game
 -(IBAction)animals:(id)sender;
 -(IBAction)colours:(id)sender;
 

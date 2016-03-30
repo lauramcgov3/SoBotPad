@@ -6,6 +6,7 @@
 //  Copyright © 2016 Laura. All rights reserved.
 //
 
+// Imports for class
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "PictureGameController.h"
@@ -13,9 +14,11 @@
 #import "RomoAskController.h"
 #import "Macros.h"
 #import "AppDelegate.h"
+#import "TextToSpeech.h"
 
 @interface PictureGameController ()
 
+// Interface variables
 @property NSArray *words;
 @property UIButton *missing1;
 @property UIButton *missing2;
@@ -36,30 +39,41 @@ bool isMatch = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     // Set page title
     self.title = @"Picture Game";
     
+    //Ensure navigate bar is not hidden
     [self.navigationController setNavigationBarHidden:NO];
     
     //Set back button
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithImage:[UIImage imageNamed:@"back-key.png"]
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(goBack)];
     [self.navigationItem setLeftBarButtonItem:backButton];
     
     //Set home button
-    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home-bar"] style:UIBarButtonItemStylePlain target:self action:@selector(home)];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc]
+                                   initWithImage:[UIImage imageNamed:@"home-bar"]
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(home)];
     [self.navigationItem setRightBarButtonItem:homeButton];
     
+    // Configure image with black border
     self.imageView.layer.borderWidth = 7.0;
     self.imageView.layer.borderColor = [[UIColor blackColor] CGColor];
     
+    // Set underscores hidden when view loads
     self.underscore1.hidden = YES;
     self.underscore2.hidden = YES;
     self.underscore3.hidden = YES;
     self.underscore4.hidden = YES;
 }
 
+// Method to go back to previous controller
 -(void)goBack
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -67,7 +81,8 @@ bool isMatch = false;
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self speakString:self.sentenceChosen];
+    // Speak sentence
+    [TextToSpeech speakString:self.sentenceChosen];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -78,35 +93,42 @@ bool isMatch = false;
 
 - (void) getSentences
 {
+    // Get sentences from Sentences.plist
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Sentences" ofType:@"plist"];
     self.allSentences = [NSArray arrayWithContentsOfFile:filePath];
     
+    // Choose a random sentence object
     int random1 = arc4random()%[self.allSentences count];
     NSDictionary *sentenceObject = [self.allSentences objectAtIndex:random1];
     
+    // Get the image for random sentence object & set
     self.sentenceImage = [sentenceObject objectForKey:@"Image"];
-    
     self.imageView.image = [UIImage imageNamed:self.sentenceImage];
     
+    // Get sentence for random sentence object - speak & send
     self.sentenceChosen = [sentenceObject objectForKey:@"Sentence"];
     [self sendMessage:self.sentenceChosen];
     [self splitSentence:self.sentenceChosen];
-    
 }
 
+// Method to split sentence into words
 - (void) splitSentence: (NSString *) str
 {
     self.words = [str componentsSeparatedByString:@" "];
     [self setImages:self.words];
 }
 
+// Method to set images for words
 - (void) setImages: (NSArray *) arr
 {
+    // Buttons for sentence words
     self.sentenceButtons = [[NSArray alloc] initWithObjects:self.word1,self.word2,self.word3, self.word4,nil];
+    
+    // Get words from Words.plist
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Words" ofType:@"plist"];
     self.sentenceImages = [NSDictionary dictionaryWithContentsOfFile:filePath];
     
-    
+    // Assign images and titles to sentence image views
     for (int i = 0; i<[arr count];)
     {
         for (int j = 0; j<[self.sentenceButtons count]; j++)
@@ -122,6 +144,7 @@ bool isMatch = false;
         }
     }
     
+    // Timer before removing buttons to fill in
     [NSTimer scheduledTimerWithTimeInterval:1.5
                                      target:self
                                    selector:@selector(removeButtons)
@@ -131,30 +154,36 @@ bool isMatch = false;
 
 - (void) removeButtons
 {
+    // Select two random words to fill other spaces
     [NSThread sleepForTimeInterval:1.5f];
     int random2 = arc4random()%[self.sentenceButtons count];
     int random3 = arc4random()%[self.sentenceButtons count];
     
+    // Images views for underscore images
     NSArray *underscores = [[NSArray alloc] initWithObjects:self.underscore1,self.underscore2,self.underscore3,self.underscore4, nil];
     
-    if (random2 != random3) {
+    // Ensure two random buttons aren't the same
+    if (random2 != random3)
+    {
+        // Select two random buttons
         self.missing1 = [self.sentenceButtons objectAtIndex:random2];
         self.missing2 = [self.sentenceButtons objectAtIndex:random3];
         self.missingTitle1 = [self.missing1 currentTitle];
         self.missingTitle2 = [self.missing2 currentTitle];
         
+        // Show underscore for missing images
         UIImageView *setunderscore1 = [underscores objectAtIndex:random2];
         UIImageView *setunderscore2 = [underscores objectAtIndex:random3];
-        
         setunderscore1.hidden = NO;
         setunderscore2.hidden = NO;
         
-        
+        // Replace current image of missing with placeholder image
         [self.missing1 setImage:[UIImage imageNamed:@"placeholder.png"] forState:UIControlStateNormal];
         [self.missing2 setImage:[UIImage imageNamed:@"placeholder.png"] forState:UIControlStateNormal];
         [self getChoices];
     }
     else if (random2 == random3)
+        // Re-do method if buttons match
         [self removeButtons];
 }
 
@@ -185,8 +214,10 @@ bool isMatch = false;
     NSString *choiceTitle4 = self.missingTitle2;
     NSArray *choiceButtonTitles = [[NSArray alloc] initWithObjects: choiceTitle1,choiceTitle2,choiceTitle3, choiceTitle4, nil];
     
+    // Put all buttons in array
     self.allButtons = [[NSArray alloc] initWithObjects:self.word1,self.word2,self.word3,self.word4,self.choice1,self.choice2,self.choice3,self.choice4, nil];
     
+    // Randomise choice buttons
     NSUInteger count = [self.choiceButtons count];
     if (count < 1) return;
     for (NSUInteger i = 0; i < count - 1; ++i) {
@@ -195,8 +226,7 @@ bool isMatch = false;
         [self.choiceButtons exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
     
-    // Assign images for choice buttons
-    
+    // Assign images and titles for choice buttons
     for (int i = 0; i<[self.choiceImages count];)
     {
         for (int j = 0; j<[self.choiceButtons count];)
@@ -217,6 +247,7 @@ bool isMatch = false;
     
 }
 
+// Action on choice button
 - (IBAction)choiceButton:(id)sender
 {
     self.missing1.highlighted = YES;
@@ -227,16 +258,16 @@ bool isMatch = false;
     NSLog(@"Guess 1: %@", self.guess1);
     
    self.guess1Tag = [sender tag];
-    NSLog(@"Tag: %lu", (unsigned long)self.guess1Tag);
-    [self speakString:title];
+    [TextToSpeech speakString:title];
 }
 
+// Action on sentence button when pressed down
 - (IBAction)sentenceButton:(id)sender
 {
     NSString *title = [sender currentTitle];
     NSUInteger tag = [sender tag];
     self.guess2 = title;
-    [self speakString:title];
+    [TextToSpeech speakString:title];
     
     if ([self.guess1 isEqualToString:self.guess2])
     {
@@ -262,61 +293,42 @@ bool isMatch = false;
     }
     else if (![self.guess1 isEqualToString:self.guess2])
     {
+        // If not a match, un-highlight buttons
         isMatch = false;
         [self.missing1 setHighlighted:NO];
         [self.missing2 setHighlighted:NO];
     }
 }
 
-- (void)setHighlighted:(BOOL)highlighted
-{
-    [self.missing1 setImage:[UIImage imageNamed:@"highlight.jpg"] forState:UIControlStateHighlighted];
-    [self.missing2 setImage:[UIImage imageNamed:@"highlight.jpg"] forState:UIControlStateHighlighted];
-}
-
+// Action on sentence button when released
 - (IBAction)finishSentenceButton:(id)sender
 {
     NSInteger win = 2;
     
     if (self.match == win)
     {
-        NSLog(@"Win");
         [self changeToRomoAsk];
     }
     else if (isMatch == true)
     {
-        NSLog(@"Match after");
         [self sendMessage:@"match"];
     }
     else if (isMatch == false)
     {
-        NSLog(@"Mistmatch after");
         [self sendMessage:@"mismatch"];
     }
 }
 
+
+// Action for listen again button
 -(IBAction)listenAgain:(id)sender
 {
-    [self speakString:self.sentenceChosen];
+    [TextToSpeech speakString:self.sentenceChosen];
 }
 
--(void)speakString: (NSString *)str
-{
-    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-    
-    
-    NSString *input = str;
-    
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:input];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
-    utterance.rate = 0.40;
-    [synthesizer speakUtterance:utterance];
-    sleep(1);
-}
-
+// Send message over mutlipeer function
 -(void)sendMessage: (NSString *)str
 {
-    NSLog(@"Message: %@", str);
     NSString *message = str;
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
@@ -330,21 +342,25 @@ bool isMatch = false;
     if (error)
         NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
 }
+
+// Home button action
 - (void) home
 {
     MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
     [self.navigationController pushViewController:menuController animated:YES];
-    
 }
 
+// Change to Romo Ask view when game is won
 - (void) changeToRomoAsk
 {
     RomoAskController *romoAskController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RomoAskController"];
     [self.navigationController pushViewController:romoAskController animated:YES];
 }
 
+// When view disappears
 - (void) viewWillDisappear:(BOOL)animated
 {
+    // Remove notification center for multipeer connectivity
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:NOTIFICATION_MC_DID_RECEIVE_DATA
                                                   object:nil];
