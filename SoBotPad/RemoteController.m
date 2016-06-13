@@ -49,8 +49,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    //    [self showAssistant];
     [self sendMessage:self.title];
+    [TextToSpeech speakString:self.title];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,7 +86,6 @@
 
 -(void)sendMessage: (NSString *)str
 {
-    NSLog(@"Message: %@", str);
     NSString *message = str;
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *allPeers = self.appDelegate.mcManager.session.connectedPeers;
@@ -106,19 +105,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (float)degrees2radians:(float)d
-{
-    float r = d * (M_PI / 180);
-    return r;
-}
-
 - (IBAction)sliderValueChanged:(UISlider *)sender
 {
     NSString *tiltValue = [NSString stringWithFormat:@"%d", (int)sender.value];
     NSString *title = @"tilt:";
     NSString *decimal = @".00";
     NSString *tilt = [NSString stringWithFormat:@"%@ %@%@", title, tiltValue, decimal];
-    NSLog(@"%@", tilt);
     [self sendMessage:tilt];
 }
 

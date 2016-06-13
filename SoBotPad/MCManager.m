@@ -1,9 +1,9 @@
 //
 //  MCManager.m
-//  SobotGame
+//  Test_MultipeerConnectivity
 //
-//  Created by Laura on 27/02/2016.
-//  Copyright © 2016 Laura. All rights reserved.
+//  Created by Eduardo Flores on 4/9/15.
+//  Copyright (c) 2015 Eduardo Flores. All rights reserved.
 //
 
 #import "MCManager.h"
@@ -91,3 +91,7 @@
     
 }
 @end
+
+
+
+

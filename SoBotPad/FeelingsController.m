@@ -11,6 +11,7 @@
 #import "FeelingsController.h"
 #import "Macros.h"
 #import "AppDelegate.h"
+#import "TextToSpeech.h"
 
 @implementation FeelingsController
 
@@ -19,78 +20,13 @@
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    self.title = @"Feelings";
-    
-    //Set back button
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-key.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
-    [self.navigationItem setLeftBarButtonItem:backButton];
-    
-}
--(void)goBack
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)happy:(id)sender{
+- (IBAction)emotion:(id)sender{
     
     NSString *input = [(UIButton *)sender currentTitle];
     NSLog(@"%@", input);
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)excited:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)sad:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)angry:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)confused:(id)sender
-{
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)tired:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)bored:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-
-- (IBAction)afraid:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
-    [self sendMessage:input];
-}
-- (IBAction)disgust:(id)sender{
-    
-    NSString *input = [(UIButton *)sender currentTitle];
-    [self speakString:input];
+    [TextToSpeech speakString:input];
     [self sendMessage:input];
 }
 
@@ -109,20 +45,6 @@
     
     if (error)
         NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
-}
-
--(void)speakString:(NSString *) str
-{
-    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-    
-    
-    NSString *input = str;
-    
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:input];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
-    utterance.rate = 0.40;
-    [synthesizer speakUtterance:utterance];
-    sleep(1);
 }
 
 @end

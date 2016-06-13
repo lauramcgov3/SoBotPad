@@ -15,13 +15,4 @@
 
 @property (nonatomic) NSString *feelings;
 
-- (IBAction)happy:(id)sender;
-- (IBAction)excited:(id)sender;
-- (IBAction)sad:(id)sender;
-- (IBAction)angry:(id)sender;
-- (IBAction)confused:(id)sender;
-- (IBAction)tired:(id)sender;
-- (IBAction)bored:(id)sender;
-- (IBAction)afraid:(id)sender;
-
 @end

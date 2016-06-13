@@ -16,7 +16,6 @@
 @interface LevelOneController ()
 
 // Add a blank tile image and an image of the tile that is flipped over
-@property UIImage *blankTileImage;
 @property UIImage *backTileImage;
 
 //Array of names if images
@@ -230,10 +229,7 @@ static bool isWinner = false;
         }
         
     }
-    NSError* error;
-    if (error)
-        NSLog(@"Error sending data. Error = %@", [error localizedDescription]);
-    
+
     // Match or mismatch tile
     if(self.tileFlipped >= 0 && senderID != self.tileFlipped)
     {
@@ -289,7 +285,6 @@ static bool isWinner = false;
     // First guess
     else
     {
-        
         self.tileFlipped = senderID;
         self.tile1 = sender;
         UIImage *tileImage = [self.tiles objectAtIndex:senderID];

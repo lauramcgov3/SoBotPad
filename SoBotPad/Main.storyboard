@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KVD-9l-gvt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KVD-9l-gvt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -333,30 +333,6 @@
                                     <action selector="sentenceButton:" destination="s3S-t8-nOG" eventType="touchDown" id="IB2-oM-QpB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-ab-aD0">
-                                <rect key="frame" x="123" y="579" width="125" height="125"/>
-                                <connections>
-                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="gt4-HC-Qgd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPO-rn-dZT">
-                                <rect key="frame" x="341" y="579" width="125" height="125"/>
-                                <connections>
-                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="tMQ-xO-L6B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-uE-UfR">
-                                <rect key="frame" x="559" y="579" width="125" height="125"/>
-                                <connections>
-                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="3eD-ei-DbA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL2-tU-xq2">
-                                <rect key="frame" x="777" y="579" width="125" height="125"/>
-                                <connections>
-                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="hmD-9N-Fah"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="under-image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k30-i1-iEU">
                                 <rect key="frame" x="110" y="457" width="150" height="10"/>
                                 <userDefinedRuntimeAttributes>
@@ -404,6 +380,30 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="listenAgain:" destination="s3S-t8-nOG" eventType="touchUpInside" id="H34-Cr-DIU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-ab-aD0">
+                                <rect key="frame" x="123" y="579" width="125" height="125"/>
+                                <connections>
+                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="gt4-HC-Qgd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPO-rn-dZT">
+                                <rect key="frame" x="341" y="579" width="125" height="125"/>
+                                <connections>
+                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="tMQ-xO-L6B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-uE-UfR">
+                                <rect key="frame" x="559" y="579" width="125" height="125"/>
+                                <connections>
+                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="3eD-ei-DbA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL2-tU-xq2">
+                                <rect key="frame" x="777" y="579" width="125" height="125"/>
+                                <connections>
+                                    <action selector="choiceButton:" destination="s3S-t8-nOG" eventType="touchUpInside" id="hmD-9N-Fah"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1452,7 +1452,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="happy:" destination="lak-gE-b00" eventType="touchUpInside" id="2ai-ti-mgv"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="AtF-PE-J8G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZW-uD-ztP">
@@ -1465,7 +1465,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="excited:" destination="lak-gE-b00" eventType="touchUpInside" id="neX-Tp-Rps"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="tFD-Pe-Cs7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFF-vV-Bkb">
@@ -1478,7 +1478,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="sad:" destination="lak-gE-b00" eventType="touchUpInside" id="SIg-Rf-MCM"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="rYf-hf-RhG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6y-fr-W9p">
@@ -1491,7 +1491,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="angry:" destination="lak-gE-b00" eventType="touchUpInside" id="lxT-hu-zAc"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="Jy6-Yi-1x8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHU-lv-7wa">
@@ -1504,12 +1504,12 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="bored:" destination="lak-gE-b00" eventType="touchUpInside" id="2uY-Uq-PbV"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="FZn-sr-G71"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQG-f7-ZtY">
                                 <rect key="frame" x="140" y="419" width="100" height="100"/>
-                                <state key="normal" title="afraid" image="scared.jpeg"/>
+                                <state key="normal" title="scared" image="scared.jpeg"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -1517,7 +1517,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="afraid:" destination="lak-gE-b00" eventType="touchUpInside" id="rrY-M0-Ytf"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="5Te-iT-IGy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lur-ds-eds">
@@ -1530,7 +1530,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="afraid:" destination="lak-gE-b00" eventType="touchUpInside" id="eVv-7Z-ZlB"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="Ufr-P4-M9O"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoP-si-6bQ">
@@ -1543,7 +1543,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="confused:" destination="lak-gE-b00" eventType="touchUpInside" id="3y4-R3-PyU"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="LeW-3m-AL8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-NB-vj7">
@@ -1556,18 +1556,41 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="tired:" destination="lak-gE-b00" eventType="touchUpInside" id="OxB-jm-3Hi"/>
+                                    <action selector="emotion:" destination="lak-gE-b00" eventType="touchUpInside" id="JEv-m4-Vh3"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40784313725490196" green="0.14117647058823529" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad-2/3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCf-uN-jLH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3945" y="756"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Z0X-wK-CXd">
+            <objects>
+                <viewController id="KKl-pG-Brb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ccf-Cj-pN1"/>
+                        <viewControllerLayoutGuide type="bottom" id="gEP-m8-r4C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sa1-OG-tM9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIP-Ut-wmv">
+                                <rect key="frame" x="247" y="301" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcL-k8-Ogm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3709" y="2178"/>
         </scene>
         <!--CategoryController-->
         <scene sceneID="d8i-bD-TjQ">
@@ -1641,10 +1664,10 @@
             </objects>
             <point key="canvasLocation" x="2137" y="-1077"/>
         </scene>
-        <!--ContainerController-->
+        <!--VideoController-->
         <scene sceneID="r3p-J7-JkP">
             <objects>
-                <viewController storyboardIdentifier="ContainerController" title="ContainerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OsW-3d-aRk" customClass="VideoController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContainerController" title="VideoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OsW-3d-aRk" customClass="VideoController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WHZ-fy-P7j"/>
                         <viewControllerLayoutGuide type="bottom" id="KVE-YX-3uF"/>

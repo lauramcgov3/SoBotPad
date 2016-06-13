@@ -28,6 +28,7 @@
 @property NSString* missingTitle1;
 @property NSString* missingTitle2;
 @property NSArray* choiceImages;
+@property NSArray *choiceButtonTitles;
 @property NSInteger match;
 
 @end
@@ -212,11 +213,16 @@ bool isMatch = false;
     NSString *choiceTitle2 = [choice2Dict objectForKey:@"Name"];
     NSString *choiceTitle3 = self.missingTitle1;
     NSString *choiceTitle4 = self.missingTitle2;
-    NSArray *choiceButtonTitles = [[NSArray alloc] initWithObjects: choiceTitle1,choiceTitle2,choiceTitle3, choiceTitle4, nil];
+    self.choiceButtonTitles = [[NSArray alloc] initWithObjects: choiceTitle1,choiceTitle2,choiceTitle3, choiceTitle4, nil];
     
     // Put all buttons in array
     self.allButtons = [[NSArray alloc] initWithObjects:self.word1,self.word2,self.word3,self.word4,self.choice1,self.choice2,self.choice3,self.choice4, nil];
+    [self assignChoiceButtons];
     
+}
+ -(void) assignChoiceButtons
+{
+
     // Randomise choice buttons
     NSUInteger count = [self.choiceButtons count];
     if (count < 1) return;
@@ -231,9 +237,9 @@ bool isMatch = false;
     {
         for (int j = 0; j<[self.choiceButtons count];)
         {
-            for (int k = 0; k<[choiceButtonTitles count]; k++)
+            for (int k = 0; k<[self.choiceButtonTitles count]; k++)
             {
-                NSString *title = [choiceButtonTitles objectAtIndex:k];
+                NSString *title = [self.choiceButtonTitles objectAtIndex:k];
                 NSString *imageName = [self.choiceImages objectAtIndex:i];
                 UIImage *image = [UIImage imageNamed:imageName];
                 UIButton *choiceButton = [self.choiceButtons objectAtIndex:j];
@@ -253,9 +259,7 @@ bool isMatch = false;
     self.missing1.highlighted = YES;
     self.missing2.highlighted = YES;
     NSString *title = [sender currentTitle];
-    NSLog(@"Choice title: %@", title);
     self.guess1 = title;
-    NSLog(@"Guess 1: %@", self.guess1);
     
    self.guess1Tag = [sender tag];
     [TextToSpeech speakString:title];

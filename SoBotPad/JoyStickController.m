@@ -17,7 +17,6 @@
 {
     imgStickNormal = [UIImage imageNamed:@"stick-normal.png"];
     imgStickHold = [UIImage imageNamed:@"stick-hold.png"];
-    //    stickView.image = imgStickNormal;
     mCenter.x = 75;
     mCenter.y = 75;
 }
@@ -50,14 +49,6 @@
     //[super dealloc];
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
 
 - (void)notifyDir:(CGPoint)dir
 {
@@ -76,7 +67,6 @@
 - (void)stickMoveTo:(CGPoint)deltaToCenter
 {
     CGRect fr = stickButtonView.frame;
-    NSLog(@"FR: %@", NSStringFromCGRect(fr));
     fr.origin.x = deltaToCenter.x;
     fr.origin.y = deltaToCenter.y;
     stickButtonView.frame = fr;

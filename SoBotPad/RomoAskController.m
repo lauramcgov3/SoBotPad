@@ -162,7 +162,7 @@
             
         }
     }
-    [NSThread sleepForTimeInterval:1.0f];
+    [NSThread sleepForTimeInterval:1.2f];
     [self getButtons];
 }
 
@@ -223,19 +223,19 @@
     return;
 }
 
-// Method for going home
-- (void) home
-{
-    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
-    [self.navigationController pushViewController:menuController animated:YES];
-    
-}
-
 // Change to next screen when done
 - (void) changeToTalk
 {
     RomoTalkController *romoTalkController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RomoTalkController"];
     [self.navigationController pushViewController:romoTalkController animated:NO];
+    
+}
+
+// Method for going home
+- (void) home
+{
+    MenuController *menuController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MenuController"];
+    [self.navigationController pushViewController:menuController animated:YES];
     
 }
 
